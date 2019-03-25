@@ -111,35 +111,35 @@
             // addDVDTypeToolStripMenuItem
             // 
             this.addDVDTypeToolStripMenuItem.Name = "addDVDTypeToolStripMenuItem";
-            this.addDVDTypeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addDVDTypeToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.addDVDTypeToolStripMenuItem.Text = "Add DVD Type";
             this.addDVDTypeToolStripMenuItem.Click += new System.EventHandler(this.addDVDTypeToolStripMenuItem_Click);
             // 
             // updateDVDTypeToolStripMenuItem
             // 
             this.updateDVDTypeToolStripMenuItem.Name = "updateDVDTypeToolStripMenuItem";
-            this.updateDVDTypeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.updateDVDTypeToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.updateDVDTypeToolStripMenuItem.Text = "Update DVD Type";
             this.updateDVDTypeToolStripMenuItem.Click += new System.EventHandler(this.updateDVDTypeToolStripMenuItem_Click);
             // 
             // addDVDToolStripMenuItem
             // 
             this.addDVDToolStripMenuItem.Name = "addDVDToolStripMenuItem";
-            this.addDVDToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addDVDToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.addDVDToolStripMenuItem.Text = "Add DVD";
             this.addDVDToolStripMenuItem.Click += new System.EventHandler(this.addDVDToolStripMenuItem_Click);
             // 
             // updateDVDToolStripMenuItem
             // 
             this.updateDVDToolStripMenuItem.Name = "updateDVDToolStripMenuItem";
-            this.updateDVDToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.updateDVDToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.updateDVDToolStripMenuItem.Text = "Update DVD";
             this.updateDVDToolStripMenuItem.Click += new System.EventHandler(this.updateDVDToolStripMenuItem_Click);
             // 
             // removeDVDToolStripMenuItem
             // 
             this.removeDVDToolStripMenuItem.Name = "removeDVDToolStripMenuItem";
-            this.removeDVDToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.removeDVDToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.removeDVDToolStripMenuItem.Text = "Remove DVD";
             this.removeDVDToolStripMenuItem.Click += new System.EventHandler(this.remDVDToolStripMenuItem_Click);
             // 
@@ -155,14 +155,14 @@
             // rentDVDToolStripMenuItem
             // 
             this.rentDVDToolStripMenuItem.Name = "rentDVDToolStripMenuItem";
-            this.rentDVDToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rentDVDToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.rentDVDToolStripMenuItem.Text = "Rent DVD";
             this.rentDVDToolStripMenuItem.Click += new System.EventHandler(this.rentDVDToolStripMenuItem_Click);
             // 
             // returnDVDToolStripMenuItem
             // 
             this.returnDVDToolStripMenuItem.Name = "returnDVDToolStripMenuItem";
-            this.returnDVDToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.returnDVDToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
             this.returnDVDToolStripMenuItem.Text = "Return DVD";
             this.returnDVDToolStripMenuItem.Click += new System.EventHandler(this.returnDVDToolStripMenuItem_Click);
             // 
@@ -178,14 +178,14 @@
             // revenueAnalysisToolStripMenuItem
             // 
             this.revenueAnalysisToolStripMenuItem.Name = "revenueAnalysisToolStripMenuItem";
-            this.revenueAnalysisToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.revenueAnalysisToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.revenueAnalysisToolStripMenuItem.Text = "Revenue Analysis";
             this.revenueAnalysisToolStripMenuItem.Click += new System.EventHandler(this.revenueToolStripMenuItem_Click);
             // 
             // rentalAnalysisToolStripMenuItem
             // 
             this.rentalAnalysisToolStripMenuItem.Name = "rentalAnalysisToolStripMenuItem";
-            this.rentalAnalysisToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rentalAnalysisToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.rentalAnalysisToolStripMenuItem.Text = "Rental Analysis";
             this.rentalAnalysisToolStripMenuItem.Click += new System.EventHandler(this.dvdAnalysisToolStripMenuItem_Click);
             // 
@@ -213,7 +213,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.Name = "frmHome";
-            this.Text = "frmHome";
+            this.Text = " ";
             this.Load += new System.EventHandler(this.frmHome_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

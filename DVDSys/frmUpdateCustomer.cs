@@ -81,7 +81,7 @@ namespace DVDSys
         private void custUpdateResults_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int rowIndex = e.RowIndex;
-            //MessageBox.Show("hello" + rowIndex, "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("hello" + rowIndex, "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             DataGridViewRow row = dgvSearch.Rows[rowIndex];
 
             CustIDString = row.Cells[0].Value.ToString();

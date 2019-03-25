@@ -1,6 +1,7 @@
 ﻿using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -63,7 +64,7 @@ namespace DVDSys
         }
 
         //add customer
-        public void addCustomer()
+        public void addType()
         {
             //connect to db
             OracleConnection connection = new OracleConnection(ConnectDB.orDB);
@@ -91,5 +92,85 @@ namespace DVDSys
             //close db
             connection.Close();
         }
+
+        public static DataSet getTypes(DataSet DS)
+        {
+            //connect to db
+            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+
+            //define sql query
+            String sql = "select * from Type";
+
+            //create oracle command
+            OracleCommand com = new OracleCommand(sql, connection);
+
+            //execute query using datareader
+            OracleDataAdapter da = new OracleDataAdapter(com);
+
+            //check value returned - if null return 1, otherwise return datareader value
+            da.Fill(DS, "stk");
+
+            //close db
+            connection.Close();
+
+
+            return DS;
+
+        }
+
+        public static DataSet getSearchTypes(DataSet DS, String searchTerm)
+        {
+            
+                //connect to db
+                OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+
+                //define sql query
+                String sql = "select * from Type WHERE DVDType LIKE '" + searchTerm + "%'";
+
+                //create oracle command
+                OracleCommand com = new OracleCommand(sql, connection);
+
+                //execute query using datareader
+                OracleDataAdapter da = new OracleDataAdapter(com);
+
+                //check value returned - if null return 1, otherwise return datareader value
+                da.Fill(DS, "stk");
+
+                //close db
+                connection.Close();
+
+
+                return DS;
+        }
+
+        public void updateType()
+        {
+
+            //connect to db
+            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+            connection.Open();
+
+            //define sql query
+            String sql = "UPDATE Type SET Description = '" + this.description + "', PricePerNight = " + this.price + " WHERE DVDType = '" + this.type + "'";
+
+
+            //create oracle command
+            OracleCommand com = new OracleCommand(sql, connection);
+            com.ExecuteNonQuery();
+
+            if (com.ExecuteNonQuery() >= 0)
+            {
+                MessageBox.Show("Type " + getType() + " updated", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            else
+            {
+                MessageBox.Show("Error", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            //close db
+            connection.Close();
+        }
+
     }
 }

@@ -31,9 +31,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.backToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Reset = new System.Windows.Forms.Button();
-            this.Submit = new System.Windows.Forms.Button();
-            this.txtActive = new System.Windows.Forms.TextBox();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.btnSubmit = new System.Windows.Forms.Button();
             this.txtGenre = new System.Windows.Forms.TextBox();
             this.txtDir = new System.Windows.Forms.TextBox();
             this.dtpRelease = new System.Windows.Forms.DateTimePicker();
@@ -45,6 +44,9 @@
             this.typeLabel = new System.Windows.Forms.Label();
             this.titleLabel = new System.Windows.Forms.Label();
             this.cboType = new System.Windows.Forms.ComboBox();
+            this.cboActive = new System.Windows.Forms.ComboBox();
+            this.btnID = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,7 +60,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(460, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // backToolStripMenuItem
             // 
@@ -74,65 +75,66 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exit_Click);
             // 
-            // Reset
+            // btnReset
             // 
-            this.Reset.Location = new System.Drawing.Point(80, 277);
-            this.Reset.Name = "Reset";
-            this.Reset.Size = new System.Drawing.Size(95, 23);
-            this.Reset.TabIndex = 36;
-            this.Reset.Text = "Reset";
-            this.Reset.UseVisualStyleBackColor = true;
+            this.btnReset.Location = new System.Drawing.Point(84, 281);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(95, 23);
+            this.btnReset.TabIndex = 950;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
-            // Submit
+            // btnSubmit
             // 
-            this.Submit.Location = new System.Drawing.Point(232, 277);
-            this.Submit.Name = "Submit";
-            this.Submit.Size = new System.Drawing.Size(95, 23);
-            this.Submit.TabIndex = 35;
-            this.Submit.Text = "Submit";
-            this.Submit.UseVisualStyleBackColor = true;
-            this.Submit.Click += new System.EventHandler(this.submit_Click);
-            // 
-            // txtActive
-            // 
-            this.txtActive.Location = new System.Drawing.Point(207, 228);
-            this.txtActive.Name = "txtActive";
-            this.txtActive.Size = new System.Drawing.Size(151, 20);
-            this.txtActive.TabIndex = 34;
+            this.btnSubmit.Location = new System.Drawing.Point(236, 281);
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.Size = new System.Drawing.Size(95, 23);
+            this.btnSubmit.TabIndex = 900;
+            this.btnSubmit.Text = "Submit";
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.submit_Click);
             // 
             // txtGenre
             // 
-            this.txtGenre.Location = new System.Drawing.Point(207, 176);
+            this.txtGenre.Location = new System.Drawing.Point(211, 180);
+            this.txtGenre.MaxLength = 15;
             this.txtGenre.Name = "txtGenre";
             this.txtGenre.Size = new System.Drawing.Size(151, 20);
-            this.txtGenre.TabIndex = 32;
+            this.txtGenre.TabIndex = 40;
             // 
             // txtDir
             // 
-            this.txtDir.Location = new System.Drawing.Point(207, 150);
+            this.txtDir.Location = new System.Drawing.Point(211, 154);
+            this.txtDir.MaxLength = 20;
             this.txtDir.Name = "txtDir";
             this.txtDir.Size = new System.Drawing.Size(151, 20);
-            this.txtDir.TabIndex = 29;
+            this.txtDir.TabIndex = 30;
             // 
             // dtpRelease
             // 
-            this.dtpRelease.Location = new System.Drawing.Point(207, 202);
+            this.dtpRelease.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpRelease.Location = new System.Drawing.Point(211, 206);
+            this.dtpRelease.MaxDate = new System.DateTime(2019, 3, 25, 0, 0, 0, 0);
+            this.dtpRelease.MinDate = new System.DateTime(1930, 1, 1, 0, 0, 0, 0);
             this.dtpRelease.Name = "dtpRelease";
-            this.dtpRelease.Size = new System.Drawing.Size(194, 20);
-            this.dtpRelease.TabIndex = 28;
+            this.dtpRelease.Size = new System.Drawing.Size(98, 20);
+            this.dtpRelease.TabIndex = 50;
+            this.dtpRelease.Value = new System.DateTime(2019, 3, 25, 0, 0, 0, 0);
             // 
             // txtTitle
             // 
-            this.txtTitle.Location = new System.Drawing.Point(207, 76);
+            this.txtTitle.Location = new System.Drawing.Point(211, 80);
+            this.txtTitle.MaxLength = 30;
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(151, 20);
-            this.txtTitle.TabIndex = 26;
+            this.txtTitle.TabIndex = 10;
             // 
             // phNumLabel
             // 
             this.phNumLabel.AutoSize = true;
             this.phNumLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.phNumLabel.Location = new System.Drawing.Point(61, 230);
+            this.phNumLabel.Location = new System.Drawing.Point(65, 234);
             this.phNumLabel.Name = "phNumLabel";
             this.phNumLabel.Size = new System.Drawing.Size(47, 18);
             this.phNumLabel.TabIndex = 25;
@@ -142,7 +144,7 @@
             // 
             this.relLabel.AutoSize = true;
             this.relLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.relLabel.Location = new System.Drawing.Point(61, 204);
+            this.relLabel.Location = new System.Drawing.Point(65, 208);
             this.relLabel.Name = "relLabel";
             this.relLabel.Size = new System.Drawing.Size(97, 18);
             this.relLabel.TabIndex = 24;
@@ -152,7 +154,7 @@
             // 
             this.genreLabel.AutoSize = true;
             this.genreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.genreLabel.Location = new System.Drawing.Point(61, 175);
+            this.genreLabel.Location = new System.Drawing.Point(65, 179);
             this.genreLabel.Name = "genreLabel";
             this.genreLabel.Size = new System.Drawing.Size(49, 18);
             this.genreLabel.TabIndex = 23;
@@ -162,7 +164,7 @@
             // 
             this.dirLabel.AutoSize = true;
             this.dirLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.dirLabel.Location = new System.Drawing.Point(61, 149);
+            this.dirLabel.Location = new System.Drawing.Point(65, 153);
             this.dirLabel.Name = "dirLabel";
             this.dirLabel.Size = new System.Drawing.Size(61, 18);
             this.dirLabel.TabIndex = 22;
@@ -172,7 +174,7 @@
             // 
             this.typeLabel.AutoSize = true;
             this.typeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.typeLabel.Location = new System.Drawing.Point(61, 119);
+            this.typeLabel.Location = new System.Drawing.Point(65, 123);
             this.typeLabel.Name = "typeLabel";
             this.typeLabel.Size = new System.Drawing.Size(75, 18);
             this.typeLabel.TabIndex = 20;
@@ -182,7 +184,7 @@
             // 
             this.titleLabel.AutoSize = true;
             this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.titleLabel.Location = new System.Drawing.Point(61, 76);
+            this.titleLabel.Location = new System.Drawing.Point(65, 80);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(35, 18);
             this.titleLabel.TabIndex = 19;
@@ -195,20 +197,53 @@
             "CL",
             "KD",
             "NR"});
-            this.cboType.Location = new System.Drawing.Point(207, 115);
+            this.cboType.Location = new System.Drawing.Point(211, 119);
             this.cboType.Name = "cboType";
-            this.cboType.Size = new System.Drawing.Size(151, 21);
-            this.cboType.TabIndex = 37;
+            this.cboType.Size = new System.Drawing.Size(53, 21);
+            this.cboType.TabIndex = 20;
+            // 
+            // cboActive
+            // 
+            this.cboActive.FormattingEnabled = true;
+            this.cboActive.Items.AddRange(new object[] {
+            "yes",
+            "no"});
+            this.cboActive.Location = new System.Drawing.Point(211, 235);
+            this.cboActive.Name = "cboActive";
+            this.cboActive.Size = new System.Drawing.Size(53, 21);
+            this.cboActive.TabIndex = 60;
+            // 
+            // btnID
+            // 
+            this.btnID.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.btnID.Enabled = false;
+            this.btnID.Location = new System.Drawing.Point(211, 38);
+            this.btnID.MaxLength = 3;
+            this.btnID.Name = "btnID";
+            this.btnID.Size = new System.Drawing.Size(40, 20);
+            this.btnID.TabIndex = 1000;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label1.Location = new System.Drawing.Point(65, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 18);
+            this.label1.TabIndex = 39;
+            this.label1.Text = "DVD ID";
             // 
             // frmAddDVD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(460, 337);
+            this.ClientSize = new System.Drawing.Size(460, 316);
+            this.Controls.Add(this.btnID);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cboActive);
             this.Controls.Add(this.cboType);
-            this.Controls.Add(this.Reset);
-            this.Controls.Add(this.Submit);
-            this.Controls.Add(this.txtActive);
+            this.Controls.Add(this.btnReset);
+            this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.txtGenre);
             this.Controls.Add(this.txtDir);
             this.Controls.Add(this.dtpRelease);
@@ -234,9 +269,8 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.Button Reset;
-        private System.Windows.Forms.Button Submit;
-        private System.Windows.Forms.TextBox txtActive;
+        private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.TextBox txtGenre;
         private System.Windows.Forms.TextBox txtDir;
         private System.Windows.Forms.DateTimePicker dtpRelease;
@@ -249,5 +283,8 @@
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.ComboBox cboType;
         private System.Windows.Forms.ToolStripMenuItem backToolStripMenuItem;
+        private System.Windows.Forms.ComboBox cboActive;
+        private System.Windows.Forms.TextBox btnID;
+        private System.Windows.Forms.Label label1;
     }
 }

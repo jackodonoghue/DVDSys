@@ -14,6 +14,8 @@ namespace DVDSys
     {
         frmHome parent;
 
+        private DVD dvd;
+
         public frmAddDVD()
         {
             InitializeComponent();
@@ -27,7 +29,7 @@ namespace DVDSys
 
         private void back_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Close(); 
             parent.Visible = true;
         }
 
@@ -36,60 +38,103 @@ namespace DVDSys
             Application.Exit();
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void frmAddDVD_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void submit_Click(object sender, EventArgs e)
+        private Boolean isValid()
         {
             //validate input
             if (txtTitle.Text.Equals(""))
             {
                 MessageBox.Show("Title must be entered", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtTitle.Focus();
-                return;
+                return false;
             }
 
             if (txtDir.Text.Equals(""))
             {
                 MessageBox.Show("Director must be entered", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtDir.Focus();
-                return;
+                return false;
             }
 
             if (txtGenre.Text.Equals(""))
             {
                 MessageBox.Show("Genre must be entered", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtGenre.Focus();
-                return;
+                return false ;
             }
-
-            if (txtActive.Text.Equals(""))
+            if (!Vali.valTypeName(txtTitle.Text))
             {
-                MessageBox.Show("Active must be entered", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtActive.Focus();
-                return;
+                MessageBox.Show("Title contains invalid characters", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtTitle.Focus();
+                return false;
             }
 
-            //save data in file (not doing)
+            if (!Vali.valName(txtDir.Text))
+            {
+                MessageBox.Show("Director contains invalid characters", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtDir.Focus();
+                return false;
+            }
 
-            //display confirmation message
-            MessageBox.Show("DVD " + txtTitle.Text + " updated", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (!Vali.valTypeName(txtGenre.Text))
+            {
+                MessageBox.Show("Genre contains invalid characters", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtGenre.Focus();
+                return false;
+            }
 
-            //reset UI
+            return true;
+        }
+
+        private void submit_Click(object sender, EventArgs e)
+        {
+            //Validate Input
+            if (isValid())
+            {
+                //save data in file
+                char active;
+                if(cboActive.Text == "yes")
+                {
+                    active = 'y';
+                }
+                else
+                {
+                    active = 'n';
+                }
+
+                dvd = new DVD(Convert.ToInt32(btnID.Text), txtTitle.Text, cboType.Text, txtDir.Text, txtGenre.Text, dtpRelease.Text, active);
+
+                MessageBox.Show("dvd " + dtpRelease.Text, "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                dvd.addDVD();
+
+                //display confirmation message
+                MessageBox.Show("DVD " + txtTitle.Text + " updated", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                //reset UI
+                txtTitle.Clear();
+                txtDir.Clear();
+                txtGenre.Clear();
+                cboActive.ResetText();
+
+                txtTitle.Focus();
+            }
+        }
+
+        private void frmAddDVD_Load(object sender, EventArgs e)
+        {
+            btnID.Text = DVD.getNextCustID().ToString("000");
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
             txtTitle.Clear();
+            cboType.ResetText();
             txtDir.Clear();
             txtGenre.Clear();
-            txtActive.Clear();
+            dtpRelease.ResetText();
+            cboActive.ResetText();
 
             txtTitle.Focus();
-
         }
     }
 }

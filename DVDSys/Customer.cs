@@ -129,8 +129,9 @@ namespace DVDSys
         {
             return this.address;
         }
-
-        //Get next Stock
+        //
+        //Get next Customer
+        //
         public static int getNextCustID()
         {
             //variable to hold value to be returned
@@ -203,7 +204,7 @@ namespace DVDSys
             connection.Close();
         }
         //
-        //Get all Customer
+        //Get searched Customer
         //
         public static DataSet getCustomers(DataSet DS, String searchTerm)
         {

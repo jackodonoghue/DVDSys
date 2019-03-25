@@ -13,6 +13,10 @@ namespace DVDSys
     public partial class frmRemoveDVD : Form
     {
         frmHome parent;
+
+        private int ID;
+        private string title;
+
         public frmRemoveDVD()
         {
             InitializeComponent();
@@ -35,39 +39,83 @@ namespace DVDSys
             Application.Exit();
         }
 
-        private void frmRemoveDVD_Load(object sender, EventArgs e)
+        private void btnSearchSubmit_Click(object sender, EventArgs e)
         {
+            //validate input
+            if (!Vali.valTypeName(txtSearch.Text))
+            {
+                MessageBox.Show("Title character invalid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtSearch.Focus();
+                return;
+            }
 
+            else
+            {
+                //search DVD
+
+
+                //Search
+                DataSet ds = new DataSet();
+
+                String searched = txtSearch.Text;
+
+                dgvSearch.DataSource = DVD.getDVDS(ds, searched).Tables["stk"];
+
+                if (ds.Tables[0].Rows.Count == 0)
+                {
+                    MessageBox.Show("No results found, please try again", "No Results!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                //reset UI
+                txtSearch.Clear();
+
+                txtSearch.Focus();
+            }
+        }
+
+        private void dgvSearch_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowIndex = e.RowIndex;
+
+            DataGridViewRow row = dgvSearch.Rows[rowIndex];
+
+           
+
+
+            ID = int.Parse(row.Cells[0].Value.ToString());
+            title = (String)row.Cells[2].Value;
+
+            MessageBox.Show(ID + title, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void submit_Click(object sender, EventArgs e)
         {
             //validate input
-            if (txtSearch.Text.Equals(""))
+            if (!Vali.valTypeName(txtSearch.Text))
             {
-                MessageBox.Show("DVD Name must be entered", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Invalid character in DVD Name", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtSearch.Focus();
                 return;
             }
-
-            if (!txtStatus.Text.Equals("R"))
+            else
             {
-                MessageBox.Show("Status must be changed to 'R'", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtStatus.Focus();
-                return;
+                DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete " + title, "Delete DVD", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    //save data in file
+                    DVD.removeDVD(ID, title);
+
+                    //reset UI
+                    txtSearch.Clear();
+
+                    txtSearch.Focus();
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    return;
+                }                
             }
 
-
-            //save data in file (not doing)
-
-            //display confirmation message
-            MessageBox.Show("DVD removed", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            //reset UI
-            txtSearch.Clear();
-            txtStatus.Clear();
-
-            txtSearch.Focus();
+            
 
         }
     }

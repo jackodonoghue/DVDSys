@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="ConnectDB.cs" />
     <Compile Include="Customer.cs" />
+    <Compile Include="DVD.cs" />
     <Compile Include="frmAddCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,7 +142,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Type.cs" />
-    <Compile Include="Validate.cs" />
+    <Compile Include="Vali.cs" />
     <EmbeddedResource Include="frmAddCustomer.resx">
       <DependentUpon>frmAddCustomer.cs</DependentUpon>
     </EmbeddedResource>

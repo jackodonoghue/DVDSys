@@ -31,19 +31,14 @@
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.backToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.custUpdateResults = new System.Windows.Forms.DataGridView();
-            this.DVDID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DVDType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Director = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Genre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReleaseDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Active = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnReset = new System.Windows.Forms.Button();
-            this.btnSubmit = new System.Windows.Forms.Button();
+            this.btnSearchReset = new System.Windows.Forms.Button();
+            this.btnSearchSubmit = new System.Windows.Forms.Button();
             this.dvdUpdateLabel = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
+            this.dgvSearch = new System.Windows.Forms.DataGridView();
             this.cboType = new System.Windows.Forms.ComboBox();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.txtGenre = new System.Windows.Forms.TextBox();
             this.txtDir = new System.Windows.Forms.TextBox();
             this.dtpRelease = new System.Windows.Forms.DateTimePicker();
@@ -53,10 +48,8 @@
             this.dirLabel = new System.Windows.Forms.Label();
             this.typeLabel = new System.Windows.Forms.Label();
             this.titleLabel = new System.Windows.Forms.Label();
-            this.btnResetDeatails = new System.Windows.Forms.Button();
-            this.btnUpdate = new System.Windows.Forms.Button();
             this.menuStrip2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.custUpdateResults)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip2
@@ -84,75 +77,24 @@
             this.toolStripMenuItem1.Text = "Exit";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.mnuExit_Click);
             // 
-            // custUpdateResults
+            // btnSearchReset
             // 
-            this.custUpdateResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.custUpdateResults.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DVDID,
-            this.Title,
-            this.DVDType,
-            this.Director,
-            this.Genre,
-            this.ReleaseDate,
-            this.Active});
-            this.custUpdateResults.Location = new System.Drawing.Point(30, 124);
-            this.custUpdateResults.Name = "custUpdateResults";
-            this.custUpdateResults.Size = new System.Drawing.Size(389, 177);
-            this.custUpdateResults.TabIndex = 59;
+            this.btnSearchReset.Location = new System.Drawing.Point(78, 83);
+            this.btnSearchReset.Name = "btnSearchReset";
+            this.btnSearchReset.Size = new System.Drawing.Size(95, 23);
+            this.btnSearchReset.TabIndex = 44;
+            this.btnSearchReset.Text = "Reset";
+            this.btnSearchReset.UseVisualStyleBackColor = true;
             // 
-            // DVDID
+            // btnSearchSubmit
             // 
-            this.DVDID.HeaderText = "DVDID";
-            this.DVDID.Name = "DVDID";
-            // 
-            // Title
-            // 
-            this.Title.HeaderText = "Title";
-            this.Title.Name = "Title";
-            // 
-            // DVDType
-            // 
-            this.DVDType.HeaderText = "DVDType";
-            this.DVDType.Name = "DVDType";
-            // 
-            // Director
-            // 
-            this.Director.HeaderText = "Director";
-            this.Director.Name = "Director";
-            // 
-            // Genre
-            // 
-            this.Genre.HeaderText = "Genre";
-            this.Genre.Name = "Genre";
-            // 
-            // ReleaseDate
-            // 
-            this.ReleaseDate.HeaderText = "ReleaseDate";
-            this.ReleaseDate.Name = "ReleaseDate";
-            // 
-            // Active
-            // 
-            this.Active.HeaderText = "Active";
-            this.Active.Name = "Active";
-            // 
-            // btnReset
-            // 
-            this.btnReset.Location = new System.Drawing.Point(78, 83);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(95, 23);
-            this.btnReset.TabIndex = 44;
-            this.btnReset.Text = "Reset";
-            this.btnReset.UseVisualStyleBackColor = true;
-            // 
-            // btnSubmit
-            // 
-            this.btnSubmit.Location = new System.Drawing.Point(234, 83);
-            this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(95, 23);
-            this.btnSubmit.TabIndex = 43;
-            this.btnSubmit.Text = "Submit";
-            this.btnSubmit.UseVisualStyleBackColor = true;
-            this.btnSubmit.Click += new System.EventHandler(this.submitName_Click);
+            this.btnSearchSubmit.Location = new System.Drawing.Point(234, 83);
+            this.btnSearchSubmit.Name = "btnSearchSubmit";
+            this.btnSearchSubmit.Size = new System.Drawing.Size(95, 23);
+            this.btnSearchSubmit.TabIndex = 43;
+            this.btnSearchSubmit.Text = "Submit";
+            this.btnSearchSubmit.UseVisualStyleBackColor = true;
+            this.btnSearchSubmit.Click += new System.EventHandler(this.btnSearchSubmit_Click);
             // 
             // dvdUpdateLabel
             // 
@@ -171,6 +113,15 @@
             this.txtSearch.Size = new System.Drawing.Size(186, 20);
             this.txtSearch.TabIndex = 41;
             // 
+            // dgvSearch
+            // 
+            this.dgvSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSearch.Location = new System.Drawing.Point(51, 121);
+            this.dgvSearch.Name = "dgvSearch";
+            this.dgvSearch.Size = new System.Drawing.Size(355, 176);
+            this.dgvSearch.TabIndex = 77;
+            this.dgvSearch.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSearch_CellContentDoubleClick);
+            // 
             // cboType
             // 
             this.cboType.FormattingEnabled = true;
@@ -178,116 +129,124 @@
             "CL",
             "KD",
             "NR"});
-            this.cboType.Location = new System.Drawing.Point(220, 368);
+            this.cboType.Location = new System.Drawing.Point(220, 342);
             this.cboType.Name = "cboType";
-            this.cboType.Size = new System.Drawing.Size(151, 21);
-            this.cboType.TabIndex = 74;
+            this.cboType.Size = new System.Drawing.Size(53, 21);
+            this.cboType.TabIndex = 953;
+            // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(82, 455);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(95, 23);
+            this.btnReset.TabIndex = 964;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(234, 455);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(95, 23);
+            this.btnUpdate.TabIndex = 963;
+            this.btnUpdate.Text = "Submit";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // txtGenre
             // 
-            this.txtGenre.Location = new System.Drawing.Point(220, 429);
+            this.txtGenre.Location = new System.Drawing.Point(220, 403);
+            this.txtGenre.MaxLength = 15;
             this.txtGenre.Name = "txtGenre";
             this.txtGenre.Size = new System.Drawing.Size(151, 20);
-            this.txtGenre.TabIndex = 70;
+            this.txtGenre.TabIndex = 960;
             // 
             // txtDir
             // 
-            this.txtDir.Location = new System.Drawing.Point(220, 403);
+            this.txtDir.Location = new System.Drawing.Point(220, 377);
+            this.txtDir.MaxLength = 20;
             this.txtDir.Name = "txtDir";
             this.txtDir.Size = new System.Drawing.Size(151, 20);
-            this.txtDir.TabIndex = 69;
+            this.txtDir.TabIndex = 959;
             // 
             // dtpRelease
             // 
-            this.dtpRelease.Location = new System.Drawing.Point(220, 455);
+            this.dtpRelease.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpRelease.Location = new System.Drawing.Point(220, 429);
+            this.dtpRelease.MaxDate = new System.DateTime(2019, 3, 25, 0, 0, 0, 0);
+            this.dtpRelease.MinDate = new System.DateTime(1930, 1, 1, 0, 0, 0, 0);
             this.dtpRelease.Name = "dtpRelease";
-            this.dtpRelease.Size = new System.Drawing.Size(194, 20);
-            this.dtpRelease.TabIndex = 68;
+            this.dtpRelease.Size = new System.Drawing.Size(98, 20);
+            this.dtpRelease.TabIndex = 961;
+            this.dtpRelease.Value = new System.DateTime(2019, 3, 25, 0, 0, 0, 0);
             // 
             // txtTitle
             // 
-            this.txtTitle.Location = new System.Drawing.Point(220, 329);
+            this.txtTitle.Location = new System.Drawing.Point(220, 303);
+            this.txtTitle.MaxLength = 30;
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(151, 20);
-            this.txtTitle.TabIndex = 67;
+            this.txtTitle.TabIndex = 951;
             // 
             // relLabel
             // 
             this.relLabel.AutoSize = true;
             this.relLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.relLabel.Location = new System.Drawing.Point(74, 457);
+            this.relLabel.Location = new System.Drawing.Point(74, 431);
             this.relLabel.Name = "relLabel";
             this.relLabel.Size = new System.Drawing.Size(97, 18);
-            this.relLabel.TabIndex = 65;
+            this.relLabel.TabIndex = 957;
             this.relLabel.Text = "Release Date";
             // 
             // genreLabel
             // 
             this.genreLabel.AutoSize = true;
             this.genreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.genreLabel.Location = new System.Drawing.Point(74, 428);
+            this.genreLabel.Location = new System.Drawing.Point(74, 402);
             this.genreLabel.Name = "genreLabel";
             this.genreLabel.Size = new System.Drawing.Size(49, 18);
-            this.genreLabel.TabIndex = 64;
+            this.genreLabel.TabIndex = 956;
             this.genreLabel.Text = "Genre";
             // 
             // dirLabel
             // 
             this.dirLabel.AutoSize = true;
             this.dirLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.dirLabel.Location = new System.Drawing.Point(74, 402);
+            this.dirLabel.Location = new System.Drawing.Point(74, 376);
             this.dirLabel.Name = "dirLabel";
             this.dirLabel.Size = new System.Drawing.Size(61, 18);
-            this.dirLabel.TabIndex = 63;
+            this.dirLabel.TabIndex = 955;
             this.dirLabel.Text = "Director";
             // 
             // typeLabel
             // 
             this.typeLabel.AutoSize = true;
             this.typeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.typeLabel.Location = new System.Drawing.Point(74, 372);
+            this.typeLabel.Location = new System.Drawing.Point(74, 346);
             this.typeLabel.Name = "typeLabel";
             this.typeLabel.Size = new System.Drawing.Size(75, 18);
-            this.typeLabel.TabIndex = 62;
+            this.typeLabel.TabIndex = 954;
             this.typeLabel.Text = "DVD Type";
             // 
             // titleLabel
             // 
             this.titleLabel.AutoSize = true;
             this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.titleLabel.Location = new System.Drawing.Point(74, 329);
+            this.titleLabel.Location = new System.Drawing.Point(74, 303);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(35, 18);
-            this.titleLabel.TabIndex = 61;
+            this.titleLabel.TabIndex = 952;
             this.titleLabel.Text = "Title";
-            // 
-            // btnResetDeatails
-            // 
-            this.btnResetDeatails.Location = new System.Drawing.Point(82, 501);
-            this.btnResetDeatails.Name = "btnResetDeatails";
-            this.btnResetDeatails.Size = new System.Drawing.Size(95, 23);
-            this.btnResetDeatails.TabIndex = 76;
-            this.btnResetDeatails.Text = "Reset";
-            this.btnResetDeatails.UseVisualStyleBackColor = true;
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Location = new System.Drawing.Point(234, 501);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(95, 23);
-            this.btnUpdate.TabIndex = 75;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.submit_Click);
             // 
             // frmUpdateDVD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(449, 536);
-            this.Controls.Add(this.btnResetDeatails);
-            this.Controls.Add(this.btnUpdate);
+            this.ClientSize = new System.Drawing.Size(449, 488);
             this.Controls.Add(this.cboType);
+            this.Controls.Add(this.btnReset);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.txtGenre);
             this.Controls.Add(this.txtDir);
             this.Controls.Add(this.dtpRelease);
@@ -297,18 +256,17 @@
             this.Controls.Add(this.dirLabel);
             this.Controls.Add(this.typeLabel);
             this.Controls.Add(this.titleLabel);
+            this.Controls.Add(this.dgvSearch);
             this.Controls.Add(this.menuStrip2);
-            this.Controls.Add(this.custUpdateResults);
-            this.Controls.Add(this.btnReset);
-            this.Controls.Add(this.btnSubmit);
+            this.Controls.Add(this.btnSearchReset);
+            this.Controls.Add(this.btnSearchSubmit);
             this.Controls.Add(this.dvdUpdateLabel);
             this.Controls.Add(this.txtSearch);
             this.Name = "frmUpdateDVD";
             this.Text = "Update DVD";
-            this.Load += new System.EventHandler(this.frmUpdateDVD_Load);
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.custUpdateResults)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -319,19 +277,14 @@
         private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ToolStripMenuItem backToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.DataGridView custUpdateResults;
-        private System.Windows.Forms.Button btnReset;
-        private System.Windows.Forms.Button btnSubmit;
+        private System.Windows.Forms.Button btnSearchReset;
+        private System.Windows.Forms.Button btnSearchSubmit;
         private System.Windows.Forms.Label dvdUpdateLabel;
         private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DVDID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Title;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DVDType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Director;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Genre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ReleaseDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Active;
+        private System.Windows.Forms.DataGridView dgvSearch;
         private System.Windows.Forms.ComboBox cboType;
+        private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.TextBox txtGenre;
         private System.Windows.Forms.TextBox txtDir;
         private System.Windows.Forms.DateTimePicker dtpRelease;
@@ -341,7 +294,5 @@
         private System.Windows.Forms.Label dirLabel;
         private System.Windows.Forms.Label typeLabel;
         private System.Windows.Forms.Label titleLabel;
-        private System.Windows.Forms.Button btnResetDeatails;
-        private System.Windows.Forms.Button btnUpdate;
     }
 }

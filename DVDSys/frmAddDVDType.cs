@@ -59,7 +59,7 @@ namespace DVDSys
             //add to database
             Type type = new Type(txtType.Text, txtDescription.Text, Convert.ToDouble(nupPrice.Value));
 
-            type.addCustomer();
+            type.addType();
 
             //display confirmation message
             MessageBox.Show("DVD Type " + txtType.Text + " Added", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -70,7 +70,6 @@ namespace DVDSys
             txtDescription.Clear();
 
             txtType.Focus();
-
         }
 
         private void btnReset_Click(object sender, EventArgs e)

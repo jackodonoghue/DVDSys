@@ -35,7 +35,6 @@ namespace DVDSys
 
         private void AddCustomer_Load(object sender, EventArgs e)
         {
-
             btnCustID.Text = Customer.getNextCustID().ToString("000");
             dtpDOB.MaxDate = (DateTime.Today.AddYears(-18));
             

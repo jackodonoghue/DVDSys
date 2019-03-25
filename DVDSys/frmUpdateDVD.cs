@@ -13,6 +13,7 @@ namespace DVDSys
     public partial class frmUpdateDVD : Form
     {
         frmHome parent;
+        private int ID;
 
         public frmUpdateDVD()
         {
@@ -36,78 +37,141 @@ namespace DVDSys
             this.Close();
             parent.Visible = true;
         }
-        private void frmUpdateDVD_Load(object sender, EventArgs e)
-        {
 
-        }
-
-        private void submitName_Click(object sender, EventArgs e)
+        private void btnSearchSubmit_Click(object sender, EventArgs e)
         {
             //validate input
-            if (txtSearch.Text.Equals(""))
+            if (!Vali.valTypeName(txtSearch.Text))
             {
-                MessageBox.Show("Title must be entered", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Title character invalid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtTitle.Focus();
                 return;
             }
+            
+            else
+            {
+                //search DVD
 
-           
-            //save data in file (not doing)
 
-            //display confirmation message
-            MessageBox.Show("DVD " + txtTitle.Text + " updated", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //Search
+                DataSet ds = new DataSet();
 
-            //reset UI
-            txtSearch.Clear();
+                String searched = txtSearch.Text;
 
-            txtSearch.Focus();
+                dgvSearch.DataSource = DVD.getDVDS(ds, searched).Tables["stk"];
 
+                if (ds.Tables[0].Rows.Count == 0)
+                {
+                    MessageBox.Show("No results found, please try again", "No Results!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                //reset UI
+                txtSearch.Clear();
+
+                txtSearch.Focus();
+            }           
         }
 
-        private void submit_Click(object sender, EventArgs e)
+        private void dgvSearch_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowIndex = e.RowIndex;
+
+            DataGridViewRow row = dgvSearch.Rows[rowIndex];
+
+            ID = int.Parse(row.Cells[0].Value.ToString());
+            cboType.Text = (String)row.Cells[1].Value;
+            txtTitle.Text = (String)row.Cells[2].Value;
+            txtDir.Text = (String)row.Cells[3].Value;
+            txtGenre.Text = (String)row.Cells[4].Value;
+            dtpRelease.Value = Convert.ToDateTime(row.Cells[5].Value);
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
             //validate input
-            /*if (txtTitle.Text.Equals(""))
+            if (isValid())
+            {
+                //save data in file 
+                DVD dvd = new DVD(ID, txtTitle.Text, cboType.Text, txtDir.Text, txtGenre.Text, dtpRelease.Text, 'y');
+
+                MessageBox.Show("dvd " + dtpRelease.Text, "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                dvd.updateDVD();
+
+                //display confirmation message
+                MessageBox.Show("DVD " + txtTitle.Text + " updated", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                //reset UI
+                txtTitle.Clear();
+                txtDir.Clear();
+                txtGenre.Clear();
+                //activeTB.Clear();
+
+                txtTitle.Focus();
+            }
+
+            
+
+        }
+        //
+        //Validate Inputs
+        //
+        private Boolean isValid()
+        {
+            //validate input
+            if (txtTitle.Text.Equals(""))
             {
                 MessageBox.Show("Title must be entered", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtTitle.Focus();
-                return;
+                return false;
             }
 
             if (txtDir.Text.Equals(""))
             {
                 MessageBox.Show("Director must be entered", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtDir.Focus();
-                return;
+                return false;
             }
 
             if (txtGenre.Text.Equals(""))
             {
                 MessageBox.Show("Genre must be entered", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtGenre.Focus();
-                return;
+                return false;
+            }
+            if (!Vali.valTypeName(txtTitle.Text))
+            {
+                MessageBox.Show("Title contains invalid characters", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtTitle.Focus();
+                return false;
             }
 
-            if (activeTB.Text.Equals(""))
+            if (!Vali.valName(txtDir.Text))
             {
-                MessageBox.Show("Active must be entered", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                activeTB.Focus();
-                return;
-            }*/
+                MessageBox.Show("Director contains invalid characters", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtDir.Focus();
+                return false;
+            }
 
-            //save data in file (not doing)
+            if (!Vali.valTypeName(txtGenre.Text))
+            {
+                MessageBox.Show("Genre contains invalid characters", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtGenre.Focus();
+                return false;
+            }
 
-            //display confirmation message
-            MessageBox.Show("DVD " + txtTitle.Text + " updated", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            return true;
+        }
 
-            //reset UI
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
             txtTitle.Clear();
+            cboType.ResetText();
             txtDir.Clear();
             txtGenre.Clear();
-            //activeTB.Clear();
-
+            dtpRelease.ResetText();
+            
             txtTitle.Focus();
-
         }
     }
 }
