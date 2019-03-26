@@ -141,6 +141,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rent.cs" />
     <Compile Include="Type.cs" />
     <Compile Include="Vali.cs" />
     <EmbeddedResource Include="frmAddCustomer.resx">

@@ -235,6 +235,7 @@
             this.dgvSearch.Name = "dgvSearch";
             this.dgvSearch.Size = new System.Drawing.Size(355, 176);
             this.dgvSearch.TabIndex = 41;
+            this.dgvSearch.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.custUpdateResults_CellContentDoubleClick);
             this.dgvSearch.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.custUpdateResults_CellContentDoubleClick);
             // 
             // chkMale

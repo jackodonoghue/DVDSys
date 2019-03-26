@@ -78,3 +78,10 @@ C:\Users\t00194275\Desktop\Jack\DVDSys\DVDSys\obj\Debug\DVDSys.csproj.CoreCompil
 C:\Users\t00194275\Desktop\Jack\DVDSys\DVDSys\obj\Debug\DVDSys.csproj.CopyComplete
 C:\Users\t00194275\Desktop\Jack\DVDSys\DVDSys\obj\Debug\DVDSys.exe
 C:\Users\t00194275\Desktop\Jack\DVDSys\DVDSys\obj\Debug\DVDSys.pdb
+C:\Users\t00194275\Desktop\DVDSys\DVDSys\bin\Debug\EntityFramework.dll
+C:\Users\t00194275\Desktop\DVDSys\DVDSys\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\t00194275\Desktop\DVDSys\DVDSys\bin\Debug\Oracle.ManagedDataAccess.dll
+C:\Users\t00194275\Desktop\DVDSys\DVDSys\bin\Debug\Oracle.ManagedDataAccess.EntityFramework.dll
+C:\Users\t00194275\Desktop\DVDSys\DVDSys\bin\Debug\EntityFramework.xml
+C:\Users\t00194275\Desktop\DVDSys\DVDSys\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\t00194275\Desktop\DVDSys\DVDSys\obj\Debug\DVDSys.csproj.CopyComplete

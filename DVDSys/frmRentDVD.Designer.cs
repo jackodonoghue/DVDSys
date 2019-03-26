@@ -28,55 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dvdLabel1 = new System.Windows.Forms.Label();
-            this.txtDvd = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.backToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addDVDBtn = new System.Windows.Forms.Button();
-            this.txtRent = new System.Windows.Forms.TextBox();
-            this.custNameLabel = new System.Windows.Forms.Label();
-            this.custDetails = new System.Windows.Forms.DataGridView();
-            this.CustID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FirstName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Surname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DateOfBirth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Eircode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PhoneNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rentalDetails = new System.Windows.Forms.DataGridView();
-            this.DVDID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Title = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DVDType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Director = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Genre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReturnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
+            this.btnSearchCustomer = new System.Windows.Forms.Button();
+            this.custUpdateLabel = new System.Windows.Forms.Label();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.dgvSearch = new System.Windows.Forms.DataGridView();
+            this.lblCustName = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtDVDName = new System.Windows.Forms.TextBox();
+            this.dvdUpdateLabel = new System.Windows.Forms.Label();
+            this.btnSearchDVD = new System.Windows.Forms.Button();
+            this.dgvDVDSearch = new System.Windows.Forms.DataGridView();
+            this.lstCart = new System.Windows.Forms.ListBox();
+            this.btnRemove = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.custDetails)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rentalDetails)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDVDSearch)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dvdLabel1
-            // 
-            this.dvdLabel1.AutoSize = true;
-            this.dvdLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.dvdLabel1.Location = new System.Drawing.Point(12, 255);
-            this.dvdLabel1.Name = "dvdLabel1";
-            this.dvdLabel1.Size = new System.Drawing.Size(53, 18);
-            this.dvdLabel1.TabIndex = 0;
-            this.dvdLabel1.Text = "DVDID";
-            // 
-            // txtDvd
-            // 
-            this.txtDvd.Location = new System.Drawing.Point(136, 256);
-            this.txtDvd.Name = "txtDvd";
-            this.txtDvd.Size = new System.Drawing.Size(179, 20);
-            this.txtDvd.TabIndex = 1;
             // 
             // menuStrip1
             // 
@@ -104,146 +76,6 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // addDVDBtn
-            // 
-            this.addDVDBtn.Location = new System.Drawing.Point(240, 282);
-            this.addDVDBtn.Name = "addDVDBtn";
-            this.addDVDBtn.Size = new System.Drawing.Size(75, 23);
-            this.addDVDBtn.TabIndex = 31;
-            this.addDVDBtn.Text = "Add More";
-            this.addDVDBtn.UseVisualStyleBackColor = true;
-            // 
-            // txtRent
-            // 
-            this.txtRent.Location = new System.Drawing.Point(136, 26);
-            this.txtRent.Name = "txtRent";
-            this.txtRent.Size = new System.Drawing.Size(179, 20);
-            this.txtRent.TabIndex = 33;
-            // 
-            // custNameLabel
-            // 
-            this.custNameLabel.AutoSize = true;
-            this.custNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.custNameLabel.Location = new System.Drawing.Point(12, 25);
-            this.custNameLabel.Name = "custNameLabel";
-            this.custNameLabel.Size = new System.Drawing.Size(118, 18);
-            this.custNameLabel.TabIndex = 32;
-            this.custNameLabel.Text = "Customer Name";
-            // 
-            // custDetails
-            // 
-            this.custDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.custDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CustID,
-            this.FirstName,
-            this.Surname,
-            this.DateOfBirth,
-            this.Address,
-            this.Eircode,
-            this.Gender,
-            this.PhoneNumber});
-            this.custDetails.Location = new System.Drawing.Point(12, 52);
-            this.custDetails.Name = "custDetails";
-            this.custDetails.Size = new System.Drawing.Size(846, 177);
-            this.custDetails.TabIndex = 40;
-            // 
-            // CustID
-            // 
-            this.CustID.HeaderText = "CustID";
-            this.CustID.Name = "CustID";
-            // 
-            // FirstName
-            // 
-            this.FirstName.HeaderText = "FirstName";
-            this.FirstName.Name = "FirstName";
-            // 
-            // Surname
-            // 
-            this.Surname.HeaderText = "Surname";
-            this.Surname.Name = "Surname";
-            // 
-            // DateOfBirth
-            // 
-            this.DateOfBirth.HeaderText = "DateOfBirth";
-            this.DateOfBirth.Name = "DateOfBirth";
-            // 
-            // Address
-            // 
-            this.Address.HeaderText = "Address";
-            this.Address.Name = "Address";
-            // 
-            // Eircode
-            // 
-            this.Eircode.HeaderText = "Eircode";
-            this.Eircode.Name = "Eircode";
-            // 
-            // Gender
-            // 
-            this.Gender.HeaderText = "Gender";
-            this.Gender.Name = "Gender";
-            // 
-            // PhoneNumber
-            // 
-            this.PhoneNumber.HeaderText = "PhoneNumber";
-            this.PhoneNumber.Name = "PhoneNumber";
-            // 
-            // rentalDetails
-            // 
-            this.rentalDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.rentalDetails.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DVDID,
-            this.Title,
-            this.DVDType,
-            this.Director,
-            this.Genre,
-            this.Price,
-            this.ReturnDate,
-            this.Status});
-            this.rentalDetails.Location = new System.Drawing.Point(15, 322);
-            this.rentalDetails.Name = "rentalDetails";
-            this.rentalDetails.Size = new System.Drawing.Size(841, 144);
-            this.rentalDetails.TabIndex = 60;
-            // 
-            // DVDID
-            // 
-            this.DVDID.HeaderText = "DVDID";
-            this.DVDID.Name = "DVDID";
-            // 
-            // Title
-            // 
-            this.Title.HeaderText = "Title";
-            this.Title.Name = "Title";
-            // 
-            // DVDType
-            // 
-            this.DVDType.HeaderText = "DVDType";
-            this.DVDType.Name = "DVDType";
-            // 
-            // Director
-            // 
-            this.Director.HeaderText = "Director";
-            this.Director.Name = "Director";
-            // 
-            // Genre
-            // 
-            this.Genre.HeaderText = "Genre";
-            this.Genre.Name = "Genre";
-            // 
-            // Price
-            // 
-            this.Price.HeaderText = "Price";
-            this.Price.Name = "Price";
-            // 
-            // ReturnDate
-            // 
-            this.ReturnDate.HeaderText = "ReturnDate";
-            this.ReturnDate.Name = "ReturnDate";
-            // 
-            // Status
-            // 
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
-            // 
             // btnConfirm
             // 
             this.btnConfirm.Location = new System.Drawing.Point(734, 491);
@@ -252,7 +84,7 @@
             this.btnConfirm.TabIndex = 61;
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = true;
-            this.btnConfirm.Click += new System.EventHandler(this.submit_Click);
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // btnReset
             // 
@@ -262,63 +94,168 @@
             this.btnReset.TabIndex = 62;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // btnSearchCustomer
+            // 
+            this.btnSearchCustomer.Location = new System.Drawing.Point(371, 32);
+            this.btnSearchCustomer.Name = "btnSearchCustomer";
+            this.btnSearchCustomer.Size = new System.Drawing.Size(95, 23);
+            this.btnSearchCustomer.TabIndex = 65;
+            this.btnSearchCustomer.Text = "Submit";
+            this.btnSearchCustomer.UseVisualStyleBackColor = true;
+            this.btnSearchCustomer.Click += new System.EventHandler(this.submitCustomer_Click);
+            // 
+            // custUpdateLabel
+            // 
+            this.custUpdateLabel.AutoSize = true;
+            this.custUpdateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.custUpdateLabel.Location = new System.Drawing.Point(12, 37);
+            this.custUpdateLabel.Name = "custUpdateLabel";
+            this.custUpdateLabel.Size = new System.Drawing.Size(161, 18);
+            this.custUpdateLabel.TabIndex = 64;
+            this.custUpdateLabel.Text = "Enter Customer Name ";
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(179, 35);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(186, 20);
+            this.txtSearch.TabIndex = 63;
+            // 
+            // dgvSearch
+            // 
+            this.dgvSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSearch.Location = new System.Drawing.Point(15, 61);
+            this.dgvSearch.Name = "dgvSearch";
+            this.dgvSearch.Size = new System.Drawing.Size(451, 176);
+            this.dgvSearch.TabIndex = 66;
+            this.dgvSearch.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSearch_CellClick);
+            // 
+            // lblCustName
+            // 
+            this.lblCustName.AutoSize = true;
+            this.lblCustName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblCustName.Location = new System.Drawing.Point(597, 33);
+            this.lblCustName.Name = "lblCustName";
+            this.lblCustName.Size = new System.Drawing.Size(0, 18);
+            this.lblCustName.TabIndex = 67;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label1.Location = new System.Drawing.Point(513, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(78, 18);
+            this.label1.TabIndex = 68;
+            this.label1.Text = "Customer:";
+            // 
+            // txtDVDName
+            // 
+            this.txtDVDName.Location = new System.Drawing.Point(179, 259);
+            this.txtDVDName.Name = "txtDVDName";
+            this.txtDVDName.Size = new System.Drawing.Size(186, 20);
+            this.txtDVDName.TabIndex = 78;
+            // 
+            // dvdUpdateLabel
+            // 
+            this.dvdUpdateLabel.AutoSize = true;
+            this.dvdUpdateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.dvdUpdateLabel.Location = new System.Drawing.Point(12, 259);
+            this.dvdUpdateLabel.Name = "dvdUpdateLabel";
+            this.dvdUpdateLabel.Size = new System.Drawing.Size(126, 18);
+            this.dvdUpdateLabel.TabIndex = 79;
+            this.dvdUpdateLabel.Text = "Enter DVD Name ";
+            // 
+            // btnSearchDVD
+            // 
+            this.btnSearchDVD.Location = new System.Drawing.Point(371, 257);
+            this.btnSearchDVD.Name = "btnSearchDVD";
+            this.btnSearchDVD.Size = new System.Drawing.Size(95, 23);
+            this.btnSearchDVD.TabIndex = 80;
+            this.btnSearchDVD.Text = "Submit";
+            this.btnSearchDVD.UseVisualStyleBackColor = true;
+            this.btnSearchDVD.Click += new System.EventHandler(this.btnSearchDVD_Click);
+            // 
+            // dgvDVDSearch
+            // 
+            this.dgvDVDSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDVDSearch.Location = new System.Drawing.Point(12, 285);
+            this.dgvDVDSearch.Name = "dgvDVDSearch";
+            this.dgvDVDSearch.Size = new System.Drawing.Size(454, 166);
+            this.dgvDVDSearch.TabIndex = 82;
+            this.dgvDVDSearch.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDVDSearch_CellClick);
+            // 
+            // lstCart
+            // 
+            this.lstCart.BackColor = System.Drawing.SystemColors.Control;
+            this.lstCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lstCart.FormattingEnabled = true;
+            this.lstCart.ItemHeight = 18;
+            this.lstCart.Location = new System.Drawing.Point(496, 285);
+            this.lstCart.Name = "lstCart";
+            this.lstCart.Size = new System.Drawing.Size(283, 166);
+            this.lstCart.TabIndex = 83;
+            // 
+            // btnRemove
+            // 
+            this.btnRemove.Location = new System.Drawing.Point(785, 285);
+            this.btnRemove.Name = "btnRemove";
+            this.btnRemove.Size = new System.Drawing.Size(75, 23);
+            this.btnRemove.TabIndex = 84;
+            this.btnRemove.Text = "Remove";
+            this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // frmRentDVD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(868, 526);
+            this.Controls.Add(this.btnRemove);
+            this.Controls.Add(this.lstCart);
+            this.Controls.Add(this.dgvDVDSearch);
+            this.Controls.Add(this.btnSearchDVD);
+            this.Controls.Add(this.dvdUpdateLabel);
+            this.Controls.Add(this.txtDVDName);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblCustName);
+            this.Controls.Add(this.dgvSearch);
+            this.Controls.Add(this.btnSearchCustomer);
+            this.Controls.Add(this.custUpdateLabel);
+            this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnConfirm);
-            this.Controls.Add(this.rentalDetails);
-            this.Controls.Add(this.custDetails);
-            this.Controls.Add(this.txtRent);
-            this.Controls.Add(this.custNameLabel);
-            this.Controls.Add(this.addDVDBtn);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this.txtDvd);
-            this.Controls.Add(this.dvdLabel1);
             this.Name = "frmRentDVD";
             this.Text = "DVD Rental";
-            this.Load += new System.EventHandler(this.frmRentDVD_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.custDetails)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rentalDetails)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDVDSearch)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label dvdLabel1;
-        private System.Windows.Forms.TextBox txtDvd;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem backToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.Button addDVDBtn;
-        private System.Windows.Forms.TextBox txtRent;
-        private System.Windows.Forms.Label custNameLabel;
-        private System.Windows.Forms.DataGridView custDetails;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CustID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FirstName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Surname;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DateOfBirth;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Address;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Eircode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Gender;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PhoneNumber;
-        private System.Windows.Forms.DataGridView rentalDetails;
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.Button btnReset;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DVDID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Title;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DVDType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Director;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Genre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ReturnDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.Button btnSearchCustomer;
+        private System.Windows.Forms.Label custUpdateLabel;
+        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.DataGridView dgvSearch;
+        private System.Windows.Forms.Label lblCustName;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtDVDName;
+        private System.Windows.Forms.Label dvdUpdateLabel;
+        private System.Windows.Forms.Button btnSearchDVD;
+        private System.Windows.Forms.DataGridView dgvDVDSearch;
+        private System.Windows.Forms.ListBox lstCart;
+        private System.Windows.Forms.Button btnRemove;
     }
 }

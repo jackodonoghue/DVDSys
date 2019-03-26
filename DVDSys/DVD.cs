@@ -19,6 +19,17 @@ namespace DVDSys
         private String relDate;
         private char active;
 
+        public DVD()
+        {
+            id = 0;
+            title = "";
+            type = "";
+            dir = "";
+            genre = "";
+            relDate = "";
+            active = 'n';
+        }
+
         public DVD(int id, String title, String type, String dir, String genre, String relDate, char active)
         {
             this.id = id;
