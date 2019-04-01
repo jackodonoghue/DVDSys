@@ -82,7 +82,9 @@ namespace DVDSys
             return nextID;
 
         }
-
+        //
+        //Search DVD
+        //
         public static DataSet getDVDS(DataSet ds, string searched)
         {
             //connect to db

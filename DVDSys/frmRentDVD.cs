@@ -23,7 +23,7 @@ namespace DVDSys
         {
             InitializeComponent();
             parent = Parent;
-        }   
+        }
         //
         //Go Back to Home
         //
@@ -117,14 +117,14 @@ namespace DVDSys
                     break;
                 }
             }
-            
-            if(alreadyEntered)
+
+            if (alreadyEntered)
             {
                 //put dvd details into cart
                 lstCart.Items.Add(String.Format("{0:000}", dgvDVDSearch.Rows[dgvDVDSearch.CurrentCell.RowIndex].Cells[0].Value) + " " + dgvDVDSearch.Rows[dgvDVDSearch.CurrentCell.RowIndex].Cells[2].Value.ToString());
 
                 //Add price to total
-                price += Rent.getPrice(dgvDVDSearch.Rows[dgvDVDSearch.CurrentCell.RowIndex].Cells[1].Value.ToString()); 
+                price += Rent.getPrice(dgvDVDSearch.Rows[dgvDVDSearch.CurrentCell.RowIndex].Cells[1].Value.ToString());
 
                 lblTotal.Text = "\u20AC" + price.ToString("0.00");
             }
@@ -134,10 +134,10 @@ namespace DVDSys
         //
         private void btnRemove_Click(object sender, EventArgs e)
         {
-            if(lstCart.SelectedIndex >= 0)
+            if (lstCart.SelectedIndex >= 0)
             {
                 lstCart.Items.RemoveAt(lstCart.SelectedIndex);
-            }            
+            }
         }
         //
         //Confirm clicked
@@ -170,6 +170,6 @@ namespace DVDSys
             txtDVDName.Clear();
             lstCart.Items.Clear();
             lblCustName.Text = "";
-        }        
+        }
     }
 }
