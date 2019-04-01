@@ -28,7 +28,7 @@ namespace DVDSys
         public static Boolean valTypeName(String name)
         {
             //Boolean result = true;
-            Regex nameCheck = new Regex("^[a-zA-Z ]*$");
+            Regex nameCheck = new Regex("^[a-zA-Z 1-9]*$");
 
             if (nameCheck.IsMatch(name))
             {

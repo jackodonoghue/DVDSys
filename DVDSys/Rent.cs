@@ -99,6 +99,13 @@ namespace DVDSys
             OracleCommand com = new OracleCommand(sql, connection);
             int num = com.ExecuteNonQuery();
 
+            //define sql query to update dvd to rented
+            String sql1 = "UPDATE DVD SET status = 'R'  WHERE DVDID = " + this.otherID;
+
+            //create oracle command
+            OracleCommand com1 = new OracleCommand(sql1, connection);
+            int num1 = com1.ExecuteNonQuery();
+
             //close db
             connection.Close();
         }
@@ -207,9 +214,39 @@ namespace DVDSys
             connection.Close();
         }
         //
+        //Return Rented DVD
+        //
+        public static void returnDVD(int id)
+        {
+            //connect to db
+            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+            connection.Open();
+
+            //define sql query
+            String sql = "UPDATE DVD SET STATUS = 'A' WHERE DVDID = " + id;
+
+
+            //create oracle command
+            OracleCommand com = new OracleCommand(sql, connection);
+            com.ExecuteNonQuery();
+
+            if (com.ExecuteNonQuery() >= 0)
+            {
+                MessageBox.Show("DVD returned", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            else
+            {
+                MessageBox.Show("ERROR!\nPlease try again", "Please try again!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            //close db
+            connection.Close();
+        }
+        //
         //Search for rented DVDs
         //
-        public static DataSet getRentedDVDs(int custid)
+        /*public static DataSet getRentedDVDs(int custid)
         {
             //connect to db
             OracleConnection connection = new OracleConnection(ConnectDB.orDB);
@@ -224,7 +261,7 @@ namespace DVDSys
             OracleDataAdapter da = new OracleDataAdapter(com);
 
             //check value returned - if null return 1, otherwise return datareader value
-            da.Fill(ds, "stk");
+           /* da.Fill(ds, "stk");
 
             if (ds.Equals(null))
             {
@@ -242,7 +279,7 @@ namespace DVDSys
 
 
             return ds;
-        }
+        }*/
         //
         //Check for late return
         //

@@ -122,7 +122,7 @@ namespace DVDSys
 
         private void frmAddDVD_Load(object sender, EventArgs e)
         {
-            btnID.Text = DVD.getNextCustID().ToString("000");
+            btnID.Text = DVD.getNextDVDID().ToString("000");
         }
 
         private void btnReset_Click(object sender, EventArgs e)

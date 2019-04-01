@@ -37,120 +37,27 @@ namespace DVDSys
             Application.Exit();
         }
         //
-        //Search Customer
+        //Search DVD
         //
-        private void submitCustomer_Click(object sender, EventArgs e)
-        {
-            //Validate search
-            if (!Customer.valName(txtSearch.Text))
-            {
-                MessageBox.Show("Searched name invalid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtSearch.Focus();
-                return;
-            }
-
-            //Search
-            DataSet ds = new DataSet();
-
-
-            dgvSearch.DataSource = Customer.getCustomers(ds, txtSearch.Text.ToUpper()).Tables["stk"];
-
-            if (ds.Tables[0].Rows.Count == 0)
-            {
-                MessageBox.Show("No results found, please try again", "No Results!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        //
-        //Select Customer
-        //
-        private void dgvSearch_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int rowIndex = e.RowIndex;
-
-            DataGridViewRow row = dgvSearch.Rows[rowIndex];
-
-            customer = new Customer();
-
-            customer.setCustomerID(int.Parse(row.Cells[0].Value.ToString()));
-
-            lblCustName.Text = (String)row.Cells[1].Value + " " + (String)row.Cells[2].Value;
-        }
-        //
-        //Get rented DVDs
-        //
-        private void getRented(object sender, EventArgs e)
-        {
-
-            //Search
-            DataSet ds = new DataSet();
-
-
-            dgvSearch.DataSource = Customer.getCustomers(ds, txtSearch.Text.ToUpper()).Tables["stk"];
-
-            if (ds.Tables[0].Rows.Count == 0)
-            {
-                MessageBox.Show("No results found, please try again", "No Results!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        //
-        //Select DVD
-        //       
-        private void dgvDVDSearch_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            Boolean alreadyEntered = true;
-
-            for (int i = 0; i < lstCart.Items.Count; i++)
-            {
-                if (Convert.ToInt32(dgvDVDrented.Rows[dgvDVDrented.CurrentCell.RowIndex].Cells[0].Value) == Convert.ToInt32(lstCart.Items[i].ToString().Substring(0, 3)))
+        private void btnSearch_Click(object sender, EventArgs e)
+        {        
+                //Validate search
+                if (!Vali.valTypeName(txtSearch.Text))
                 {
-                    MessageBox.Show("DVD already in cart!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    alreadyEntered = false;
-                    break;
+                    MessageBox.Show("DVD name invalid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtSearch.Focus();
+                    return;
                 }
-            }
 
-            if (alreadyEntered)
-            {
-                //put dvd details into cart
-                lstCart.Items.Add(String.Format("{0:000}", dgvDVDrented.Rows[dgvDVDrented.CurrentCell.RowIndex].Cells[0].Value) + " " + dgvDVDrented.Rows[dgvDVDrented.CurrentCell.RowIndex].Cells[2].Value.ToString());
+                //Search
+                DataSet ds = new DataSet();
 
-                //Add price to total
-               // price += Rent.getPrice(dgvDVDSearch.Rows[dgvDVDSearch.CurrentCell.RowIndex].Cells[1].Value.ToString());
+                dgvSearch.DataSource = DVD.getDVDS(ds, txtSearch.Text.ToUpper()).Tables["stk"];
 
-              //  lblTotal.Text = "\u20AC" + price.ToString("0.00");
-            }
-        }
-        //
-        //Remove item from cart
-        //
-        private void btnRemove_Click(object sender, EventArgs e)
-        {
-            if (lstCart.SelectedIndex >= 0)
-            {
-                lstCart.Items.RemoveAt(lstCart.SelectedIndex);
-            }
-        }
-        //
-        //Confirm clicked
-        //
-        private void btnConfirm_Click(object sender, EventArgs e)
-        {
-            int rentID = Rent.getNextRentID();
-            Rent rent = new Rent(rentID, customer.getCustomerID());
-
-            rent.addRental();
-
-            for (int i = 0; i < lstCart.Items.Count; i++)
-            {
-                rent = new Rent(rentID, Convert.ToInt32(lstCart.Items[i].ToString().Substring(0, 3)));
-
-                rent.addRentalItem();
-            }
-
-            MessageBox.Show("Rental Complete!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            //PAYMENT
-            Rent.makePayment(rentID, lblTotal.Text.Substring(1));
+                if (ds.Tables[0].Rows.Count == 0)
+                {
+                    MessageBox.Show("No results found, please try again", "No Results!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
         }
         //
         // Reset Button Clicked -- Reset UI
@@ -159,7 +66,26 @@ namespace DVDSys
         {
             txtSearch.Clear();
             lstCart.Items.Clear();
-            lblCustName.Text = "";
+        }
+        //
+        //Selected DVD to return
+        //
+        private void dgvSearch_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowIndex = e.RowIndex;
+
+            DataGridViewRow row = dgvSearch.Rows[rowIndex];
+
+            lstCart.Items.Add(row.Cells[0].Value.ToString() + " " + (String)row.Cells[2].Value);            
+        }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < lstCart.Items.Count; i++)
+            {
+                Rent.returnDVD(Convert.ToInt32(lstCart.Items[i].ToString().Substring(0, 1)));
+            }
         }
     }
 }
+

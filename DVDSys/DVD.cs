@@ -41,9 +41,16 @@ namespace DVDSys
             this.active = active;
         }
         //
+        //Set Title
+        //
+        public void setTitle(String title)
+        {
+            this.title = title;
+        }
+        //
         //Get next DVD ID
         //
-        public static int getNextCustID()
+        public static int getNextDVDID()
         {
             //variable to hold value to be returned
             int nextID = 1;
@@ -108,7 +115,6 @@ namespace DVDSys
 
             return ds;
         }
-
         //
         //Add DVD
         //
@@ -198,6 +204,32 @@ namespace DVDSys
 
             //close db
             connection.Close();
+        }
+        //
+        //Search DVD by title
+        //
+        public DataSet getDVDbyTitle(DataSet ds)
+        {
+            //connect to db
+            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+
+            //define sql query
+            String sql = "select DVDID from DVD WHERE title LIKE '" + this.title + "%'";
+
+            //create oracle command
+            OracleCommand com = new OracleCommand(sql, connection);
+
+            //execute query using datareader
+            OracleDataAdapter da = new OracleDataAdapter(com);
+
+            //check value returned - if null return 1, otherwise return datareader value
+            da.Fill(ds, "stk");
+
+            //close db
+            connection.Close();
+
+
+            return ds;
         }
     }
 }

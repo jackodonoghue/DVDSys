@@ -31,24 +31,15 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.backToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dgvSearch = new System.Windows.Forms.DataGridView();
-            this.btnSearchCustomer = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.custUpdateLabel = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.lstCart = new System.Windows.Forms.ListBox();
-            this.dgvDVDrented = new System.Windows.Forms.DataGridView();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnConfirm = new System.Windows.Forms.Button();
-            this.lblCustName = new System.Windows.Forms.Label();
-            this.lblTotal = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dgvDVDlate = new System.Windows.Forms.DataGridView();
+            this.dgvSearch = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDVDrented)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDVDlate)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -77,34 +68,15 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exit_Click);
             // 
-            // label1
+            // btnSearch
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label1.Location = new System.Drawing.Point(508, 43);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 18);
-            this.label1.TabIndex = 74;
-            this.label1.Text = "Customer:";
-            // 
-            // dgvSearch
-            // 
-            this.dgvSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSearch.Location = new System.Drawing.Point(12, 70);
-            this.dgvSearch.Name = "dgvSearch";
-            this.dgvSearch.Size = new System.Drawing.Size(451, 103);
-            this.dgvSearch.TabIndex = 73;
-            this.dgvSearch.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSearch_CellClick);
-            // 
-            // btnSearchCustomer
-            // 
-            this.btnSearchCustomer.Location = new System.Drawing.Point(368, 41);
-            this.btnSearchCustomer.Name = "btnSearchCustomer";
-            this.btnSearchCustomer.Size = new System.Drawing.Size(95, 23);
-            this.btnSearchCustomer.TabIndex = 72;
-            this.btnSearchCustomer.Text = "Submit";
-            this.btnSearchCustomer.UseVisualStyleBackColor = true;
-            this.btnSearchCustomer.Click += new System.EventHandler(this.submitCustomer_Click);
+            this.btnSearch.Location = new System.Drawing.Point(368, 41);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(95, 23);
+            this.btnSearch.TabIndex = 72;
+            this.btnSearch.Text = "Submit";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // custUpdateLabel
             // 
@@ -112,9 +84,9 @@
             this.custUpdateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.custUpdateLabel.Location = new System.Drawing.Point(9, 46);
             this.custUpdateLabel.Name = "custUpdateLabel";
-            this.custUpdateLabel.Size = new System.Drawing.Size(161, 18);
+            this.custUpdateLabel.Size = new System.Drawing.Size(126, 18);
             this.custUpdateLabel.TabIndex = 71;
-            this.custUpdateLabel.Text = "Enter Customer Name ";
+            this.custUpdateLabel.Text = "Enter DVD Name ";
             // 
             // txtSearch
             // 
@@ -134,15 +106,6 @@
             this.lstCart.Size = new System.Drawing.Size(283, 382);
             this.lstCart.TabIndex = 91;
             // 
-            // dgvDVDrented
-            // 
-            this.dgvDVDrented.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDVDrented.Location = new System.Drawing.Point(12, 198);
-            this.dgvDVDrented.Name = "dgvDVDrented";
-            this.dgvDVDrented.Size = new System.Drawing.Size(454, 161);
-            this.dgvDVDrented.TabIndex = 90;
-            this.dgvDVDrented.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDVDSearch_CellClick);
-            // 
             // btnReset
             // 
             this.btnReset.Location = new System.Drawing.Point(653, 498);
@@ -161,70 +124,27 @@
             this.btnConfirm.TabIndex = 85;
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
-            // lblCustName
+            // dgvSearch
             // 
-            this.lblCustName.AutoSize = true;
-            this.lblCustName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lblCustName.Location = new System.Drawing.Point(593, 46);
-            this.lblCustName.Name = "lblCustName";
-            this.lblCustName.Size = new System.Drawing.Size(0, 18);
-            this.lblCustName.TabIndex = 93;
-            // 
-            // lblTotal
-            // 
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lblTotal.Location = new System.Drawing.Point(750, 461);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(0, 18);
-            this.lblTotal.TabIndex = 94;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label2.Location = new System.Drawing.Point(12, 176);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(102, 18);
-            this.label2.TabIndex = 95;
-            this.label2.Text = "Rented DVDs ";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label3.Location = new System.Drawing.Point(12, 362);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 18);
-            this.label3.TabIndex = 97;
-            this.label3.Text = "Late Fees";
-            // 
-            // dgvDVDlate
-            // 
-            this.dgvDVDlate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDVDlate.Location = new System.Drawing.Point(12, 383);
-            this.dgvDVDlate.Name = "dgvDVDlate";
-            this.dgvDVDlate.Size = new System.Drawing.Size(454, 134);
-            this.dgvDVDlate.TabIndex = 96;
+            this.dgvSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSearch.Location = new System.Drawing.Point(12, 70);
+            this.dgvSearch.Name = "dgvSearch";
+            this.dgvSearch.Size = new System.Drawing.Size(451, 382);
+            this.dgvSearch.TabIndex = 73;
+            this.dgvSearch.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSearch_CellClick);
             // 
             // frmDVDRet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(876, 529);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.dgvDVDlate);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.lblTotal);
-            this.Controls.Add(this.lblCustName);
             this.Controls.Add(this.lstCart);
-            this.Controls.Add(this.dgvDVDrented);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnConfirm);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvSearch);
-            this.Controls.Add(this.btnSearchCustomer);
+            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.custUpdateLabel);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.menuStrip1);
@@ -233,8 +153,6 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDVDrented)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDVDlate)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -244,19 +162,12 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem backToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvSearch;
-        private System.Windows.Forms.Button btnSearchCustomer;
+        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label custUpdateLabel;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.ListBox lstCart;
-        private System.Windows.Forms.DataGridView dgvDVDrented;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnConfirm;
-        private System.Windows.Forms.Label lblCustName;
-        private System.Windows.Forms.Label lblTotal;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dgvDVDlate;
+        private System.Windows.Forms.DataGridView dgvSearch;
     }
 }
