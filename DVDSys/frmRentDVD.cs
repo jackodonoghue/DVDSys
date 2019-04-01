@@ -15,6 +15,7 @@ namespace DVDSys
         frmHome parent;
 
         Customer customer;
+        private double price = 0.00;
         //
         //Initialize Form
         //
@@ -77,7 +78,6 @@ namespace DVDSys
 
             lblCustName.Text = (String)row.Cells[1].Value + " " + (String)row.Cells[2].Value;
         }
-
         //
         //Search DVD
         //
@@ -122,6 +122,11 @@ namespace DVDSys
             {
                 //put dvd details into cart
                 lstCart.Items.Add(String.Format("{0:000}", dgvDVDSearch.Rows[dgvDVDSearch.CurrentCell.RowIndex].Cells[0].Value) + " " + dgvDVDSearch.Rows[dgvDVDSearch.CurrentCell.RowIndex].Cells[2].Value.ToString());
+
+                //Add price to total
+                price += Rent.getPrice(dgvDVDSearch.Rows[dgvDVDSearch.CurrentCell.RowIndex].Cells[1].Value.ToString()); 
+
+                lblTotal.Text = "\u20AC" + price.ToString("0.00");
             }
         }
         //
@@ -152,7 +157,11 @@ namespace DVDSys
             }
 
             MessageBox.Show("Rental Complete!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            //PAYMENT
+            Rent.makePayment(rentID, lblTotal.Text.Substring(1));
         }
+        //
         // Reset Button Clicked -- Reset UI
         //
         private void btnReset_Click(object sender, EventArgs e)

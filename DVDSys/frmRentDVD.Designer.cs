@@ -45,6 +45,7 @@
             this.dgvDVDSearch = new System.Windows.Forms.DataGridView();
             this.lstCart = new System.Windows.Forms.ListBox();
             this.btnRemove = new System.Windows.Forms.Button();
+            this.lblTotal = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDVDSearch)).BeginInit();
@@ -208,11 +209,23 @@
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblTotal.Location = new System.Drawing.Point(746, 454);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblTotal.Size = new System.Drawing.Size(0, 18);
+            this.lblTotal.TabIndex = 85;
+            this.lblTotal.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // frmRentDVD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(868, 526);
+            this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.lstCart);
             this.Controls.Add(this.dgvDVDSearch);
@@ -257,5 +270,6 @@
         private System.Windows.Forms.DataGridView dgvDVDSearch;
         private System.Windows.Forms.ListBox lstCart;
         private System.Windows.Forms.Button btnRemove;
+        private System.Windows.Forms.Label lblTotal;
     }
 }
