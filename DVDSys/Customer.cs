@@ -192,12 +192,12 @@ namespace DVDSys
 
             if (num >= 0)
             {
-                MessageBox.Show("Customer " + this.getCustomerID() + " updated", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Customer " + this.getFName() + " added", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             else
             {
-                MessageBox.Show("Unsuccesful", "Unsuccess!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Customer Not Added", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             //close db
@@ -251,12 +251,12 @@ namespace DVDSys
 
             if (com.ExecuteNonQuery() >= 0)
             {
-                MessageBox.Show("Customer " + getCustomerID() + " updated", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Customer " + getFName() + " updated", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             else
             {
-                MessageBox.Show("hello", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Customer Not Updated", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             //close db
@@ -291,39 +291,7 @@ namespace DVDSys
 
             //close db
             connection.Close();
-        }
-
-        public static Boolean valName(String name)
-        {
-            //Boolean result = true;
-            Regex nameCheck = new Regex("^[a-zA-Z ,.'-]*$");
-
-            if (nameCheck.IsMatch(name))
-            {
-                return true;
-            }
-
-            else
-            {
-                return false;
-            }
-        }
-
-        public static Boolean valNumber(String number)
-        {
-            //Boolean result = true;
-            Regex numberCheck = new Regex("^[0-9]*$");
-
-            if (numberCheck.IsMatch(number))
-            {
-                return true;
-            }
-
-            else
-            {
-                return false;
-            }
-        }
+        }        
     }
 }
 

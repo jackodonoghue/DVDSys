@@ -41,6 +41,22 @@ namespace DVDSys
             }
         }
 
+        public static Boolean valPhoneNumber(String number)
+        {
+            //Boolean result = true;
+            Regex numberCheck = new Regex("^[0-9]*$");
+
+            if (numberCheck.IsMatch(number))
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
+
         /* //validate input add
              if (fNameTB.Text.Equals(""))
              {

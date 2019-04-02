@@ -90,35 +90,35 @@ namespace DVDSys
                 return;
             }
 
-            if(!Customer.valName(txtFName.Text))
+            if(!Vali.valName(txtFName.Text))
             {
                 MessageBox.Show("First Name invalid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtFName.Focus();
                 return;
             }
 
-            if (!Customer.valName(txtSName.Text))
+            if (!Vali.valName(txtSName.Text))
             {
                 MessageBox.Show("Last Name invalid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtSName.Focus();
                 return;
             }
 
-            if (!(Customer.valNumber(txtPhone.Text)) || txtPhone.Text.Length != 10)
+            if (!(Vali.valPhoneNumber(txtPhone.Text)) || txtPhone.Text.Length != 10)
             {
                 MessageBox.Show("Phone number invalid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPhone.Focus();
                 return;
             }
 
-            if (!Customer.valName(txtAddress1.Text))
+            if (!Vali.valName(txtAddress1.Text))
             {
                 MessageBox.Show("First Name invalid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtAddress1.Focus();
                 return;
             }
 
-            if (!Customer.valName(txtAddress2.Text))
+            if (!Vali.valName(txtAddress2.Text))
             {
                 MessageBox.Show("First Name invalid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtAddress2.Focus();
@@ -136,19 +136,16 @@ namespace DVDSys
             newCustomer.setFName(txtFName.Text.ToUpper());
             newCustomer.setLName(txtSName.Text.ToUpper());
             newCustomer.setDOB(dtpDOB.Text);
-            newCustomer.setAddress(txtAddress1.Text + ", " + txtAddress2.Text);
+            newCustomer.setAddress(txtAddress1.Text.ToUpper() + ", " + txtAddress2.Text.ToUpper());
             if (chkMale.Checked)
                 newCustomer.setGender('M');
             else
                 newCustomer.setGender('F');
             
-            newCustomer.setPhoneNumber(txtPhone.Text);
+            newCustomer.setPhoneNumber(txtPhone.Text.ToUpper());
             newCustomer.setAccountStatus('A');
 
             newCustomer.addCustomer();
-
-            //display confirmation message
-
 
             //reset UI
             btnCustID.Text = Customer.getNextCustID().ToString("000");

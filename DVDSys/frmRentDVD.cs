@@ -45,7 +45,7 @@ namespace DVDSys
         private void submitCustomer_Click(object sender, EventArgs e)
         {
             //Validate search
-            if (!Customer.valName(txtSearch.Text))
+            if (!Vali.valName(txtSearch.Text))
             {
                 MessageBox.Show("Searched name invalid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtSearch.Focus();

@@ -197,6 +197,32 @@ namespace DVDSys
 
             return dt;
         }
+        //
+        //Get type data for chart
+        //
+        public static int getNumTypes()
+        {
+            //connect to db
+            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
 
+            DataTable dt = new DataTable();
+
+            //define sql query
+            String sql = "select count(*) from type";
+
+            //create oracle command
+            OracleCommand com = new OracleCommand(sql, connection);
+
+            //execute query using datareader
+            OracleDataAdapter da = new OracleDataAdapter(com);
+
+            //check value returned - if null return 1, otherwise return datareader value
+            da.Fill(dt);
+
+            //close db
+            connection.Close();
+
+            return Convert.ToInt32(dt.Rows[0][0]);
+        }
     }
 }

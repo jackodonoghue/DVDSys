@@ -45,7 +45,7 @@ namespace DVDSys
         private void updateSubmit_Click(object sender, EventArgs e)
         {
             //Validate search
-            if (!Customer.valName(txtSearch.Text))
+            if (!Vali.valName(txtSearch.Text))
             {
                 MessageBox.Show("Searched name invalid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtSearch.Focus();
@@ -59,7 +59,10 @@ namespace DVDSys
 
             dgvSearch.DataSource = Customer.getCustomers(ds, searched).Tables["stk"];
 
-            if(ds.Tables[0].Rows.Count == 0)
+            dgvSearch.Columns[].Visible = false;
+
+
+            if (ds.Tables[0].Rows.Count == 0)
             {
                 MessageBox.Show("No results found, please try again", "No Results!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }       
@@ -81,9 +84,9 @@ namespace DVDSys
         private void custUpdateResults_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int rowIndex = e.RowIndex;
-            MessageBox.Show("hello" + rowIndex, "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
             DataGridViewRow row = dgvSearch.Rows[rowIndex];
-
+            
             CustIDString = row.Cells[0].Value.ToString();
             CustID = int.Parse(CustIDString);
             txtFName.Text = (String)row.Cells[1].Value;
@@ -152,28 +155,28 @@ namespace DVDSys
                 return;
             }
 
-            if (!Customer.valName(txtFName.Text))
+            if (!Vali.valName(txtFName.Text))
             {
                 MessageBox.Show("First Name invalid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtFName.Focus();
                 return;
             }
 
-            if (!Customer.valName(txtSName.Text))
+            if (!Vali.valName(txtSName.Text))
             {
                 MessageBox.Show("Last Name invalid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtSName.Focus();
                 return;
             }
 
-            if (!(Customer.valNumber(txtPhone.Text)) || txtPhone.Text.Length != 10)
+            if (!(Vali.valPhoneNumber(txtPhone.Text)) || txtPhone.Text.Length != 10)
             {
                 MessageBox.Show("Phone number invalid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPhone.Focus();
                 return;
             }
 
-            if (!Customer.valName(txtAddress.Text))
+            if (!Vali.valName(txtAddress.Text))
             {
                 MessageBox.Show("First Name invalid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtAddress.Focus();

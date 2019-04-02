@@ -42,36 +42,36 @@ namespace DVDSys
             dtpEnd.MaxDate = DateTime.Now;
         }
 
-        private void dtpEnd_ValueChanged(object sender, EventArgs e)
+        private void btnSubmit_Click(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
 
-            Type.getRentalPerType(dt, dtpStart.Text, dtpEnd.Text);
+            dt = Type.getRentalPerType(dt, dtpStart.Text, dtpEnd.Text);
 
-            //Array for each month
-            string[] months = new string[12];
+            //Array for each typeToString("dd/M/yyyy", CultureInfo.InvariantCulture)
+            string[] types = new string[Type.getNumTypes()];
 
             //Array for each value per month
-            decimal[] amounts = new decimal[12];
+            int[] amounts = new int[Type.getNumTypes()];
 
-            for (int i = 0; i < dt.Rows.Count; i++)
+            for (int i = 0; i < amounts.Length; i++)
             {
-                amounts[Convert.ToInt32(dt.Rows[i][1]) - 1] = Convert.ToDecimal(dt.Rows[i][0]);
+                amounts[i] = Convert.ToInt32(dt.Rows[i][1]);
             }
 
-            for (int i = 0; i < 12; i++)
+            for (int i = 0; i < types.Length; i++)
             {
-                months[i] = Payment.getMonthForAnalysis(i + 1);
+                types[i] = dt.Rows[i][0].ToString();
             }
 
-            /*chtData.ChartAreas[0].AxisX.MajorGrid.LineWidth = 0;
+            chtData.ChartAreas[0].AxisX.MajorGrid.LineWidth = 0;
             chtData.ChartAreas[0].AxisY.MajorGrid.LineWidth = 0;
             chtData.Series[0].LegendText = "Income in €";
 
             chtData.Series["Series1"]["PointWidth"] = ".5";
 
             chtData.Series["Series1"]["PixelPointWidth"] = "20";
-            chtData.Series[0].Points.DataBindXY(months, amounts);
+            chtData.Series[0].Points.DataBindXY(types, amounts);
             chtData.ChartAreas["ChartArea1"].AxisX.LabelStyle.Format = "C";
 
             //chtData.Series[0].Points[0] = "XXX";
@@ -79,12 +79,12 @@ namespace DVDSys
 
             chtData.Titles.Add("Yearly Revenue");
             // chtData.ChartAreas[0].AxisX.LabelStyle. = 5;
-            chtData.ChartAreas[0].AxisX.Title = "MONTH";
-            chtData.ChartAreas[0].AxisY.Title = "€'s";
+            chtData.ChartAreas[0].AxisX.Title = "Type";
+            chtData.ChartAreas[0].AxisY.Title = "Number of Times Rented";
             chtData.Series[0].IsVisibleInLegend = false;
 
 
-            chtData.Visible = true;*/
+            chtData.Visible = true;
         }
     }
 }

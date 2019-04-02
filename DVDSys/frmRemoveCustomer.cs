@@ -43,7 +43,7 @@ namespace DVDSys
         private void searchSubmit_Click(object sender, EventArgs e)
         {
             //Validate search
-            if (!Customer.valName(txtName.Text))
+            if (!Vali.valName(txtName.Text))
             {
                 MessageBox.Show("Invalid name", "No Results!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtName.Clear();

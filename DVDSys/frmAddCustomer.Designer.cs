@@ -149,14 +149,14 @@
             this.txtPhone.Location = new System.Drawing.Point(208, 314);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(151, 20);
-            this.txtPhone.TabIndex = 16;
+            this.txtPhone.TabIndex = 17;
             // 
             // btnSubmit
             // 
             this.btnSubmit.Location = new System.Drawing.Point(239, 364);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(95, 23);
-            this.btnSubmit.TabIndex = 17;
+            this.btnSubmit.TabIndex = 18;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.submit_Click);
@@ -166,7 +166,7 @@
             this.btnReset.Location = new System.Drawing.Point(87, 364);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(95, 23);
-            this.btnReset.TabIndex = 18;
+            this.btnReset.TabIndex = 19;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.Reset_Click);
@@ -231,7 +231,7 @@
             this.chkMale.Location = new System.Drawing.Point(208, 291);
             this.chkMale.Name = "chkMale";
             this.chkMale.Size = new System.Drawing.Size(49, 17);
-            this.chkMale.TabIndex = 22;
+            this.chkMale.TabIndex = 15;
             this.chkMale.Text = "Male";
             this.chkMale.UseVisualStyleBackColor = true;
             this.chkMale.Click += new System.EventHandler(this.maleCB_Clicked);
@@ -242,7 +242,7 @@
             this.chkFemale.Location = new System.Drawing.Point(304, 290);
             this.chkFemale.Name = "chkFemale";
             this.chkFemale.Size = new System.Drawing.Size(60, 17);
-            this.chkFemale.TabIndex = 23;
+            this.chkFemale.TabIndex = 16;
             this.chkFemale.Text = "Female";
             this.chkFemale.UseVisualStyleBackColor = true;
             this.chkFemale.Click += new System.EventHandler(this.femaleCB_Clicked);
