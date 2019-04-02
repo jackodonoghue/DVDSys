@@ -59,7 +59,7 @@ namespace DVDSys
 
             dgvSearch.DataSource = Customer.getCustomers(ds, searched).Tables["stk"];
 
-            dgvSearch.Columns[].Visible = false;
+         //   dgvSearch.Columns[].Visible = false;
 
 
             if (ds.Tables[0].Rows.Count == 0)

@@ -291,7 +291,38 @@ namespace DVDSys
 
             //close db
             connection.Close();
-        }        
+        }
+        //
+        // Check if customer already exists
+        //
+        public Boolean alreadyExists()
+        {
+            Boolean res = false;
+
+            //connect to db
+            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+            connection.Open();
+
+            //define sql query
+            String sql = "SELECT * FROM CUSTOMER WHERE PHONE = " + this.phoneNum;
+
+
+            //create oracle command
+            OracleCommand com = new OracleCommand(sql, connection);
+            com.ExecuteNonQuery();
+
+            if (com.ExecuteNonQuery() <= 0)
+            {
+                MessageBox.Show("Customer already exists", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                res = true;
+            }
+
+            //close db
+            connection.Close();            
+            
+            return res;
+        }
     }
 }
 

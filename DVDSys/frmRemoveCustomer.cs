@@ -68,15 +68,14 @@ namespace DVDSys
 
             //reset UI
             txtName.Clear();
-            txtName.Focus();
         }
 
         private void submit_Click(object sender, EventArgs e)
         {
             //remove account
-
             var confirmResult = MessageBox.Show("Are you sure to delete customer " + name +"?", "Confirm Delete!", MessageBoxButtons.YesNo);
 
+            if(custid != null)
             if (confirmResult == DialogResult.Yes)
             {
                 Customer.removeCustomer(custid);
@@ -88,8 +87,7 @@ namespace DVDSys
 
 
             //reset UI
-            txtName.Clear();    
-
+            txtName.Clear();  
             txtName.Focus();
 
         }
@@ -109,16 +107,6 @@ namespace DVDSys
             custid = int.Parse(custidString);
 
             name = (String)row.Cells[1].Value +  " " + (String)row.Cells[2].Value; ;
-        }
-
-        private void frmRemoveCustomer_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtName_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

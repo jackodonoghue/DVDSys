@@ -130,7 +130,7 @@ namespace DVDSys
                 MessageBox.Show("Gender must be selected", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
+            
             //save in DB
             newCustomer.setCustomerID(nextCustID);
             newCustomer.setFName(txtFName.Text.ToUpper());
@@ -145,7 +145,8 @@ namespace DVDSys
             newCustomer.setPhoneNumber(txtPhone.Text.ToUpper());
             newCustomer.setAccountStatus('A');
 
-            newCustomer.addCustomer();
+            if(!newCustomer.alreadyExists())
+                newCustomer.addCustomer();
 
             //reset UI
             btnCustID.Text = Customer.getNextCustID().ToString("000");
