@@ -34,32 +34,63 @@ namespace DVDSys
             Application.Exit();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void frmAnalyseRevenue_Load(object sender, EventArgs e)
         {
-
+            loadYears();
         }
 
-        private void submit_Click(object sender, EventArgs e)
+        public void loadYears()
         {
-            //validate input
-            if (dvdNameTB.Text.Equals(""))
-            {
-                MessageBox.Show("DVD Name must be entered", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                dvdNameTB.Focus();
-                return;
+            int year = Convert.ToInt32(String.Format("{0:yyyy}", DateTime.Today));
+
+            for(int i=0;i<=3;i++)
+            { 
+                cboYear.Items.Add(year - i);
+            }
+        }
+
+        private void cboYear_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+
+             Payment.getRevenue(dt, cboYear.SelectedItem.ToString().Substring(2,2));
+
+            //Array for each month
+            string[] months = new string[12];
+
+            //Array for each value per month
+            decimal[] amounts = new decimal[12];
+
+            for(int i = 0; i < dt.Rows.Count; i++) {
+                amounts[Convert.ToInt32(dt.Rows[i][1]) - 1] = Convert.ToDecimal(dt.Rows[i][0]);
             }
 
+            for (int i = 0; i < 12; i++)
+            {
+                months[i] = Payment.getMonthForAnalysis(i + 1);
+            }
 
-             //reset UI
-            dvdNameTB.Clear();
-            
-            dvdNameTB.Focus();
+            chtData.ChartAreas[0].AxisX.MajorGrid.LineWidth = 0;
+            chtData.ChartAreas[0].AxisY.MajorGrid.LineWidth = 0;
+            chtData.Series[0].LegendText = "Income in €";
 
+            chtData.Series["Series1"]["PointWidth"] = ".5";
+
+            chtData.Series["Series1"]["PixelPointWidth"] = "20";
+            chtData.Series[0].Points.DataBindXY(months, amounts);
+            chtData.ChartAreas["ChartArea1"].AxisX.LabelStyle.Format = "C";
+
+            //chtData.Series[0].Points[0] = "XXX";
+            chtData.Series[0].Label = "#VALY";
+
+            chtData.Titles.Add("Yearly Revenue");
+           // chtData.ChartAreas[0].AxisX.LabelStyle. = 5;
+            chtData.ChartAreas[0].AxisX.Title = "MONTH";
+            chtData.ChartAreas[0].AxisY.Title = "€'s";
+            chtData.Series[0].IsVisibleInLegend = false;
+
+
+            chtData.Visible = true;
         }
     }
 }

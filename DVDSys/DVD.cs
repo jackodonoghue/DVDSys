@@ -223,7 +223,7 @@ namespace DVDSys
             OracleDataAdapter da = new OracleDataAdapter(com);
 
             //check value returned - if null return 1, otherwise return datareader value
-            da.Fill(ds, "stk");
+            da.Fill(ds, "DVD");
 
             //close db
             connection.Close();

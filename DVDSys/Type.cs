@@ -171,6 +171,32 @@ namespace DVDSys
             //close db
             connection.Close();
         }
+        //
+        //Get type data for chart
+        //
+        public static DataTable getRentalPerType(DataTable dt, String start, String end)
+        {
+            //connect to db
+            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+
+            //define sql query
+            String sql = "SELECT DVD.DVDTYPE, COUNT(*) AS COUNT FROM RENTITEM INNER JOIN DVD ON RENTITEM.DVDID=DVD.DVDID WHERE RENTDATE BETWEEN TO_DATE('" + start + "', 'DD/MM/YYYY') AND TO_DATE('" + end + "', 'DD/MM/YYYY') GROUP BY DVD.DVDTYPE";
+
+            //create oracle command
+            OracleCommand com = new OracleCommand(sql, connection);
+
+            //execute query using datareader
+            OracleDataAdapter da = new OracleDataAdapter(com);
+
+            //check value returned - if null return 1, otherwise return datareader value
+            da.Fill(dt);
+
+            //close db
+            connection.Close();
+
+
+            return dt;
+        }
 
     }
 }
