@@ -265,9 +265,6 @@ namespace DVDSys
                 res = true;
             }
 
-            //close db
-            connection.Close();
-
             return res;
         }
     }

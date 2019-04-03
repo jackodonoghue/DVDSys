@@ -58,10 +58,17 @@ namespace DVDSys
 
             if (Account.getLogin(hUsername, hPassword))
             {
-                MessageBox.Show("Welcome");
                 loggedIn = true;
                 parent.showMenu();
                 this.Hide();
+                Payment.checkLateRentals();
+            }
+            else
+            {
+                MessageBox.Show("Login information incorrect", "Error!" ,MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                txtUsername.Clear();
+                txtPassword.Clear();
+                txtUsername.Focus();
             }
         }
     }

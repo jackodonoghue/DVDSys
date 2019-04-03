@@ -48,20 +48,28 @@ namespace DVDSys
 
             dt = Type.getRentalPerType(dt, dtpStart.Text, dtpEnd.Text);
 
-            //Array for each typeToString("dd/M/yyyy", CultureInfo.InvariantCulture)
-            string[] types = new string[Type.getNumTypes()];
-
             //Array for each value per month
             int[] amounts = new int[Type.getNumTypes()];
 
-            for (int i = 0; i < amounts.Length - 1; i++)
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
                 amounts[i] = Convert.ToInt32(dt.Rows[i][1]);
             }
 
+            //Array for each type
+            string[] types = new string[Type.getNumTypes()];
+
+            DataSet ds = new DataSet();
+            Type.getTypes(ds);
+
+            DataTable dt1 = new DataTable();
+            dt1 = ds.Tables[0];
+
+            dt = Type.getRentalPerType(dt, dtpStart.Text, dtpEnd.Text);
+
             for (int i = 0; i < types.Length; i++)
             {
-                types[i] = dt.Rows[i][0].ToString();
+                types[i] = dt1.Rows[i][0].ToString();
             }
 
             chtData.ChartAreas[0].AxisX.MajorGrid.LineWidth = 0;

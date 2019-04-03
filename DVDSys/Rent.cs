@@ -244,43 +244,6 @@ namespace DVDSys
             connection.Close();
         }
         //
-        //Search for rented DVDs
-        //
-        /*public static DataSet getRentedDVDs(int custid)
-        {
-            //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
-
-            //define sql query
-            String sql = "select RentID from Rental WHERE custid = " + custid + "";
-
-            //create oracle command
-            OracleCommand com = new OracleCommand(sql, connection);
-
-            //execute query using datareader
-            OracleDataAdapter da = new OracleDataAdapter(com);
-
-            //check value returned - if null return 1, otherwise return datareader value
-           /* da.Fill(ds, "stk");
-
-            if (ds.Equals(null))
-            {
-                MessageBox.Show(dr.GetValue(0).ToString(), "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-
-            else
-            {
-                nextID = Convert.ToInt32(dr.GetValue(0)) + 1;
-            }
-
-
-            //close db
-            connection.Close();
-
-
-            return ds;
-        }*/
-        //
         //Check for late return
         //
         public static int lateReturn(int rentid)

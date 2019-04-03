@@ -15,7 +15,7 @@ namespace DVDSys
         public frmHome()
         {
             InitializeComponent();
-            this.menuStripHome.Visible = false;            
+            this.menuStripHome.Visible = false;           
         }
 
         public void showMenu()
@@ -27,6 +27,7 @@ namespace DVDSys
             else
             {
                 this.menuStripHome.Visible = true;
+                btnLogin.Visible = false;
             }
         }
 

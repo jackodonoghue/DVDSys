@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DVDSys
 {
@@ -103,6 +104,50 @@ namespace DVDSys
                 default: return "OTH";
 
             }
+        }
+        //
+        //Get late dvds change late value
+        //
+        public static void checkLateRentals()
+        {
+
+            
+            DataSet DS = new DataSet();
+            DataTable dt = new DataTable();
+            
+            //connect to db
+            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+
+            //define sql query
+            String sql = "select DVD.DVDID, RentItem.ReturnDate, RentItem.RentID from DVD inner join RentItem on RentItem.DVDID=DVD.DVDID where (DVD.STATUS != 'A' OR DVD.STATUS != 'I') and RentItem.RETURNDATE < '" + DateTime.Today.ToString("dd-MMM-yyyy") + "'";
+           
+            //create oracle command
+            OracleCommand com = new OracleCommand(sql, connection);
+
+            //execute query using datareader
+            OracleDataAdapter da = new OracleDataAdapter(com);
+
+            //check value returned - if null return 1, otherwise return datareader value
+            da.Fill(DS, "stk");
+            dt = DS.Tables[0];
+
+            connection.Open();
+
+            MessageBox.Show(dt.Rows.Count.ToString());
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                TimeSpan noDays = DateTime.Today - DateTime.Parse(Convert.ToString(dt.Rows[i][1]));
+                
+                //define sql query to update dvd to rented
+                String sql1 = "UPDATE DVD SET status = '" + noDays.ToString().Substring(0,2) + "'  WHERE DVDID = " + Convert.ToInt32(dt.Rows[i][0]);
+
+                //create oracle command
+                OracleCommand com1 = new OracleCommand(sql1, connection);
+                int num1 = com1.ExecuteNonQuery();
+            }
+
+            //close db
+            connection.Close();
         }
     }
 }
