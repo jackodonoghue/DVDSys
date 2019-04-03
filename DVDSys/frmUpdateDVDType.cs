@@ -38,7 +38,7 @@ namespace DVDSys
             Application.Exit();
         }
 
-        private void custUpdateResults_CellDoubleClickContentClick(object sender, DataGridViewCellEventArgs e)
+        private void custUpdateResults_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int rowIndex = e.RowIndex;
            
@@ -59,21 +59,29 @@ namespace DVDSys
 
         private void submit_Click(object sender, EventArgs e)
         {
-            //Save to DB
-            String desc = txtDescription.Text;
-            double price = Convert.ToDouble(nupPrice.Value);
+            if (type.Equals(""))
+            {
+                MessageBox.Show("No type set", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                //Save to DB
+                String desc = txtDescription.Text.ToUpper();
+                double price = Convert.ToDouble(nupPrice.Value);
 
-            Type up = new Type(type, desc, price);
+                Type up = new Type(type, desc, price);
 
 
-            up.updateType();
+                up.updateType();
 
-            //reset UI
-            txtType.Clear();
-            nupPrice.ResetText();
-            txtDescription.Clear();
+                //reset UI
+                txtType.Clear();
+                nupPrice.ResetText();
+                txtDescription.Clear();
 
-            txtType.Focus();
+                txtType.Focus();
+            }
+            
 
         }
 
@@ -82,7 +90,7 @@ namespace DVDSys
             //Validate search
             if (!Vali.valTypeName(txtType.Text))
             {
-                MessageBox.Show("Searched invalid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Search invalid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtType.Clear();
                 txtType.Focus();
                 return;
@@ -94,7 +102,7 @@ namespace DVDSys
 
                 String searched = txtType.Text;
 
-                dgvSearch.DataSource = Type.getSearchTypes(ds, searched).Tables["stk"];
+                dgvSearch.DataSource = Type.getSearchTypes(ds, searched.ToUpper()).Tables["stk"];
 
                 if (ds.Tables[0].Rows.Count == 0)
                 {
@@ -108,13 +116,27 @@ namespace DVDSys
             }    
 
         }
+        //
+        //Reset for search clicked
+        //
+        private void btnResetSearch_Click(object sender, EventArgs e)
+        {
+            //reset UI
+            txtType.Clear();
 
+            txtType.Focus();
+        }
+        //
+        //Reset for submit clicked
+        //
         private void btnReset_Click(object sender, EventArgs e)
         {
             //reset UI
             txtType.Clear();
             nupPrice.Value = 0;
             txtDescription.Clear();
+
+            txtType.Focus();
         }
     }
 }

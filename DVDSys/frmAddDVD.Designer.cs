@@ -77,9 +77,10 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(84, 281);
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.btnReset.Location = new System.Drawing.Point(85, 266);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(95, 23);
+            this.btnReset.Size = new System.Drawing.Size(95, 30);
             this.btnReset.TabIndex = 950;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
@@ -87,9 +88,10 @@
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(236, 281);
+            this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.btnSubmit.Location = new System.Drawing.Point(237, 266);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(95, 23);
+            this.btnSubmit.Size = new System.Drawing.Size(95, 30);
             this.btnSubmit.TabIndex = 900;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
@@ -97,44 +99,48 @@
             // 
             // txtGenre
             // 
-            this.txtGenre.Location = new System.Drawing.Point(211, 180);
+            this.txtGenre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.txtGenre.Location = new System.Drawing.Point(211, 160);
             this.txtGenre.MaxLength = 15;
             this.txtGenre.Name = "txtGenre";
-            this.txtGenre.Size = new System.Drawing.Size(151, 20);
+            this.txtGenre.Size = new System.Drawing.Size(151, 24);
             this.txtGenre.TabIndex = 40;
             // 
             // txtDir
             // 
-            this.txtDir.Location = new System.Drawing.Point(211, 154);
+            this.txtDir.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.txtDir.Location = new System.Drawing.Point(211, 130);
             this.txtDir.MaxLength = 20;
             this.txtDir.Name = "txtDir";
-            this.txtDir.Size = new System.Drawing.Size(151, 20);
+            this.txtDir.Size = new System.Drawing.Size(151, 24);
             this.txtDir.TabIndex = 30;
             // 
             // dtpRelease
             // 
+            this.dtpRelease.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.dtpRelease.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpRelease.Location = new System.Drawing.Point(211, 206);
+            this.dtpRelease.Location = new System.Drawing.Point(211, 190);
             this.dtpRelease.MaxDate = new System.DateTime(2019, 3, 25, 0, 0, 0, 0);
             this.dtpRelease.MinDate = new System.DateTime(1930, 1, 1, 0, 0, 0, 0);
             this.dtpRelease.Name = "dtpRelease";
-            this.dtpRelease.Size = new System.Drawing.Size(98, 20);
+            this.dtpRelease.Size = new System.Drawing.Size(98, 24);
             this.dtpRelease.TabIndex = 50;
             this.dtpRelease.Value = new System.DateTime(2019, 3, 25, 0, 0, 0, 0);
             // 
             // txtTitle
             // 
-            this.txtTitle.Location = new System.Drawing.Point(211, 80);
+            this.txtTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.txtTitle.Location = new System.Drawing.Point(211, 68);
             this.txtTitle.MaxLength = 30;
             this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(151, 20);
+            this.txtTitle.Size = new System.Drawing.Size(151, 24);
             this.txtTitle.TabIndex = 10;
             // 
             // phNumLabel
             // 
             this.phNumLabel.AutoSize = true;
             this.phNumLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.phNumLabel.Location = new System.Drawing.Point(65, 234);
+            this.phNumLabel.Location = new System.Drawing.Point(67, 223);
             this.phNumLabel.Name = "phNumLabel";
             this.phNumLabel.Size = new System.Drawing.Size(47, 18);
             this.phNumLabel.TabIndex = 25;
@@ -144,7 +150,7 @@
             // 
             this.relLabel.AutoSize = true;
             this.relLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.relLabel.Location = new System.Drawing.Point(65, 208);
+            this.relLabel.Location = new System.Drawing.Point(65, 195);
             this.relLabel.Name = "relLabel";
             this.relLabel.Size = new System.Drawing.Size(97, 18);
             this.relLabel.TabIndex = 24;
@@ -154,7 +160,7 @@
             // 
             this.genreLabel.AutoSize = true;
             this.genreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.genreLabel.Location = new System.Drawing.Point(65, 179);
+            this.genreLabel.Location = new System.Drawing.Point(65, 163);
             this.genreLabel.Name = "genreLabel";
             this.genreLabel.Size = new System.Drawing.Size(49, 18);
             this.genreLabel.TabIndex = 23;
@@ -164,7 +170,7 @@
             // 
             this.dirLabel.AutoSize = true;
             this.dirLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.dirLabel.Location = new System.Drawing.Point(65, 153);
+            this.dirLabel.Location = new System.Drawing.Point(65, 133);
             this.dirLabel.Name = "dirLabel";
             this.dirLabel.Size = new System.Drawing.Size(61, 18);
             this.dirLabel.TabIndex = 22;
@@ -174,7 +180,7 @@
             // 
             this.typeLabel.AutoSize = true;
             this.typeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.typeLabel.Location = new System.Drawing.Point(65, 123);
+            this.typeLabel.Location = new System.Drawing.Point(65, 101);
             this.typeLabel.Name = "typeLabel";
             this.typeLabel.Size = new System.Drawing.Size(75, 18);
             this.typeLabel.TabIndex = 20;
@@ -184,7 +190,7 @@
             // 
             this.titleLabel.AutoSize = true;
             this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.titleLabel.Location = new System.Drawing.Point(65, 80);
+            this.titleLabel.Location = new System.Drawing.Point(65, 71);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(35, 18);
             this.titleLabel.TabIndex = 19;
@@ -192,35 +198,37 @@
             // 
             // cboType
             // 
+            this.cboType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.cboType.FormattingEnabled = true;
-            this.cboType.Items.AddRange(new object[] {
-            "CL",
-            "KD",
-            "NR"});
-            this.cboType.Location = new System.Drawing.Point(211, 119);
+            this.cboType.IntegralHeight = false;
+            this.cboType.Location = new System.Drawing.Point(211, 98);
             this.cboType.Name = "cboType";
-            this.cboType.Size = new System.Drawing.Size(53, 21);
+            this.cboType.Size = new System.Drawing.Size(53, 26);
             this.cboType.TabIndex = 20;
             // 
             // cboActive
             // 
+            this.cboActive.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboActive.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.cboActive.FormattingEnabled = true;
             this.cboActive.Items.AddRange(new object[] {
             "yes",
             "no"});
-            this.cboActive.Location = new System.Drawing.Point(211, 235);
+            this.cboActive.Location = new System.Drawing.Point(211, 220);
             this.cboActive.Name = "cboActive";
-            this.cboActive.Size = new System.Drawing.Size(53, 21);
+            this.cboActive.Size = new System.Drawing.Size(53, 26);
             this.cboActive.TabIndex = 60;
             // 
             // btnID
             // 
             this.btnID.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.btnID.Enabled = false;
+            this.btnID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnID.Location = new System.Drawing.Point(211, 38);
             this.btnID.MaxLength = 3;
             this.btnID.Name = "btnID";
-            this.btnID.Size = new System.Drawing.Size(40, 20);
+            this.btnID.Size = new System.Drawing.Size(40, 24);
             this.btnID.TabIndex = 1000;
             // 
             // label1
@@ -237,7 +245,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(460, 316);
+            this.ClientSize = new System.Drawing.Size(460, 320);
             this.Controls.Add(this.btnID);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cboActive);
@@ -256,6 +264,7 @@
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.menuStrip1);
             this.Name = "frmAddDVD";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add DVD";
             this.Load += new System.EventHandler(this.frmAddDVD_Load);
             this.menuStrip1.ResumeLayout(false);

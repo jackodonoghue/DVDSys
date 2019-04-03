@@ -297,6 +297,7 @@ namespace DVDSys
         //
         public Boolean alreadyExists()
         {
+            DataSet ds = new DataSet();
             Boolean res = false;
 
             //connect to db
@@ -306,14 +307,21 @@ namespace DVDSys
             //define sql query
             String sql = "SELECT * FROM CUSTOMER WHERE PHONE = " + this.phoneNum;
 
-
             //create oracle command
             OracleCommand com = new OracleCommand(sql, connection);
-            com.ExecuteNonQuery();
 
-            if (com.ExecuteNonQuery() <= 0)
+            //execute query using datareader
+            OracleDataAdapter da = new OracleDataAdapter(com);
+
+            //check value returned - if null return 1, otherwise return datareader value
+            da.Fill(ds, "DVD");
+
+            //close db
+            connection.Close();
+
+            if (ds.Tables[0].Rows.Count > 0)
             {
-                MessageBox.Show("Customer already exists", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Customer already exists", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 res = true;
             }

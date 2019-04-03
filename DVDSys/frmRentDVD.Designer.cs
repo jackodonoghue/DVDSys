@@ -59,50 +59,55 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(868, 25);
+            this.menuStrip1.Size = new System.Drawing.Size(868, 30);
             this.menuStrip1.TabIndex = 30;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // backToolStripMenuItem
             // 
+            this.backToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.backToolStripMenuItem.Name = "backToolStripMenuItem";
-            this.backToolStripMenuItem.Size = new System.Drawing.Size(44, 19);
+            this.backToolStripMenuItem.Size = new System.Drawing.Size(52, 24);
             this.backToolStripMenuItem.Text = "Back";
             this.backToolStripMenuItem.Click += new System.EventHandler(this.backToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
+            this.exitToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(37, 19);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(45, 24);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(734, 491);
+            this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.btnConfirm.Location = new System.Drawing.Point(690, 475);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(75, 23);
-            this.btnConfirm.TabIndex = 61;
+            this.btnConfirm.Size = new System.Drawing.Size(75, 31);
+            this.btnConfirm.TabIndex = 70;
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(653, 491);
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.btnReset.Location = new System.Drawing.Point(524, 475);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(75, 23);
-            this.btnReset.TabIndex = 62;
+            this.btnReset.Size = new System.Drawing.Size(75, 31);
+            this.btnReset.TabIndex = 60;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnSearchCustomer
             // 
+            this.btnSearchCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearchCustomer.Location = new System.Drawing.Point(371, 32);
             this.btnSearchCustomer.Name = "btnSearchCustomer";
-            this.btnSearchCustomer.Size = new System.Drawing.Size(95, 23);
-            this.btnSearchCustomer.TabIndex = 65;
+            this.btnSearchCustomer.Size = new System.Drawing.Size(95, 28);
+            this.btnSearchCustomer.TabIndex = 20;
             this.btnSearchCustomer.Text = "Submit";
             this.btnSearchCustomer.UseVisualStyleBackColor = true;
             this.btnSearchCustomer.Click += new System.EventHandler(this.submitCustomer_Click);
@@ -119,15 +124,16 @@
             // 
             // txtSearch
             // 
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.txtSearch.Location = new System.Drawing.Point(179, 35);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(186, 20);
-            this.txtSearch.TabIndex = 63;
+            this.txtSearch.Size = new System.Drawing.Size(186, 24);
+            this.txtSearch.TabIndex = 10;
             // 
             // dgvSearch
             // 
             this.dgvSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSearch.Location = new System.Drawing.Point(15, 61);
+            this.dgvSearch.Location = new System.Drawing.Point(15, 67);
             this.dgvSearch.Name = "dgvSearch";
             this.dgvSearch.Size = new System.Drawing.Size(451, 176);
             this.dgvSearch.TabIndex = 66;
@@ -154,10 +160,11 @@
             // 
             // txtDVDName
             // 
+            this.txtDVDName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.txtDVDName.Location = new System.Drawing.Point(179, 259);
             this.txtDVDName.Name = "txtDVDName";
-            this.txtDVDName.Size = new System.Drawing.Size(186, 20);
-            this.txtDVDName.TabIndex = 78;
+            this.txtDVDName.Size = new System.Drawing.Size(186, 24);
+            this.txtDVDName.TabIndex = 30;
             // 
             // dvdUpdateLabel
             // 
@@ -171,10 +178,11 @@
             // 
             // btnSearchDVD
             // 
+            this.btnSearchDVD.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearchDVD.Location = new System.Drawing.Point(371, 257);
             this.btnSearchDVD.Name = "btnSearchDVD";
-            this.btnSearchDVD.Size = new System.Drawing.Size(95, 23);
-            this.btnSearchDVD.TabIndex = 80;
+            this.btnSearchDVD.Size = new System.Drawing.Size(95, 28);
+            this.btnSearchDVD.TabIndex = 40;
             this.btnSearchDVD.Text = "Submit";
             this.btnSearchDVD.UseVisualStyleBackColor = true;
             this.btnSearchDVD.Click += new System.EventHandler(this.btnSearchDVD_Click);
@@ -182,7 +190,7 @@
             // dgvDVDSearch
             // 
             this.dgvDVDSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDVDSearch.Location = new System.Drawing.Point(12, 285);
+            this.dgvDVDSearch.Location = new System.Drawing.Point(12, 291);
             this.dgvDVDSearch.Name = "dgvDVDSearch";
             this.dgvDVDSearch.Size = new System.Drawing.Size(454, 166);
             this.dgvDVDSearch.TabIndex = 82;
@@ -201,10 +209,11 @@
             // 
             // btnRemove
             // 
+            this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnRemove.Location = new System.Drawing.Point(785, 285);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(75, 23);
-            this.btnRemove.TabIndex = 84;
+            this.btnRemove.Size = new System.Drawing.Size(75, 31);
+            this.btnRemove.TabIndex = 50;
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = true;
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
@@ -242,6 +251,7 @@
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.menuStrip1);
             this.Name = "frmRentDVD";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DVD Rental";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

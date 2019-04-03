@@ -15,6 +15,19 @@ namespace DVDSys
         public frmHome()
         {
             InitializeComponent();
+            this.menuStripHome.Visible = false;            
+        }
+
+        public void showMenu()
+        {
+            if (frmLogin.loggedIn == false)
+            {
+                this.menuStripHome.Visible = false;
+            }
+            else
+            {
+                this.menuStripHome.Visible = true;
+            }
         }
 
         private void addCustomerToolStripMenuItem_Click(object sender, EventArgs e)
@@ -106,9 +119,10 @@ namespace DVDSys
             Application.Exit();
         }
 
-        private void frmHome_Load(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
-
+            frmLogin nextForm = new frmLogin(this);
+            nextForm.Show();
         }
     }
 }

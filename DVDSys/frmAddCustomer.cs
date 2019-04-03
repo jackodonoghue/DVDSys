@@ -28,11 +28,6 @@ namespace DVDSys
             parent = Parent;
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void AddCustomer_Load(object sender, EventArgs e)
         {
             btnCustID.Text = Customer.getNextCustID().ToString("000");
@@ -51,7 +46,9 @@ namespace DVDSys
             this.Close();
             parent.Visible = true;
         }
-
+        //
+        //Submit button clicked
+        //
         private void submit_Click(object sender, EventArgs e)
         {
             // validate data
@@ -113,14 +110,14 @@ namespace DVDSys
 
             if (!Vali.valName(txtAddress1.Text))
             {
-                MessageBox.Show("First Name invalid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Address invalid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtAddress1.Focus();
                 return;
             }
 
             if (!Vali.valName(txtAddress2.Text))
             {
-                MessageBox.Show("First Name invalid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Address invalid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtAddress2.Focus();
                 return;
             }
@@ -161,8 +158,9 @@ namespace DVDSys
             txtFName.Focus();
              
         }
-
-        //Check Boxes
+        //
+        //Check if Check Box is Clicked
+        //
         private void maleCB_Clicked(object sender, EventArgs e)
         {
             chkMale.Checked = true;
@@ -176,10 +174,11 @@ namespace DVDSys
 
             chkMale.Checked = false;
         }
-
+        //
+        //Reset UI
+        //
         private void Reset_Click(object sender, EventArgs e)
-        {
-            //reset UI
+        {            
             txtFName.Clear();
             txtSName.Clear();
             txtAddress1.Clear();

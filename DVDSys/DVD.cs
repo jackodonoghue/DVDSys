@@ -133,7 +133,7 @@ namespace DVDSys
 
             if (num >= 0)
             {
-                MessageBox.Show("DVD " + this.id + " added", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("DVD " + this.title + " added", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             else
@@ -164,12 +164,12 @@ namespace DVDSys
 
             if (com.ExecuteNonQuery() >= 0)
             {
-                MessageBox.Show("Customer " + this.id + " updated", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("DVD " + this.title + " updated", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             else
             {
-                MessageBox.Show("Fail", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Updat failed", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             //close db
@@ -185,7 +185,7 @@ namespace DVDSys
             connection.Open();
 
             //define sql query
-            String sql = "UPDATE DVD SET Active = 'I' WHERE DVDID = " + id;
+            String sql = "UPDATE DVD SET STATUS = 'I' WHERE DVDID = " + id;
 
 
             //create oracle command
@@ -230,6 +230,45 @@ namespace DVDSys
 
 
             return ds;
+        }
+        //
+        // Check if DVD already exists
+        //
+        public Boolean alreadyExists()
+        {
+            Boolean res = false;
+            DataSet ds = new DataSet();
+
+            //connect to db
+            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+            connection.Open();
+
+            //define sql query
+            String sql = "SELECT * FROM DVD WHERE TITLE = '" + this.title + "'";
+            
+            //create oracle command
+            OracleCommand com = new OracleCommand(sql, connection);
+
+            //execute query using datareader
+            OracleDataAdapter da = new OracleDataAdapter(com);
+
+            //check value returned - if null return 1, otherwise return datareader value
+            da.Fill(ds, "DVD");
+
+            //close db
+            connection.Close();
+
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                MessageBox.Show("DVD already exists", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                res = true;
+            }
+
+            //close db
+            connection.Close();
+
+            return res;
         }
     }
 }

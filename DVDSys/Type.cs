@@ -62,8 +62,9 @@ namespace DVDSys
         {
             this.price = price;
         }
-
+        //
         //add customer
+        //
         public void addType()
         {
             //connect to db
@@ -92,7 +93,9 @@ namespace DVDSys
             //close db
             connection.Close();
         }
-
+        //
+        //Get all types from database
+        //
         public static DataSet getTypes(DataSet DS)
         {
             //connect to db
@@ -117,7 +120,9 @@ namespace DVDSys
             return DS;
 
         }
-
+        //
+        //Retrieve types from database with a corresponding search term
+        //
         public static DataSet getSearchTypes(DataSet DS, String searchTerm)
         {
             
@@ -142,7 +147,9 @@ namespace DVDSys
 
                 return DS;
         }
-
+        //
+        //Update Types
+        //
         public void updateType()
         {
 
@@ -198,7 +205,7 @@ namespace DVDSys
             return dt;
         }
         //
-        //Get type data for chart
+        //Get number of types that have dvds available to rent 
         //
         public static int getNumTypes()
         {
@@ -208,7 +215,7 @@ namespace DVDSys
             DataTable dt = new DataTable();
 
             //define sql query
-            String sql = "select count(*) from type";
+            String sql = "select COUNT(UNIQUE(DVDTYPE)) from DVD where STATUS != 'I'";
 
             //create oracle command
             OracleCommand com = new OracleCommand(sql, connection);
@@ -223,6 +230,45 @@ namespace DVDSys
             connection.Close();
 
             return Convert.ToInt32(dt.Rows[0][0]);
+        }
+        //
+        // Check if type already exists
+        //
+        public Boolean alreadyExists()
+        {
+            DataSet ds = new DataSet();
+            Boolean res = false;
+
+            //connect to db
+            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+            connection.Open();
+
+            //define sql query
+            String sql = "SELECT * FROM TYPE WHERE DVDTYPE = TO_CHAR('" + this.type + "')";
+            
+            //create oracle command
+            OracleCommand com = new OracleCommand(sql, connection);
+
+            //execute query using datareader
+            OracleDataAdapter da = new OracleDataAdapter(com);
+
+            //check value returned - if null return 1, otherwise return datareader value
+            da.Fill(ds, "DVD");
+
+            //close db
+            connection.Close();
+
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                MessageBox.Show("Type already exists", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                res = true;
+            }
+
+            //close db
+            connection.Close();
+
+            return res;
         }
     }
 }

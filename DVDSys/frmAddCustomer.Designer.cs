@@ -56,18 +56,17 @@
             // 
             this.fNameLabel.AutoSize = true;
             this.fNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.fNameLabel.Location = new System.Drawing.Point(62, 91);
+            this.fNameLabel.Location = new System.Drawing.Point(62, 74);
             this.fNameLabel.Name = "fNameLabel";
             this.fNameLabel.Size = new System.Drawing.Size(81, 18);
             this.fNameLabel.TabIndex = 1;
             this.fNameLabel.Text = "First Name";
-            this.fNameLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // sNameLabel
             // 
             this.sNameLabel.AutoSize = true;
             this.sNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.sNameLabel.Location = new System.Drawing.Point(62, 134);
+            this.sNameLabel.Location = new System.Drawing.Point(62, 104);
             this.sNameLabel.Name = "sNameLabel";
             this.sNameLabel.Size = new System.Drawing.Size(68, 18);
             this.sNameLabel.TabIndex = 2;
@@ -77,7 +76,7 @@
             // 
             this.dOBLabel.AutoSize = true;
             this.dOBLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.dOBLabel.Location = new System.Drawing.Point(62, 179);
+            this.dOBLabel.Location = new System.Drawing.Point(64, 139);
             this.dOBLabel.Name = "dOBLabel";
             this.dOBLabel.Size = new System.Drawing.Size(90, 18);
             this.dOBLabel.TabIndex = 3;
@@ -87,7 +86,7 @@
             // 
             this.addressLabel.AutoSize = true;
             this.addressLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.addressLabel.Location = new System.Drawing.Point(62, 223);
+            this.addressLabel.Location = new System.Drawing.Point(64, 167);
             this.addressLabel.Name = "addressLabel";
             this.addressLabel.Size = new System.Drawing.Size(62, 18);
             this.addressLabel.TabIndex = 4;
@@ -97,7 +96,7 @@
             // 
             this.genLabel.AutoSize = true;
             this.genLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.genLabel.Location = new System.Drawing.Point(62, 287);
+            this.genLabel.Location = new System.Drawing.Point(62, 226);
             this.genLabel.Name = "genLabel";
             this.genLabel.Size = new System.Drawing.Size(57, 18);
             this.genLabel.TabIndex = 6;
@@ -107,7 +106,7 @@
             // 
             this.phNumLabel.AutoSize = true;
             this.phNumLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.phNumLabel.Location = new System.Drawing.Point(62, 316);
+            this.phNumLabel.Location = new System.Drawing.Point(62, 256);
             this.phNumLabel.Name = "phNumLabel";
             this.phNumLabel.Size = new System.Drawing.Size(108, 18);
             this.phNumLabel.TabIndex = 7;
@@ -115,47 +114,53 @@
             // 
             // txtFName
             // 
-            this.txtFName.Location = new System.Drawing.Point(208, 91);
+            this.txtFName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.txtFName.Location = new System.Drawing.Point(208, 71);
             this.txtFName.Name = "txtFName";
-            this.txtFName.Size = new System.Drawing.Size(151, 20);
+            this.txtFName.Size = new System.Drawing.Size(151, 24);
             this.txtFName.TabIndex = 8;
             // 
             // txtSName
             // 
-            this.txtSName.Location = new System.Drawing.Point(208, 132);
+            this.txtSName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.txtSName.Location = new System.Drawing.Point(208, 101);
             this.txtSName.Name = "txtSName";
-            this.txtSName.Size = new System.Drawing.Size(151, 20);
+            this.txtSName.Size = new System.Drawing.Size(151, 24);
             this.txtSName.TabIndex = 9;
             // 
             // dtpDOB
             // 
             this.dtpDOB.CustomFormat = "";
+            this.dtpDOB.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDOB.Location = new System.Drawing.Point(208, 177);
+            this.dtpDOB.Location = new System.Drawing.Point(208, 134);
             this.dtpDOB.Name = "dtpDOB";
-            this.dtpDOB.Size = new System.Drawing.Size(151, 20);
+            this.dtpDOB.Size = new System.Drawing.Size(151, 24);
             this.dtpDOB.TabIndex = 10;
             this.dtpDOB.Value = new System.DateTime(2019, 2, 13, 0, 0, 0, 0);
             // 
             // txtAddress1
             // 
-            this.txtAddress1.Location = new System.Drawing.Point(208, 224);
+            this.txtAddress1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.txtAddress1.Location = new System.Drawing.Point(208, 164);
             this.txtAddress1.Name = "txtAddress1";
-            this.txtAddress1.Size = new System.Drawing.Size(151, 20);
+            this.txtAddress1.Size = new System.Drawing.Size(151, 24);
             this.txtAddress1.TabIndex = 11;
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(208, 314);
+            this.txtPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.txtPhone.Location = new System.Drawing.Point(208, 253);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(151, 20);
+            this.txtPhone.Size = new System.Drawing.Size(151, 24);
             this.txtPhone.TabIndex = 17;
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(239, 364);
+            this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.btnSubmit.Location = new System.Drawing.Point(239, 283);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(95, 23);
+            this.btnSubmit.Size = new System.Drawing.Size(95, 31);
             this.btnSubmit.TabIndex = 18;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
@@ -163,9 +168,10 @@
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(87, 364);
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.btnReset.Location = new System.Drawing.Point(87, 283);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(95, 23);
+            this.btnReset.Size = new System.Drawing.Size(95, 31);
             this.btnReset.TabIndex = 19;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
@@ -178,39 +184,43 @@
             this.exitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(434, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(434, 28);
             this.menuStrip1.TabIndex = 19;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // backToolStripMenuItem
             // 
+            this.backToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.backToolStripMenuItem.Name = "backToolStripMenuItem";
-            this.backToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.backToolStripMenuItem.Size = new System.Drawing.Size(52, 24);
             this.backToolStripMenuItem.Text = "Back";
             this.backToolStripMenuItem.Click += new System.EventHandler(this.backToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
+            this.exitToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(45, 24);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.mnuExit_Click);
             // 
             // txtAddress2
             // 
-            this.txtAddress2.Location = new System.Drawing.Point(208, 250);
+            this.txtAddress2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.txtAddress2.Location = new System.Drawing.Point(208, 194);
             this.txtAddress2.Name = "txtAddress2";
-            this.txtAddress2.Size = new System.Drawing.Size(151, 20);
+            this.txtAddress2.Size = new System.Drawing.Size(151, 24);
             this.txtAddress2.TabIndex = 14;
             // 
             // btnCustID
             // 
             this.btnCustID.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.btnCustID.Enabled = false;
+            this.btnCustID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnCustID.Location = new System.Drawing.Point(208, 41);
             this.btnCustID.MaxLength = 3;
             this.btnCustID.Name = "btnCustID";
-            this.btnCustID.Size = new System.Drawing.Size(40, 20);
+            this.btnCustID.Size = new System.Drawing.Size(40, 24);
             this.btnCustID.TabIndex = 21;
             // 
             // label1
@@ -228,9 +238,10 @@
             this.chkMale.AutoSize = true;
             this.chkMale.Checked = true;
             this.chkMale.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkMale.Location = new System.Drawing.Point(208, 291);
+            this.chkMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.chkMale.Location = new System.Drawing.Point(206, 225);
             this.chkMale.Name = "chkMale";
-            this.chkMale.Size = new System.Drawing.Size(49, 17);
+            this.chkMale.Size = new System.Drawing.Size(59, 22);
             this.chkMale.TabIndex = 15;
             this.chkMale.Text = "Male";
             this.chkMale.UseVisualStyleBackColor = true;
@@ -239,9 +250,10 @@
             // chkFemale
             // 
             this.chkFemale.AutoSize = true;
-            this.chkFemale.Location = new System.Drawing.Point(304, 290);
+            this.chkFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.chkFemale.Location = new System.Drawing.Point(302, 224);
             this.chkFemale.Name = "chkFemale";
-            this.chkFemale.Size = new System.Drawing.Size(60, 17);
+            this.chkFemale.Size = new System.Drawing.Size(76, 22);
             this.chkFemale.TabIndex = 16;
             this.chkFemale.Text = "Female";
             this.chkFemale.UseVisualStyleBackColor = true;
@@ -251,7 +263,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 407);
+            this.ClientSize = new System.Drawing.Size(434, 332);
             this.Controls.Add(this.chkFemale);
             this.Controls.Add(this.chkMale);
             this.Controls.Add(this.btnCustID);
@@ -273,6 +285,7 @@
             this.Controls.Add(this.fNameLabel);
             this.MinimumSize = new System.Drawing.Size(450, 300);
             this.Name = "frmAddCustomer";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Customer";
             this.Load += new System.EventHandler(this.AddCustomer_Load);
             this.menuStrip1.ResumeLayout(false);

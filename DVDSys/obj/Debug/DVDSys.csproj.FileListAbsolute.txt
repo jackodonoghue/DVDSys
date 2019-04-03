@@ -85,3 +85,4 @@ C:\Users\t00194275\Desktop\DVDSys\DVDSys\bin\Debug\Oracle.ManagedDataAccess.Enti
 C:\Users\t00194275\Desktop\DVDSys\DVDSys\bin\Debug\EntityFramework.xml
 C:\Users\t00194275\Desktop\DVDSys\DVDSys\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\t00194275\Desktop\DVDSys\DVDSys\obj\Debug\DVDSys.csproj.CopyComplete
+C:\Users\t00194275\Desktop\DVDSys\DVDSys\obj\Debug\DVDSys.frmLogin.resources

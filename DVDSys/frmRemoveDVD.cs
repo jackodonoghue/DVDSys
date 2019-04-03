@@ -28,13 +28,13 @@ namespace DVDSys
             parent = Parent;
         }
 
-        private void back_Click(object sender, EventArgs e)
+        private void backToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
             parent.Visible = true;
         }
 
-        private void exit_Click(object sender, EventArgs e)
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
@@ -51,15 +51,12 @@ namespace DVDSys
 
             else
             {
-                //search DVD
-
-
                 //Search
                 DataSet ds = new DataSet();
 
                 String searched = txtSearch.Text;
 
-                dgvSearch.DataSource = DVD.getDVDS(ds, searched).Tables["stk"];
+                dgvSearch.DataSource = DVD.getDVDS(ds, searched.ToUpper()).Tables["stk"];
 
                 if (ds.Tables[0].Rows.Count == 0)
                 {
@@ -72,19 +69,14 @@ namespace DVDSys
             }
         }
 
-        private void dgvSearch_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvSearch_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int rowIndex = e.RowIndex;
 
             DataGridViewRow row = dgvSearch.Rows[rowIndex];
 
-           
-
-
             ID = int.Parse(row.Cells[0].Value.ToString());
             title = (String)row.Cells[2].Value;
-
-            MessageBox.Show(ID + title, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void submit_Click(object sender, EventArgs e)
@@ -114,9 +106,14 @@ namespace DVDSys
                     return;
                 }                
             }
+        }
 
-            
+        private void btnSearchReset_Click(object sender, EventArgs e)
+        {
+            //reset UI
+            txtSearch.Clear();
 
+            txtSearch.Focus();
         }
     }
 }

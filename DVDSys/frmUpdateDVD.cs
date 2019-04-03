@@ -38,6 +38,23 @@ namespace DVDSys
             parent.Visible = true;
         }
 
+        private void frmUpdateDVD_Load(object sender, EventArgs e)
+        {
+            //Get types for drop down 
+            DataSet ds = new DataSet();
+
+            Type.getTypes(ds);
+            DataTable dt = new DataTable();
+            dt = ds.Tables[0];
+
+            for (int i = 0; i < dt.Rows.Count; i++)
+            {
+                cboType.Items.Add(dt.Rows[i][0].ToString());
+            }
+        }
+        //
+        //Search button clicked
+        //
         private void btnSearchSubmit_Click(object sender, EventArgs e)
         {
             //validate input
@@ -58,7 +75,7 @@ namespace DVDSys
 
                 String searched = txtSearch.Text;
 
-                dgvSearch.DataSource = DVD.getDVDS(ds, searched).Tables["stk"];
+                dgvSearch.DataSource = DVD.getDVDS(ds, searched.ToUpper()).Tables["stk"];
 
                 if (ds.Tables[0].Rows.Count == 0)
                 {
@@ -70,8 +87,10 @@ namespace DVDSys
                 txtSearch.Focus();
             }           
         }
-
-        private void dgvSearch_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        //
+        //Fill cells with data from table
+        //
+        private void dgvSearch_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int rowIndex = e.RowIndex;
 
@@ -84,21 +103,18 @@ namespace DVDSys
             txtGenre.Text = (String)row.Cells[4].Value;
             dtpRelease.Value = Convert.ToDateTime(row.Cells[5].Value);
         }
-
+        //
+        //update dvd button clicked
+        //
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             //validate input
             if (isValid())
             {
                 //save data in file 
-                DVD dvd = new DVD(ID, txtTitle.Text, cboType.Text, txtDir.Text, txtGenre.Text, dtpRelease.Text, 'y');
-
-                MessageBox.Show("dvd " + dtpRelease.Text, "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DVD dvd = new DVD(ID, txtTitle.Text.ToUpper(), cboType.Text.ToUpper(), txtDir.Text.ToUpper(), txtGenre.Text.ToUpper(), dtpRelease.Text.ToUpper(), 'y');
 
                 dvd.updateDVD();
-
-                //display confirmation message
-                MessageBox.Show("DVD " + txtTitle.Text + " updated", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 //reset UI
                 txtTitle.Clear();
@@ -108,9 +124,6 @@ namespace DVDSys
 
                 txtTitle.Focus();
             }
-
-            
-
         }
         //
         //Validate Inputs
@@ -161,8 +174,9 @@ namespace DVDSys
 
             return true;
         }
-
-
+        //
+        //Reset form button clicked
+        //
         private void btnReset_Click(object sender, EventArgs e)
         {
             txtTitle.Clear();
@@ -172,6 +186,14 @@ namespace DVDSys
             dtpRelease.ResetText();
             
             txtTitle.Focus();
+        }
+        //
+        //Reset search button clicked
+        //
+        private void btnSearchReset_Click(object sender, EventArgs e)
+        {
+            txtSearch.Clear();
+            txtSearch.Focus();
         }
     }
 }

@@ -103,14 +103,15 @@
             this.lstCart.ItemHeight = 18;
             this.lstCart.Location = new System.Drawing.Point(511, 70);
             this.lstCart.Name = "lstCart";
-            this.lstCart.Size = new System.Drawing.Size(283, 382);
+            this.lstCart.Size = new System.Drawing.Size(325, 382);
             this.lstCart.TabIndex = 91;
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(653, 498);
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.btnReset.Location = new System.Drawing.Point(548, 471);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.Size = new System.Drawing.Size(75, 31);
             this.btnReset.TabIndex = 86;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
@@ -118,9 +119,10 @@
             // 
             // btnConfirm
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(734, 498);
+            this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.btnConfirm.Location = new System.Drawing.Point(725, 471);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(75, 23);
+            this.btnConfirm.Size = new System.Drawing.Size(75, 31);
             this.btnConfirm.TabIndex = 85;
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = true;
@@ -149,6 +151,7 @@
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.menuStrip1);
             this.Name = "frmDVDRet";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Return DVD";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

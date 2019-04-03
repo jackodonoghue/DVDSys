@@ -28,30 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnReset = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.dgvSearchResults = new System.Windows.Forms.DataGridView();
             this.btnSearch = new System.Windows.Forms.Button();
             this.custUpdateLabel = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.backToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchResults)).BeginInit();
+            this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnReset
-            // 
-            this.btnReset.Location = new System.Drawing.Point(41, 309);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(95, 23);
-            this.btnReset.TabIndex = 43;
-            this.btnReset.Text = "Reset";
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.Reset_Click);
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(285, 300);
+            this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.btnSubmit.Location = new System.Drawing.Point(162, 303);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(95, 41);
+            this.btnSubmit.Size = new System.Drawing.Size(95, 29);
             this.btnSubmit.TabIndex = 42;
             this.btnSubmit.Text = "Confirm Account Removal";
             this.btnSubmit.UseVisualStyleBackColor = true;
@@ -60,17 +54,19 @@
             // dgvSearchResults
             // 
             this.dgvSearchResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSearchResults.Location = new System.Drawing.Point(30, 101);
+            this.dgvSearchResults.Location = new System.Drawing.Point(30, 121);
             this.dgvSearchResults.Name = "dgvSearchResults";
             this.dgvSearchResults.Size = new System.Drawing.Size(355, 176);
             this.dgvSearchResults.TabIndex = 51;
-            this.dgvSearchResults.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataSetGridView_CellContentClick);
+            this.dgvSearchResults.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataSetGridView_CellClick);
+            this.dgvSearchResults.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataSetGridView_CellClick);
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(146, 52);
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.btnSearch.Location = new System.Drawing.Point(162, 86);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(95, 23);
+            this.btnSearch.Size = new System.Drawing.Size(95, 29);
             this.btnSearch.TabIndex = 50;
             this.btnSearch.Text = "Submit";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -80,7 +76,7 @@
             // 
             this.custUpdateLabel.AutoSize = true;
             this.custUpdateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.custUpdateLabel.Location = new System.Drawing.Point(27, 13);
+            this.custUpdateLabel.Location = new System.Drawing.Point(46, 50);
             this.custUpdateLabel.Name = "custUpdateLabel";
             this.custUpdateLabel.Size = new System.Drawing.Size(161, 18);
             this.custUpdateLabel.TabIndex = 49;
@@ -88,39 +84,71 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(194, 11);
+            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.txtName.Location = new System.Drawing.Point(213, 48);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(186, 20);
+            this.txtName.Size = new System.Drawing.Size(169, 24);
             this.txtName.TabIndex = 48;
-            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
+            // 
+            // menuStrip2
+            // 
+            this.menuStrip2.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible;
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.backToolStripMenuItem,
+            this.toolStripMenuItem1});
+            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Size = new System.Drawing.Size(434, 28);
+            this.menuStrip2.TabIndex = 80;
+            this.menuStrip2.Text = "menuStrip2";
+            // 
+            // backToolStripMenuItem
+            // 
+            this.backToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.backToolStripMenuItem.Name = "backToolStripMenuItem";
+            this.backToolStripMenuItem.Size = new System.Drawing.Size(52, 24);
+            this.backToolStripMenuItem.Text = "Back";
+            this.backToolStripMenuItem.Click += new System.EventHandler(this.back_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(45, 24);
+            this.toolStripMenuItem1.Text = "Exit";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.exit_Click);
             // 
             // frmRemoveCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(434, 356);
+            this.Controls.Add(this.menuStrip2);
             this.Controls.Add(this.dgvSearchResults);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.custUpdateLabel);
             this.Controls.Add(this.txtName);
-            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnSubmit);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.Name = "frmRemoveCustomer";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Remove Customer";
-            this.Load += new System.EventHandler(this.frmRemoveCustomer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchResults)).EndInit();
+            this.menuStrip2.ResumeLayout(false);
+            this.menuStrip2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.DataGridView dgvSearchResults;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label custUpdateLabel;
         private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem backToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }

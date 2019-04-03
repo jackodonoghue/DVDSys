@@ -121,7 +121,7 @@ namespace DVDSys
             if (alreadyEntered)
             {
                 //put dvd details into cart
-                lstCart.Items.Add(String.Format("{0:000}", dgvDVDSearch.Rows[dgvDVDSearch.CurrentCell.RowIndex].Cells[0].Value) + " " + dgvDVDSearch.Rows[dgvDVDSearch.CurrentCell.RowIndex].Cells[2].Value.ToString());
+                lstCart.Items.Add(String.Format("{0:000}", dgvDVDSearch.Rows[dgvDVDSearch.CurrentCell.RowIndex].Cells[0].Value) + " " + dgvDVDSearch.Rows[dgvDVDSearch.CurrentCell.RowIndex].Cells[2].Value.ToString() + " | " + dgvDVDSearch.Rows[dgvDVDSearch.CurrentCell.RowIndex].Cells[1].Value.ToString());
 
                 //Add price to total
                 price += Rent.getPrice(dgvDVDSearch.Rows[dgvDVDSearch.CurrentCell.RowIndex].Cells[1].Value.ToString());
@@ -136,7 +136,15 @@ namespace DVDSys
         {
             if (lstCart.SelectedIndex >= 0)
             {
+                price -= Rent.getPrice(lstCart.SelectedItem.ToString().Substring(lstCart.SelectedItem.ToString().Length - 2, 2));
+
+
                 lstCart.Items.RemoveAt(lstCart.SelectedIndex);
+
+                lblTotal.Text = "\u20AC" + price.ToString("0.00");
+                
+                if(lstCart.Items.Count != 0)
+                    lstCart.SelectedIndex = 0;
             }
         }
         //
@@ -144,32 +152,77 @@ namespace DVDSys
         //
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            int rentID = Rent.getNextRentID();
-            Rent rent = new Rent(rentID, customer.getCustomerID());
+            // check that a customer has been selected
 
-            rent.addRental();
-
-            for (int i = 0; i < lstCart.Items.Count; i++)
+            if (lblCustName.Text.Equals(""))
             {
-                rent = new Rent(rentID, Convert.ToInt32(lstCart.Items[i].ToString().Substring(0, 3)));
-
-                rent.addRentalItem();
+                MessageBox.Show("Customer Must be Selected", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtSearch.Focus();
+                return;
             }
+            //check that at least 1 DVD is selected
+            else if(lstCart.Items.Count == 0)
+            {
+                MessageBox.Show("At leaast 1 DVD Must be Selected", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtDVDName.Focus();
+                return;
+            }
+            else
+            {
+                try
+                {
+                    int rentID = Rent.getNextRentID();
+                    Rent rent = new Rent(rentID, customer.getCustomerID());
 
-            MessageBox.Show("Rental Complete!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    rent.addRental();
 
-            //PAYMENT
-            Rent.makePayment(rentID, lblTotal.Text.Substring(1));
+                    for (int i = 0; i < lstCart.Items.Count; i++)
+                    {
+                        rent = new Rent(rentID, Convert.ToInt32(lstCart.Items[i].ToString().Substring(0, 3)));
+
+                        rent.addRentalItem();
+                    }
+
+                    MessageBox.Show("Rental Complete!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    //PAYMENT
+                    Rent.makePayment(rentID, lblTotal.Text.Substring(1));
+
+                    price = 0.0;
+                    lblTotal.Text = "\u20AC" + price.ToString("0.00");
+
+                    //Reset UI
+                    clearUI();
+                }
+                catch (NullReferenceException r)
+                {
+                    r.ToString();
+                    MessageBox.Show("Rental details incomlete, please select customer.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }           
+            
         }
         //
         // Reset Button Clicked -- Reset UI
         //
         private void btnReset_Click(object sender, EventArgs e)
         {
+            clearUI();
+        }
+        //
+        //Clear UI
+        //
+        public void clearUI()
+        {
             txtSearch.Clear();
             txtDVDName.Clear();
             lstCart.Items.Clear();
+            dgvDVDSearch.DataSource = null;
+            dgvSearch.DataSource = null;
             lblCustName.Text = "";
+            price = 0.0;
+            txtSearch.Focus();
+            lblTotal.Text = "\u20AC" + price.ToString("0.00");
         }
     }
 }

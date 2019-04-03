@@ -56,7 +56,7 @@ namespace DVDSys
 
             String searched = txtName.Text;
 
-            dgvSearchResults.DataSource = Customer.getCustomers(ds, searched).Tables["stk"];
+            dgvSearchResults.DataSource = Customer.getCustomers(ds, searched.ToUpper()).Tables["stk"];
 
             if (ds.Tables[0].Rows.Count == 0)
             {
@@ -72,18 +72,22 @@ namespace DVDSys
 
         private void submit_Click(object sender, EventArgs e)
         {
-            //remove account
-            var confirmResult = MessageBox.Show("Are you sure to delete customer " + name +"?", "Confirm Delete!", MessageBoxButtons.YesNo);
-
-            if(custid != null)
-            if (confirmResult == DialogResult.Yes)
+            if(custid > 0)
             {
-                Customer.removeCustomer(custid);
+                var confirmResult = MessageBox.Show("Are you sure to delete customer " + name + "?", "Confirm Delete!", MessageBoxButtons.YesNo);
+
+                if (confirmResult == DialogResult.Yes)
+                {
+                    Customer.removeCustomer(custid);
+
+                    MessageBox.Show("Customer " + name + " deleted", "Customer Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             else
             {
-                // If 'No', do something here.
+                MessageBox.Show("You must select a customer to delete", "No Customer!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            
 
 
             //reset UI
@@ -91,13 +95,8 @@ namespace DVDSys
             txtName.Focus();
 
         }
-
-        private void Reset_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void dataSetGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        
+        private void dataSetGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int rowIndex = e.RowIndex;
             

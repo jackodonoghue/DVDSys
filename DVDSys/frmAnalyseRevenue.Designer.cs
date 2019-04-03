@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.backToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,7 +70,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 61);
+            this.label1.Location = new System.Drawing.Point(12, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 18);
             this.label1.TabIndex = 29;
@@ -80,7 +80,7 @@
             // 
             this.cboYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboYear.FormattingEnabled = true;
-            this.cboYear.Location = new System.Drawing.Point(121, 58);
+            this.cboYear.Location = new System.Drawing.Point(99, 39);
             this.cboYear.Name = "cboYear";
             this.cboYear.Size = new System.Drawing.Size(134, 26);
             this.cboYear.TabIndex = 30;
@@ -88,17 +88,17 @@
             // 
             // chtData
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chtData.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chtData.Legends.Add(legend4);
-            this.chtData.Location = new System.Drawing.Point(76, 120);
+            chartArea1.Name = "ChartArea1";
+            this.chtData.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chtData.Legends.Add(legend1);
+            this.chtData.Location = new System.Drawing.Point(12, 77);
             this.chtData.Name = "chtData";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chtData.Series.Add(series4);
-            this.chtData.Size = new System.Drawing.Size(462, 300);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chtData.Series.Add(series1);
+            this.chtData.Size = new System.Drawing.Size(614, 366);
             this.chtData.TabIndex = 31;
             this.chtData.Text = "chart1";
             // 
@@ -114,6 +114,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmAnalyseRevenue";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Analyse Revenue";
             this.Load += new System.EventHandler(this.frmAnalyseRevenue_Load);
             this.menuStrip1.ResumeLayout(false);

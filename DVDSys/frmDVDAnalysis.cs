@@ -54,7 +54,7 @@ namespace DVDSys
             //Array for each value per month
             int[] amounts = new int[Type.getNumTypes()];
 
-            for (int i = 0; i < amounts.Length; i++)
+            for (int i = 0; i < amounts.Length - 1; i++)
             {
                 amounts[i] = Convert.ToInt32(dt.Rows[i][1]);
             }
@@ -73,12 +73,10 @@ namespace DVDSys
             chtData.Series["Series1"]["PixelPointWidth"] = "20";
             chtData.Series[0].Points.DataBindXY(types, amounts);
             chtData.ChartAreas["ChartArea1"].AxisX.LabelStyle.Format = "C";
-
-            //chtData.Series[0].Points[0] = "XXX";
+            
             chtData.Series[0].Label = "#VALY";
 
             chtData.Titles.Add("Yearly Revenue");
-            // chtData.ChartAreas[0].AxisX.LabelStyle. = 5;
             chtData.ChartAreas[0].AxisX.Title = "Type";
             chtData.ChartAreas[0].AxisY.Title = "Number of Times Rented";
             chtData.Series[0].IsVisibleInLegend = false;

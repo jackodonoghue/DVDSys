@@ -27,6 +27,23 @@ namespace DVDSys
             parent = Parent;
         }
 
+        private void frmAddDVD_Load(object sender, EventArgs e)
+        {
+            btnID.Text = DVD.getNextDVDID().ToString("000");
+            
+            //Get types for drop down 
+            DataSet ds = new DataSet();
+
+            Type.getTypes(ds);
+            DataTable dt = new DataTable();
+            dt = ds.Tables[0];
+            
+            for(int i = 0; i < dt.Rows.Count; i++)
+            {
+                cboType.Items.Add(dt.Rows[i][0].ToString());
+            }
+        }
+
         private void back_Click(object sender, EventArgs e)
         {
             this.Close(); 
@@ -94,35 +111,34 @@ namespace DVDSys
                 char active;
                 if(cboActive.Text == "yes")
                 {
-                    active = 'y';
+                    active = 'Y';
                 }
                 else
                 {
-                    active = 'n';
+                    active = 'N';
                 }
 
-                dvd = new DVD(Convert.ToInt32(btnID.Text), txtTitle.Text, cboType.Text, txtDir.Text, txtGenre.Text, dtpRelease.Text, active);
+                dvd = new DVD(Convert.ToInt32(btnID.Text), txtTitle.Text.ToUpper(), cboType.Text.ToUpper(), txtDir.Text.ToUpper(), txtGenre.Text.ToUpper(), dtpRelease.Text.ToUpper(), active);
 
-                MessageBox.Show("dvd " + dtpRelease.Text, "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (!dvd.alreadyExists())
+                {
 
-                dvd.addDVD();
+                    dvd.addDVD();
 
-                //display confirmation message
-                MessageBox.Show("DVD " + txtTitle.Text + " updated", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //reset UI
+                    txtTitle.Clear();
+                    txtDir.Clear();
+                    txtGenre.Clear();
+                    cboActive.ResetText();
 
-                //reset UI
-                txtTitle.Clear();
-                txtDir.Clear();
-                txtGenre.Clear();
-                cboActive.ResetText();
-
-                txtTitle.Focus();
+                    txtTitle.Focus();
+                }
+                else
+                {
+                    txtTitle.Focus();
+                }
+                
             }
-        }
-
-        private void frmAddDVD_Load(object sender, EventArgs e)
-        {
-            btnID.Text = DVD.getNextDVDID().ToString("000");
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -135,6 +151,6 @@ namespace DVDSys
             cboActive.ResetText();
 
             txtTitle.Focus();
-        }
+        }       
     }
 }

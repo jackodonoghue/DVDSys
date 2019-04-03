@@ -57,10 +57,7 @@ namespace DVDSys
 
             String searched = txtSearch.Text;
 
-            dgvSearch.DataSource = Customer.getCustomers(ds, searched).Tables["stk"];
-
-         //   dgvSearch.Columns[].Visible = false;
-
+            dgvSearch.DataSource = Customer.getCustomers(ds, searched.ToUpper()).Tables["stk"];
 
             if (ds.Tables[0].Rows.Count == 0)
             {
@@ -81,7 +78,7 @@ namespace DVDSys
         }
 
         //Fill Customer Update Fields with selected Customer
-        private void custUpdateResults_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void custUpdateResults_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int rowIndex = e.RowIndex;
             
@@ -178,7 +175,7 @@ namespace DVDSys
 
             if (!Vali.valName(txtAddress.Text))
             {
-                MessageBox.Show("First Name invalid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Address invalid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtAddress.Focus();
                 return;
             }
@@ -192,10 +189,10 @@ namespace DVDSys
             Customer up = new Customer();
 
             up.setCustomerID(CustID);
-            up.setFName(txtFName.Text);
-            up.setLName(txtSName.Text);
-            up.setDOB(dtpDOB.Text);
-            up.setAddress(txtAddress.Text);
+            up.setFName(txtFName.Text.ToUpper());
+            up.setLName(txtSName.Text.ToUpper());
+            up.setDOB(dtpDOB.Text.ToUpper());
+            up.setAddress(txtAddress.Text.ToUpper());
 
             if (chkMale.Checked)
                 up.setGender('M');
@@ -204,10 +201,16 @@ namespace DVDSys
 
             up.setPhoneNumber(txtPhone.Text);
 
-            MessageBox.Show("Custmoer" + CustID, "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if(!up.alreadyExists())
+            {
+                up.updateCustomer();
 
-
-            up.updateCustomer();
+                txtSearch.Clear();
+                txtFName.Clear();
+                txtSName.Clear();
+                txtAddress.Clear();
+                txtPhone.Clear();
+            }         
         }
     }
 }

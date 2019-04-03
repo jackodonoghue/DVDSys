@@ -58,9 +58,10 @@
             // 
             // txtSearch
             // 
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.txtSearch.Location = new System.Drawing.Point(207, 51);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(186, 20);
+            this.txtSearch.Size = new System.Drawing.Size(186, 24);
             this.txtSearch.TabIndex = 2;
             // 
             // custUpdateLabel
@@ -75,9 +76,10 @@
             // 
             // btnSearch
             // 
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnSearch.Location = new System.Drawing.Point(159, 92);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(95, 23);
+            this.btnSearch.Size = new System.Drawing.Size(95, 33);
             this.btnSearch.TabIndex = 19;
             this.btnSearch.Text = "Submit";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -85,38 +87,43 @@
             // 
             // txtPhone
             // 
+            this.txtPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.txtPhone.Location = new System.Drawing.Point(198, 548);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.Size = new System.Drawing.Size(151, 20);
+            this.txtPhone.Size = new System.Drawing.Size(151, 24);
             this.txtPhone.TabIndex = 36;
             // 
             // txtAddress
             // 
+            this.txtAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.txtAddress.Location = new System.Drawing.Point(198, 462);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(151, 20);
+            this.txtAddress.Size = new System.Drawing.Size(151, 24);
             this.txtAddress.TabIndex = 31;
             // 
             // dtpDOB
             // 
+            this.dtpDOB.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDOB.Location = new System.Drawing.Point(198, 415);
             this.dtpDOB.Name = "dtpDOB";
-            this.dtpDOB.Size = new System.Drawing.Size(151, 20);
+            this.dtpDOB.Size = new System.Drawing.Size(151, 24);
             this.dtpDOB.TabIndex = 30;
             // 
             // txtSName
             // 
+            this.txtSName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.txtSName.Location = new System.Drawing.Point(198, 370);
             this.txtSName.Name = "txtSName";
-            this.txtSName.Size = new System.Drawing.Size(151, 20);
+            this.txtSName.Size = new System.Drawing.Size(151, 24);
             this.txtSName.TabIndex = 29;
             // 
             // txtFName
             // 
+            this.txtFName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.txtFName.Location = new System.Drawing.Point(198, 329);
             this.txtFName.Name = "txtFName";
-            this.txtFName.Size = new System.Drawing.Size(151, 20);
+            this.txtFName.Size = new System.Drawing.Size(151, 24);
             this.txtFName.TabIndex = 28;
             // 
             // phNumLabel
@@ -181,9 +188,10 @@
             // 
             // btnReset
             // 
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnReset.Location = new System.Drawing.Point(69, 602);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(95, 23);
+            this.btnReset.Size = new System.Drawing.Size(95, 33);
             this.btnReset.TabIndex = 38;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
@@ -191,9 +199,10 @@
             // 
             // btnUpdate
             // 
+            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnUpdate.Location = new System.Drawing.Point(221, 602);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(95, 23);
+            this.btnUpdate.Size = new System.Drawing.Size(95, 33);
             this.btnUpdate.TabIndex = 37;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -210,21 +219,23 @@
             this.toolStripMenuItem1});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(434, 24);
+            this.menuStrip2.Size = new System.Drawing.Size(434, 28);
             this.menuStrip2.TabIndex = 40;
             this.menuStrip2.Text = "menuStrip2";
             // 
             // backToolStripMenuItem
             // 
+            this.backToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.backToolStripMenuItem.Name = "backToolStripMenuItem";
-            this.backToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.backToolStripMenuItem.Size = new System.Drawing.Size(52, 24);
             this.backToolStripMenuItem.Text = "Back";
             this.backToolStripMenuItem.Click += new System.EventHandler(this.back__Click);
             // 
             // toolStripMenuItem1
             // 
+            this.toolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(45, 24);
             this.toolStripMenuItem1.Text = "Exit";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.exit_Click);
             // 
@@ -235,16 +246,16 @@
             this.dgvSearch.Name = "dgvSearch";
             this.dgvSearch.Size = new System.Drawing.Size(355, 176);
             this.dgvSearch.TabIndex = 41;
-            this.dgvSearch.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.custUpdateResults_CellContentDoubleClick);
-            this.dgvSearch.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.custUpdateResults_CellContentDoubleClick);
+            this.dgvSearch.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.custUpdateResults_CellClick);
             // 
             // chkMale
             // 
             this.chkMale.AutoSize = true;
+            this.chkMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.chkMale.Location = new System.Drawing.Point(198, 505);
             this.chkMale.Name = "chkMale";
-            this.chkMale.Size = new System.Drawing.Size(49, 17);
-            this.chkMale.TabIndex = 45;
+            this.chkMale.Size = new System.Drawing.Size(59, 22);
+            this.chkMale.TabIndex = 32;
             this.chkMale.Text = "Male";
             this.chkMale.UseVisualStyleBackColor = true;
             this.chkMale.Click += new System.EventHandler(this.maleCB_Clicked);
@@ -252,10 +263,11 @@
             // chkFemale
             // 
             this.chkFemale.AutoSize = true;
+            this.chkFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.chkFemale.Location = new System.Drawing.Point(313, 503);
             this.chkFemale.Name = "chkFemale";
-            this.chkFemale.Size = new System.Drawing.Size(60, 17);
-            this.chkFemale.TabIndex = 46;
+            this.chkFemale.Size = new System.Drawing.Size(76, 22);
+            this.chkFemale.TabIndex = 34;
             this.chkFemale.Text = "Female";
             this.chkFemale.UseVisualStyleBackColor = true;
             this.chkFemale.Click += new System.EventHandler(this.femaleCB_Clicked);
@@ -264,7 +276,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(434, 640);
+            this.ClientSize = new System.Drawing.Size(434, 647);
             this.Controls.Add(this.chkFemale);
             this.Controls.Add(this.chkMale);
             this.Controls.Add(this.dgvSearch);
@@ -286,6 +298,7 @@
             this.Controls.Add(this.custUpdateLabel);
             this.Controls.Add(this.txtSearch);
             this.Name = "frmUpdateCustomer";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Update Customer";
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.menuStrip2.ResumeLayout(false);

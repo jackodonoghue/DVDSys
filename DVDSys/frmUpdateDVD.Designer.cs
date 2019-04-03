@@ -59,38 +59,46 @@
             this.toolStripMenuItem1});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(449, 24);
+            this.menuStrip2.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
+            this.menuStrip2.Size = new System.Drawing.Size(674, 30);
             this.menuStrip2.TabIndex = 60;
             this.menuStrip2.Text = "menuStrip2";
             // 
             // backToolStripMenuItem
             // 
+            this.backToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.backToolStripMenuItem.Name = "backToolStripMenuItem";
-            this.backToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.backToolStripMenuItem.Size = new System.Drawing.Size(52, 24);
             this.backToolStripMenuItem.Text = "Back";
             this.backToolStripMenuItem.Click += new System.EventHandler(this.backToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
+            this.toolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(37, 20);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(45, 24);
             this.toolStripMenuItem1.Text = "Exit";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.mnuExit_Click);
             // 
             // btnSearchReset
             // 
-            this.btnSearchReset.Location = new System.Drawing.Point(78, 83);
+            this.btnSearchReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.btnSearchReset.Location = new System.Drawing.Point(110, 100);
+            this.btnSearchReset.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearchReset.Name = "btnSearchReset";
-            this.btnSearchReset.Size = new System.Drawing.Size(95, 23);
+            this.btnSearchReset.Size = new System.Drawing.Size(142, 32);
             this.btnSearchReset.TabIndex = 44;
             this.btnSearchReset.Text = "Reset";
             this.btnSearchReset.UseVisualStyleBackColor = true;
+            this.btnSearchReset.Click += new System.EventHandler(this.btnSearchReset_Click);
             // 
             // btnSearchSubmit
             // 
-            this.btnSearchSubmit.Location = new System.Drawing.Point(234, 83);
+            this.btnSearchSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.btnSearchSubmit.Location = new System.Drawing.Point(344, 100);
+            this.btnSearchSubmit.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearchSubmit.Name = "btnSearchSubmit";
-            this.btnSearchSubmit.Size = new System.Drawing.Size(95, 23);
+            this.btnSearchSubmit.Size = new System.Drawing.Size(142, 32);
             this.btnSearchSubmit.TabIndex = 43;
             this.btnSearchSubmit.Text = "Submit";
             this.btnSearchSubmit.UseVisualStyleBackColor = true;
@@ -100,7 +108,8 @@
             // 
             this.dvdUpdateLabel.AutoSize = true;
             this.dvdUpdateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.dvdUpdateLabel.Location = new System.Drawing.Point(53, 44);
+            this.dvdUpdateLabel.Location = new System.Drawing.Point(72, 46);
+            this.dvdUpdateLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.dvdUpdateLabel.Name = "dvdUpdateLabel";
             this.dvdUpdateLabel.Size = new System.Drawing.Size(126, 18);
             this.dvdUpdateLabel.TabIndex = 42;
@@ -108,37 +117,41 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(220, 42);
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.txtSearch.Location = new System.Drawing.Point(322, 43);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(186, 20);
+            this.txtSearch.Size = new System.Drawing.Size(277, 24);
             this.txtSearch.TabIndex = 41;
             // 
             // dgvSearch
             // 
             this.dgvSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSearch.Location = new System.Drawing.Point(51, 121);
+            this.dgvSearch.Location = new System.Drawing.Point(69, 152);
+            this.dgvSearch.Margin = new System.Windows.Forms.Padding(4);
             this.dgvSearch.Name = "dgvSearch";
-            this.dgvSearch.Size = new System.Drawing.Size(355, 176);
+            this.dgvSearch.Size = new System.Drawing.Size(532, 244);
             this.dgvSearch.TabIndex = 77;
-            this.dgvSearch.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSearch_CellContentDoubleClick);
+            this.dgvSearch.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSearch_CellClick);
             // 
             // cboType
             // 
+            this.cboType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.cboType.FormattingEnabled = true;
-            this.cboType.Items.AddRange(new object[] {
-            "CL",
-            "KD",
-            "NR"});
-            this.cboType.Location = new System.Drawing.Point(220, 342);
+            this.cboType.Location = new System.Drawing.Point(322, 458);
+            this.cboType.Margin = new System.Windows.Forms.Padding(4);
             this.cboType.Name = "cboType";
-            this.cboType.Size = new System.Drawing.Size(53, 21);
+            this.cboType.Size = new System.Drawing.Size(78, 26);
             this.cboType.TabIndex = 953;
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(82, 455);
+            this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.btnReset.Location = new System.Drawing.Point(118, 627);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(4);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(95, 23);
+            this.btnReset.Size = new System.Drawing.Size(142, 32);
             this.btnReset.TabIndex = 964;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
@@ -146,9 +159,11 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(234, 455);
+            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.btnUpdate.Location = new System.Drawing.Point(346, 627);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(95, 23);
+            this.btnUpdate.Size = new System.Drawing.Size(142, 32);
             this.btnUpdate.TabIndex = 963;
             this.btnUpdate.Text = "Submit";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -156,44 +171,53 @@
             // 
             // txtGenre
             // 
-            this.txtGenre.Location = new System.Drawing.Point(220, 403);
+            this.txtGenre.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.txtGenre.Location = new System.Drawing.Point(322, 543);
+            this.txtGenre.Margin = new System.Windows.Forms.Padding(4);
             this.txtGenre.MaxLength = 15;
             this.txtGenre.Name = "txtGenre";
-            this.txtGenre.Size = new System.Drawing.Size(151, 20);
+            this.txtGenre.Size = new System.Drawing.Size(224, 24);
             this.txtGenre.TabIndex = 960;
             // 
             // txtDir
             // 
-            this.txtDir.Location = new System.Drawing.Point(220, 377);
+            this.txtDir.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.txtDir.Location = new System.Drawing.Point(322, 507);
+            this.txtDir.Margin = new System.Windows.Forms.Padding(4);
             this.txtDir.MaxLength = 20;
             this.txtDir.Name = "txtDir";
-            this.txtDir.Size = new System.Drawing.Size(151, 20);
+            this.txtDir.Size = new System.Drawing.Size(224, 24);
             this.txtDir.TabIndex = 959;
             // 
             // dtpRelease
             // 
+            this.dtpRelease.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.dtpRelease.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpRelease.Location = new System.Drawing.Point(220, 429);
+            this.dtpRelease.Location = new System.Drawing.Point(322, 579);
+            this.dtpRelease.Margin = new System.Windows.Forms.Padding(4);
             this.dtpRelease.MaxDate = new System.DateTime(2019, 3, 25, 0, 0, 0, 0);
             this.dtpRelease.MinDate = new System.DateTime(1930, 1, 1, 0, 0, 0, 0);
             this.dtpRelease.Name = "dtpRelease";
-            this.dtpRelease.Size = new System.Drawing.Size(98, 20);
+            this.dtpRelease.Size = new System.Drawing.Size(145, 24);
             this.dtpRelease.TabIndex = 961;
             this.dtpRelease.Value = new System.DateTime(2019, 3, 25, 0, 0, 0, 0);
             // 
             // txtTitle
             // 
-            this.txtTitle.Location = new System.Drawing.Point(220, 303);
+            this.txtTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.txtTitle.Location = new System.Drawing.Point(322, 404);
+            this.txtTitle.Margin = new System.Windows.Forms.Padding(4);
             this.txtTitle.MaxLength = 30;
             this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(151, 20);
+            this.txtTitle.Size = new System.Drawing.Size(224, 24);
             this.txtTitle.TabIndex = 951;
             // 
             // relLabel
             // 
             this.relLabel.AutoSize = true;
             this.relLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.relLabel.Location = new System.Drawing.Point(74, 431);
+            this.relLabel.Location = new System.Drawing.Point(104, 582);
+            this.relLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.relLabel.Name = "relLabel";
             this.relLabel.Size = new System.Drawing.Size(97, 18);
             this.relLabel.TabIndex = 957;
@@ -203,7 +227,8 @@
             // 
             this.genreLabel.AutoSize = true;
             this.genreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.genreLabel.Location = new System.Drawing.Point(74, 402);
+            this.genreLabel.Location = new System.Drawing.Point(104, 541);
+            this.genreLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.genreLabel.Name = "genreLabel";
             this.genreLabel.Size = new System.Drawing.Size(49, 18);
             this.genreLabel.TabIndex = 956;
@@ -213,7 +238,8 @@
             // 
             this.dirLabel.AutoSize = true;
             this.dirLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.dirLabel.Location = new System.Drawing.Point(74, 376);
+            this.dirLabel.Location = new System.Drawing.Point(104, 505);
+            this.dirLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.dirLabel.Name = "dirLabel";
             this.dirLabel.Size = new System.Drawing.Size(61, 18);
             this.dirLabel.TabIndex = 955;
@@ -223,7 +249,8 @@
             // 
             this.typeLabel.AutoSize = true;
             this.typeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.typeLabel.Location = new System.Drawing.Point(74, 346);
+            this.typeLabel.Location = new System.Drawing.Point(104, 464);
+            this.typeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.typeLabel.Name = "typeLabel";
             this.typeLabel.Size = new System.Drawing.Size(75, 18);
             this.typeLabel.TabIndex = 954;
@@ -233,7 +260,8 @@
             // 
             this.titleLabel.AutoSize = true;
             this.titleLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.titleLabel.Location = new System.Drawing.Point(74, 303);
+            this.titleLabel.Location = new System.Drawing.Point(104, 404);
+            this.titleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(35, 18);
             this.titleLabel.TabIndex = 952;
@@ -241,9 +269,9 @@
             // 
             // frmUpdateDVD
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(449, 488);
+            this.ClientSize = new System.Drawing.Size(674, 676);
             this.Controls.Add(this.cboType);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnUpdate);
@@ -262,8 +290,12 @@
             this.Controls.Add(this.btnSearchSubmit);
             this.Controls.Add(this.dvdUpdateLabel);
             this.Controls.Add(this.txtSearch);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmUpdateDVD";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Update DVD";
+            this.Load += new System.EventHandler(this.frmUpdateDVD_Load);
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).EndInit();

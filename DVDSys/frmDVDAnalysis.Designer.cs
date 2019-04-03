@@ -51,8 +51,8 @@
             this.exitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(626, 25);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(14, 4, 0, 4);
+            this.menuStrip1.Size = new System.Drawing.Size(939, 27);
             this.menuStrip1.TabIndex = 29;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -76,13 +76,14 @@
             this.chtData.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chtData.Legends.Add(legend1);
-            this.chtData.Location = new System.Drawing.Point(33, 77);
+            this.chtData.Location = new System.Drawing.Point(50, 107);
+            this.chtData.Margin = new System.Windows.Forms.Padding(4);
             this.chtData.Name = "chtData";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chtData.Series.Add(series1);
-            this.chtData.Size = new System.Drawing.Size(558, 365);
+            this.chtData.Size = new System.Drawing.Size(837, 505);
             this.chtData.TabIndex = 41;
             this.chtData.Text = "chart1";
             // 
@@ -90,8 +91,8 @@
             // 
             this.dvdNameLabel.AutoSize = true;
             this.dvdNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.dvdNameLabel.Location = new System.Drawing.Point(13, 31);
-            this.dvdNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.dvdNameLabel.Location = new System.Drawing.Point(20, 43);
+            this.dvdNameLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.dvdNameLabel.Name = "dvdNameLabel";
             this.dvdNameLabel.Size = new System.Drawing.Size(82, 18);
             this.dvdNameLabel.TabIndex = 35;
@@ -101,8 +102,8 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label1.Location = new System.Drawing.Point(206, 31);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(309, 43);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 18);
             this.label1.TabIndex = 42;
@@ -110,27 +111,33 @@
             // 
             // dtpStart
             // 
+            this.dtpStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpStart.Location = new System.Drawing.Point(102, 31);
+            this.dtpStart.Location = new System.Drawing.Point(116, 43);
+            this.dtpStart.Margin = new System.Windows.Forms.Padding(4);
             this.dtpStart.MinDate = new System.DateTime(2016, 1, 1, 0, 0, 0, 0);
             this.dtpStart.Name = "dtpStart";
-            this.dtpStart.Size = new System.Drawing.Size(96, 20);
+            this.dtpStart.Size = new System.Drawing.Size(142, 24);
             this.dtpStart.TabIndex = 43;
             // 
             // dtpEnd
             // 
+            this.dtpEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpEnd.Location = new System.Drawing.Point(286, 31);
+            this.dtpEnd.Location = new System.Drawing.Point(392, 43);
+            this.dtpEnd.Margin = new System.Windows.Forms.Padding(4);
             this.dtpEnd.MinDate = new System.DateTime(2016, 1, 2, 0, 0, 0, 0);
             this.dtpEnd.Name = "dtpEnd";
-            this.dtpEnd.Size = new System.Drawing.Size(98, 20);
+            this.dtpEnd.Size = new System.Drawing.Size(145, 24);
             this.dtpEnd.TabIndex = 44;
             // 
             // btnSubmit
             // 
-            this.btnSubmit.Location = new System.Drawing.Point(390, 30);
+            this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.btnSubmit.Location = new System.Drawing.Point(591, 41);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(75, 23);
+            this.btnSubmit.Size = new System.Drawing.Size(112, 32);
             this.btnSubmit.TabIndex = 45;
             this.btnSubmit.Text = "Submit";
             this.btnSubmit.UseVisualStyleBackColor = true;
@@ -138,9 +145,9 @@
             // 
             // frmDVDAnalysis
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(626, 471);
+            this.ClientSize = new System.Drawing.Size(939, 652);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.dtpEnd);
             this.Controls.Add(this.dtpStart);
@@ -148,7 +155,10 @@
             this.Controls.Add(this.chtData);
             this.Controls.Add(this.dvdNameLabel);
             this.Controls.Add(this.menuStrip1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmDVDAnalysis";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DVD Analysis";
             this.Load += new System.EventHandler(this.frmDVDAnalysis_Load);
             this.menuStrip1.ResumeLayout(false);
