@@ -27,7 +27,7 @@ namespace DVDSys
             dir = "";
             genre = "";
             relDate = "";
-            active = 'n';
+            active = 'U';
         }
 
         public DVD(int id, String title, String type, String dir, String genre, String relDate, char active)
@@ -185,7 +185,7 @@ namespace DVDSys
             connection.Open();
 
             //define sql query
-            String sql = "UPDATE DVD SET STATUS = 'I' WHERE DVDID = " + id;
+            String sql = "UPDATE DVD SET STATUS = 'U' WHERE DVDID = " + id;
 
 
             //create oracle command
@@ -234,7 +234,7 @@ namespace DVDSys
         //
         //Check DVD Status before update/delete
         //
-        public String getDVDStatus(int dvdid)
+        public static String getDVDStatus(int dvdid)
         {
             DataSet ds = new DataSet();
             DataTable dt;

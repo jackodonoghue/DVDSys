@@ -111,10 +111,20 @@ namespace DVDSys
             //validate input
             if (isValid())
             {
-                //save data in file 
-                DVD dvd = new DVD(ID, txtTitle.Text.ToUpper(), cboType.Text.ToUpper(), txtDir.Text.ToUpper(), txtGenre.Text.ToUpper(), dtpRelease.Text.ToUpper(), 'y');
 
-                dvd.updateDVD();
+                DVD dvd = new DVD(ID, txtTitle.Text.ToUpper(), cboType.Text.ToUpper(), txtDir.Text.ToUpper(), txtGenre.Text.ToUpper(), dtpRelease.Text.ToUpper(), 'A');
+
+                //save data in file
+                if (DVD.getDVDStatus(ID).Equals("A ") || DVD.getDVDStatus(ID).Equals("U "))
+                {
+                    dvd.updateDVD();
+                }
+                else
+                {
+                    MessageBox.Show("DVD could not be updated as DVD is currently unavailable", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+
+                
 
                 //reset UI
                 txtTitle.Clear();

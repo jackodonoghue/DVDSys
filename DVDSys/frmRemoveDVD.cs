@@ -93,8 +93,18 @@ namespace DVDSys
                 DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete " + title, "Delete DVD", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
+                    String status = DVD.getDVDStatus(ID);
+
                     //save data in file
-                    DVD.removeDVD(ID, title);
+                    if(status.Equals("A "))
+                    {
+                        DVD.removeDVD(ID, title);
+                    }
+                    else
+                    {
+                        MessageBox.Show("DVD could not be removed as DVD is currently unavailable", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    
 
                     //reset UI
                     txtSearch.Clear();
