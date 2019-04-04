@@ -151,79 +151,16 @@ namespace DVDSys
             return price;
         }
         //
-        //Get next payment ID
-        //
-        public static int getNextPaymentID()
-        {
-            //variable to hold value to be returned
-            int nextPayId = 1;
-
-            //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
-            connection.Open();
-
-            //define sql query
-            String sql = "select max(PAYMENTID) from PAYMENTS";
-
-            //create oracle command
-            OracleCommand com = new OracleCommand(sql, connection);
-
-            //execute query using datareader
-            OracleDataReader dr = com.ExecuteReader();
-
-            //check value returned - if null return 1, otherwise return datareader value
-            dr.Read();
-
-            if (dr.IsDBNull(0))
-            {
-                nextPayId = 1;
-            }
-
-            else
-            {
-                nextPayId = Convert.ToInt32(dr.GetValue(0)) + 1;
-            }
-
-
-            //close db
-            connection.Close();
-
-            return nextPayId;
-
-        }
-        //
-        //Make payment
-        //
-        public static void makePayment(int rentid, string amount)
-        {
-
-            //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
-            connection.Open();
-
-            String day = DateTime.Now.ToString("dd/MM/yyyy");
-
-            //define sql query
-            String sql = "INSERT INTO payments VALUES(" + getNextPaymentID() + ", " + Convert.ToInt32(rentid) + ", " + Convert.ToDouble(amount) + ", " + "TO_DATE('" + day + "', 'DD/MM/YYYY'))";
-
-            //create oracle command
-            OracleCommand com = new OracleCommand(sql, connection);
-            int num = com.ExecuteNonQuery();
-
-            //close db
-            connection.Close();
-        }
-        //
         //Return Rented DVD
         //
-        public static void returnDVD(int id)
+        public static void returnDVD(int dvdid)
         {
             //connect to db
             OracleConnection connection = new OracleConnection(ConnectDB.orDB);
             connection.Open();
 
             //define sql query
-            String sql = "UPDATE DVD SET STATUS = 'A' WHERE DVDID = " + id;
+            String sql = "UPDATE DVD SET STATUS = 'A' WHERE DVDID = " + dvdid;
 
 
             //create oracle command

@@ -51,8 +51,8 @@ namespace DVDSys
 
             string hPassword = ComputeHash(txtPassword.Text, new SHA256CryptoServiceProvider());
 
-            //Account acc = new Account(hUsername, hPassword);
-            //acc.addAccount();
+            Account acc = new Account(hUsername, hPassword);
+            acc.addAccount();
             //This table should contain two columns - Username and password.
             //The Username and Password would have been collected by hte "Register User" function and put throught the ComputeHash() algorithm before saving.
 

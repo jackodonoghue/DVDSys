@@ -106,6 +106,69 @@ namespace DVDSys
             }
         }
         //
+        //Get next payment ID
+        //
+        public static int getNextPaymentID()
+        {
+            //variable to hold value to be returned
+            int nextPayId = 1;
+
+            //connect to db
+            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+            connection.Open();
+
+            //define sql query
+            String sql = "select max(PAYMENTID) from PAYMENTS";
+
+            //create oracle command
+            OracleCommand com = new OracleCommand(sql, connection);
+
+            //execute query using datareader
+            OracleDataReader dr = com.ExecuteReader();
+
+            //check value returned - if null return 1, otherwise return datareader value
+            dr.Read();
+
+            if (dr.IsDBNull(0))
+            {
+                nextPayId = 1;
+            }
+
+            else
+            {
+                nextPayId = Convert.ToInt32(dr.GetValue(0)) + 1;
+            }
+
+
+            //close db
+            connection.Close();
+
+            return nextPayId;
+
+        }
+        //
+        //Make payment
+        //
+        public static void makePayment(int rentid, string amount)
+        {
+
+            //connect to db
+            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+            connection.Open();
+
+            String day = DateTime.Now.ToString("dd/MM/yyyy");
+
+            //define sql query
+            String sql = "INSERT INTO payments VALUES(" + getNextPaymentID() + ", " + Convert.ToInt32(rentid) + ", " + Convert.ToDouble(amount) + ", " + "TO_DATE('" + day + "', 'DD/MM/YYYY'))";
+
+            //create oracle command
+            OracleCommand com = new OracleCommand(sql, connection);
+            int num = com.ExecuteNonQuery();
+
+            //close db
+            connection.Close();
+        }
+        //
         //Get late dvds change late value
         //
         public static void checkLateRentals()
@@ -132,8 +195,7 @@ namespace DVDSys
             dt = DS.Tables[0];
 
             connection.Open();
-
-            MessageBox.Show(dt.Rows.Count.ToString());
+            
             for (int i = 0; i < dt.Rows.Count; i++)
             {
                 TimeSpan noDays = DateTime.Today - DateTime.Parse(Convert.ToString(dt.Rows[i][1]));
@@ -148,6 +210,33 @@ namespace DVDSys
 
             //close db
             connection.Close();
+        }
+        //
+        //Get Late Return charges
+        //
+        public static DataSet getLateRental(DataSet ds, int CustID)
+        {
+            //connect to db
+            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+
+            //define sql query
+            String sql = "Select DVD.Status, DVD.DVDID, RENTITEM.RENTID from DVD INNER JOIN RENTITEM ON RENTITEM.DVDID=DVD.DVDID " 
+                + "where Status != 'I' AND Status != 'A' AND Status != 'R' AND RENTID = (SELECT MAX(RENTID) FROM RENTAL WHERE CUSTID=" + CustID + ")";
+
+            //create oracle command
+            OracleCommand com = new OracleCommand(sql, connection);
+
+            //execute query using datareader
+            OracleDataAdapter da = new OracleDataAdapter(com);
+
+            //check value returned - if null return 1, otherwise return datareader value
+            da.Fill(ds);
+
+            //close db
+            connection.Close();
+
+
+            return ds;
         }
     }
 }

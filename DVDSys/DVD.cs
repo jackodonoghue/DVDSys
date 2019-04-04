@@ -232,20 +232,18 @@ namespace DVDSys
             return ds;
         }
         //
-        // Check if DVD already exists
+        //Check DVD Status before update/delete
         //
-        public Boolean alreadyExists()
+        public String getDVDStatus(int dvdid)
         {
-            Boolean res = false;
             DataSet ds = new DataSet();
-
+            DataTable dt;
             //connect to db
             OracleConnection connection = new OracleConnection(ConnectDB.orDB);
-            connection.Open();
 
             //define sql query
-            String sql = "SELECT * FROM DVD WHERE TITLE = '" + this.title + "'";
-            
+            String sql = "select status from dvd where DVDID=" + dvdid;
+
             //create oracle command
             OracleCommand com = new OracleCommand(sql, connection);
 
@@ -258,17 +256,9 @@ namespace DVDSys
             //close db
             connection.Close();
 
-            if (ds.Tables[0].Rows.Count > 0)
-            {
-                MessageBox.Show("DVD already exists", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            dt = ds.Tables[0];
 
-                res = true;
-            }
-
-            //close db
-            connection.Close();
-
-            return res;
+            return Convert.ToString(dt.Rows[0][0]);
         }
     }
 }

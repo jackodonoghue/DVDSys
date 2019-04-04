@@ -49,8 +49,8 @@
             this.exitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
-            this.menuStrip1.Size = new System.Drawing.Size(876, 25);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(14, 4, 0, 4);
+            this.menuStrip1.Size = new System.Drawing.Size(1314, 27);
             this.menuStrip1.TabIndex = 69;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -70,9 +70,10 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(368, 41);
+            this.btnSearch.Location = new System.Drawing.Point(552, 57);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(95, 23);
+            this.btnSearch.Size = new System.Drawing.Size(142, 32);
             this.btnSearch.TabIndex = 72;
             this.btnSearch.Text = "Submit";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -82,7 +83,8 @@
             // 
             this.custUpdateLabel.AutoSize = true;
             this.custUpdateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.custUpdateLabel.Location = new System.Drawing.Point(9, 46);
+            this.custUpdateLabel.Location = new System.Drawing.Point(14, 64);
+            this.custUpdateLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.custUpdateLabel.Name = "custUpdateLabel";
             this.custUpdateLabel.Size = new System.Drawing.Size(126, 18);
             this.custUpdateLabel.TabIndex = 71;
@@ -90,9 +92,10 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(176, 44);
+            this.txtSearch.Location = new System.Drawing.Point(264, 61);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(186, 20);
+            this.txtSearch.Size = new System.Drawing.Size(277, 24);
             this.txtSearch.TabIndex = 70;
             // 
             // lstCart
@@ -101,17 +104,19 @@
             this.lstCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.lstCart.FormattingEnabled = true;
             this.lstCart.ItemHeight = 18;
-            this.lstCart.Location = new System.Drawing.Point(511, 70);
+            this.lstCart.Location = new System.Drawing.Point(766, 97);
+            this.lstCart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lstCart.Name = "lstCart";
-            this.lstCart.Size = new System.Drawing.Size(325, 382);
+            this.lstCart.Size = new System.Drawing.Size(486, 526);
             this.lstCart.TabIndex = 91;
             // 
             // btnReset
             // 
             this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.btnReset.Location = new System.Drawing.Point(548, 471);
+            this.btnReset.Location = new System.Drawing.Point(822, 652);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(75, 31);
+            this.btnReset.Size = new System.Drawing.Size(112, 43);
             this.btnReset.TabIndex = 86;
             this.btnReset.Text = "Reset";
             this.btnReset.UseVisualStyleBackColor = true;
@@ -120,9 +125,10 @@
             // btnConfirm
             // 
             this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.btnConfirm.Location = new System.Drawing.Point(725, 471);
+            this.btnConfirm.Location = new System.Drawing.Point(1088, 652);
+            this.btnConfirm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(75, 31);
+            this.btnConfirm.Size = new System.Drawing.Size(112, 43);
             this.btnConfirm.TabIndex = 85;
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = true;
@@ -131,17 +137,18 @@
             // dgvSearch
             // 
             this.dgvSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSearch.Location = new System.Drawing.Point(12, 70);
+            this.dgvSearch.Location = new System.Drawing.Point(18, 97);
+            this.dgvSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvSearch.Name = "dgvSearch";
-            this.dgvSearch.Size = new System.Drawing.Size(451, 382);
+            this.dgvSearch.Size = new System.Drawing.Size(676, 529);
             this.dgvSearch.TabIndex = 73;
             this.dgvSearch.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSearch_CellClick);
             // 
             // frmDVDRet
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(876, 529);
+            this.ClientSize = new System.Drawing.Size(1314, 732);
             this.Controls.Add(this.lstCart);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnConfirm);
@@ -150,6 +157,8 @@
             this.Controls.Add(this.custUpdateLabel);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.menuStrip1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmDVDRet";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Return DVD";

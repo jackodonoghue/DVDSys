@@ -53,7 +53,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // menuStrip1
+            // menuStripHome
             // 
             this.menuStripHome.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.customerToolStripMenuItem,
@@ -62,8 +62,9 @@
             this.analysisToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.menuStripHome.Location = new System.Drawing.Point(0, 0);
-            this.menuStripHome.Name = "menuStrip1";
-            this.menuStripHome.Size = new System.Drawing.Size(1251, 24);
+            this.menuStripHome.Name = "menuStripHome";
+            this.menuStripHome.Padding = new System.Windows.Forms.Padding(9, 3, 0, 3);
+            this.menuStripHome.Size = new System.Drawing.Size(1265, 25);
             this.menuStripHome.TabIndex = 46;
             this.menuStripHome.Text = "menuStrip1";
             // 
@@ -74,7 +75,7 @@
             this.updateCustomerToolStripMenuItem,
             this.removeCustomerToolStripMenuItem});
             this.customerToolStripMenuItem.Name = "customerToolStripMenuItem";
-            this.customerToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.customerToolStripMenuItem.Size = new System.Drawing.Size(71, 19);
             this.customerToolStripMenuItem.Text = "Customer";
             // 
             // addCustomerToolStripMenuItem
@@ -107,7 +108,7 @@
             this.updateDVDToolStripMenuItem,
             this.removeDVDToolStripMenuItem});
             this.dVDToolStripMenuItem.Name = "dVDToolStripMenuItem";
-            this.dVDToolStripMenuItem.Size = new System.Drawing.Size(42, 20);
+            this.dVDToolStripMenuItem.Size = new System.Drawing.Size(42, 19);
             this.dVDToolStripMenuItem.Text = "DVD";
             // 
             // addDVDTypeToolStripMenuItem
@@ -151,7 +152,7 @@
             this.rentDVDToolStripMenuItem,
             this.returnDVDToolStripMenuItem});
             this.rentalToolStripMenuItem.Name = "rentalToolStripMenuItem";
-            this.rentalToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.rentalToolStripMenuItem.Size = new System.Drawing.Size(52, 19);
             this.rentalToolStripMenuItem.Text = "Rental";
             // 
             // rentDVDToolStripMenuItem
@@ -174,7 +175,7 @@
             this.revenueAnalysisToolStripMenuItem,
             this.rentalAnalysisToolStripMenuItem});
             this.analysisToolStripMenuItem.Name = "analysisToolStripMenuItem";
-            this.analysisToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
+            this.analysisToolStripMenuItem.Size = new System.Drawing.Size(62, 19);
             this.analysisToolStripMenuItem.Text = "Analysis";
             // 
             // revenueAnalysisToolStripMenuItem
@@ -194,25 +195,27 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(37, 19);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 27);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 29);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1455, 717);
+            this.pictureBox1.Size = new System.Drawing.Size(2182, 993);
             this.pictureBox1.TabIndex = 47;
             this.pictureBox1.TabStop = false;
             // 
             // btnLogin
             // 
             this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F);
-            this.btnLogin.Location = new System.Drawing.Point(566, 597);
+            this.btnLogin.Location = new System.Drawing.Point(547, 600);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(190, 97);
+            this.btnLogin.Size = new System.Drawing.Size(168, 61);
             this.btnLogin.TabIndex = 48;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -220,12 +223,14 @@
             // 
             // frmHome
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1251, 726);
+            this.ClientSize = new System.Drawing.Size(1265, 720);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStripHome);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmHome";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ";

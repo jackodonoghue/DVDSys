@@ -120,9 +120,6 @@ namespace DVDSys
 
                 dvd = new DVD(Convert.ToInt32(btnID.Text), txtTitle.Text.ToUpper(), cboType.Text.ToUpper(), txtDir.Text.ToUpper(), txtGenre.Text.ToUpper(), dtpRelease.Text.ToUpper(), active);
 
-                if (!dvd.alreadyExists())
-                {
-
                     dvd.addDVD();
 
                     //reset UI
@@ -131,13 +128,7 @@ namespace DVDSys
                     txtGenre.Clear();
                     cboActive.ResetText();
 
-                    txtTitle.Focus();
-                }
-                else
-                {
-                    txtTitle.Focus();
-                }
-                
+                    txtTitle.Focus();                
             }
         }
 

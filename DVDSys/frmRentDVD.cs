@@ -169,35 +169,69 @@ namespace DVDSys
             }
             else
             {
-                try
+                DataSet ds = new DataSet();
+                
+                ds = Payment.getLateRental(ds, customer.getCustomerID());
+                DataTable dt = ds.Tables[0];
+
+                if (dt.Rows.Count <= 0)
                 {
-                    int rentID = Rent.getNextRentID();
-                    Rent rent = new Rent(rentID, customer.getCustomerID());
-
-                    rent.addRental();
-
-                    for (int i = 0; i < lstCart.Items.Count; i++)
+                    try
                     {
-                        rent = new Rent(rentID, Convert.ToInt32(lstCart.Items[i].ToString().Substring(0, 3)));
+                        int rentID = Rent.getNextRentID();
+                        Rent rent = new Rent(rentID, customer.getCustomerID());
 
-                        rent.addRentalItem();
+                        rent.addRental();
+
+                        for (int i = 0; i < lstCart.Items.Count; i++)
+                        {
+                            rent = new Rent(rentID, Convert.ToInt32(lstCart.Items[i].ToString().Substring(0, 3)));
+
+                            rent.addRentalItem();
+                        }
+
+                        MessageBox.Show("Rental Complete!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        //PAYMENT
+                        Payment.makePayment(rentID, lblTotal.Text.Substring(1));
+
+                        price = 0.0;
+                        lblTotal.Text = "\u20AC" + price.ToString("0.00");
+
+                        //Reset UI
+                        clearUI();
+                    }
+                    catch (NullReferenceException r)
+                    {
+                        r.ToString();
+                        MessageBox.Show("Rental details incomlete, please select customer.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    decimal charge = 0; 
+
+                    for(int i = 0; i < dt.Rows.Count; i ++)
+                    {
+                        charge += (Convert.ToDecimal(dt.Rows[i][0]) * 3);
                     }
 
-                    MessageBox.Show("Rental Complete!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    var confirmResult = MessageBox.Show("Customer owes \u20AC" + charge.ToString("0.00") + " for overdue DVDs. Pay now?", "Overdue Rental!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                    //PAYMENT
-                    Rent.makePayment(rentID, lblTotal.Text.Substring(1));
+                    if (confirmResult == DialogResult.Yes)
+                    {
+                        for (int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            Payment.makePayment(Convert.ToInt32(dt.Rows[i][2]), charge.ToString("0.00"));
+                            Rent.returnDVD(Convert.ToInt32(dt.Rows[i][1]));
+                        }                        
 
-                    price = 0.0;
-                    lblTotal.Text = "\u20AC" + price.ToString("0.00");
-
-                    //Reset UI
-                    clearUI();
-                }
-                catch (NullReferenceException r)
-                {
-                    r.ToString();
-                    MessageBox.Show("Rental details incomlete, please select customer.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Customer can now rent DVD", "Rental Payed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Customer must pay charges before reting DVD", "Overdue Rental!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
             }           
             
