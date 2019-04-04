@@ -63,7 +63,7 @@ namespace DVDSys
             this.price = price;
         }
         //
-        //add customer
+        //add Type to types table
         //
         public void addType()
         {
@@ -82,12 +82,12 @@ namespace DVDSys
 
             if (num >= 0)
             {
-                MessageBox.Show("Customer " + this.getType() + " added", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Type " + this.getType() + " added", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             else
             {
-                MessageBox.Show("Unsuccesful", "Unsuccess!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Unsuccesful", "Unsuccess!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             //close db

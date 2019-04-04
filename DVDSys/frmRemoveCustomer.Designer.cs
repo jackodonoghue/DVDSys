@@ -46,7 +46,7 @@
             this.btnSubmit.Location = new System.Drawing.Point(243, 420);
             this.btnSubmit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSubmit.Name = "btnSubmit";
-            this.btnSubmit.Size = new System.Drawing.Size(142, 40);
+            this.btnSubmit.Size = new System.Drawing.Size(142, 60);
             this.btnSubmit.TabIndex = 42;
             this.btnSubmit.Text = "Confirm Account Removal";
             this.btnSubmit.UseVisualStyleBackColor = true;

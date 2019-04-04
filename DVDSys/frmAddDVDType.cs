@@ -62,10 +62,7 @@ namespace DVDSys
             if(!type.alreadyExists())
             {
                  type.addType();
-
-                //display confirmation message
-                MessageBox.Show("DVD Type " + txtType.Text + " Added", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                                
                 //reset UI
                 txtType.Clear();
                 nupPrice.Value = 0;
