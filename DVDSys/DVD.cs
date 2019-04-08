@@ -60,7 +60,7 @@ namespace DVDSys
             connection.Open();
 
             //define sql query
-            String sql = "select max(DVDID) from DVD";
+            String sql = "select max(DVDID) from DVDS";
 
             //create oracle command
             OracleCommand com = new OracleCommand(sql, connection);
@@ -98,7 +98,33 @@ namespace DVDSys
             OracleConnection connection = new OracleConnection(ConnectDB.orDB);
 
             //define sql query
-            String sql = "select * from DVD WHERE title LIKE '" + searched + "%'";
+            String sql = "select * from DVDS WHERE title LIKE '" + searched + "%'";
+
+            //create oracle command
+            OracleCommand com = new OracleCommand(sql, connection);
+
+            //execute query using datareader
+            OracleDataAdapter da = new OracleDataAdapter(com);
+
+            //check value returned - if null return 1, otherwise return datareader value
+            da.Fill(ds, "stk");
+
+            //close db
+            connection.Close();
+
+
+            return ds;
+        }
+        //
+        //Search Active DVD
+        //
+        public static DataSet getActiveDVDS(DataSet ds, string searched)
+        {
+            //connect to db
+            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+
+            //define sql query
+            String sql = "select * from DVDS WHERE title LIKE '" + searched + "%' AND STATUS != 'I'";
 
             //create oracle command
             OracleCommand com = new OracleCommand(sql, connection);
@@ -125,7 +151,7 @@ namespace DVDSys
             connection.Open();
 
             //define sql query
-            String sql = "INSERT INTO DVD VALUES(" + this.id + ", '" + this.type + "', '" + this.title + "', '" + this.dir + "', '" + this.genre + "', TO_DATE('" + this.relDate + "', 'DD/MM/YYYY'), '" + this.active + "')"; 
+            String sql = "INSERT INTO DVDS VALUES(" + this.id + ", '" + this.type + "', '" + this.title + "', '" + this.dir + "', '" + this.genre + "', TO_DATE('" + this.relDate + "', 'DD/MM/YYYY'), '" + this.active + "')"; 
 
             //create oracle command
             OracleCommand com = new OracleCommand(sql, connection);
@@ -155,7 +181,7 @@ namespace DVDSys
             connection.Open();
 
             //define sql query
-            String sql = "update DVD set DVDTYPE = '" + this.type + "', TITLE = '" + this.title + "', DIRECTOR = '" + this.dir + "', GENRE = '" + this.genre + "', RELEASEDATE = TO_DATE('" + this.relDate +"', 'DD/MM/YYYY') WHERE dvdid = " + this.id;
+            String sql = "update DVDS set DVDTYPE = '" + this.type + "', TITLE = '" + this.title + "', DIRECTOR = '" + this.dir + "', GENRE = '" + this.genre + "', RELEASEDATE = TO_DATE('" + this.relDate +"', 'DD/MM/YYYY') WHERE dvdid = " + this.id;
 
 
             //create oracle command
@@ -185,7 +211,7 @@ namespace DVDSys
             connection.Open();
 
             //define sql query
-            String sql = "UPDATE DVD SET STATUS = 'U' WHERE DVDID = " + id;
+            String sql = "UPDATE DVDS SET STATUS = 'U' WHERE DVDID = " + id;
 
 
             //create oracle command
@@ -214,7 +240,7 @@ namespace DVDSys
             OracleConnection connection = new OracleConnection(ConnectDB.orDB);
 
             //define sql query
-            String sql = "select DVDID from DVD WHERE title LIKE '" + this.title + "%'";
+            String sql = "select DVDID from DVDS WHERE title LIKE '" + this.title + "%'";
 
             //create oracle command
             OracleCommand com = new OracleCommand(sql, connection);
@@ -242,7 +268,7 @@ namespace DVDSys
             OracleConnection connection = new OracleConnection(ConnectDB.orDB);
 
             //define sql query
-            String sql = "select status from dvd where DVDID=" + dvdid;
+            String sql = "select status from dvds where DVDID=" + dvdid;
 
             //create oracle command
             OracleCommand com = new OracleCommand(sql, connection);

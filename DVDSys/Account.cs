@@ -33,7 +33,7 @@ namespace DVDSys
             connection.Open();
 
             //define sql query
-            String sql = "select max(ACCOUNTID) from account";
+            String sql = "select max(ACCOUNTID) from accountS";
 
             //create oracle command
             OracleCommand com = new OracleCommand(sql, connection);
@@ -74,7 +74,7 @@ namespace DVDSys
             int id = getNextAccID();
 
             //define sql query
-            String sql = "INSERT INTO Account VALUES(" + id + ", '" + this.user + "', '" + this.pass + "')";
+            String sql = "INSERT INTO Accounts VALUES(" + id + ", '" + this.user + "', '" + this.pass + "')";
 
 
 
@@ -108,7 +108,7 @@ namespace DVDSys
             OracleConnection connection = new OracleConnection(ConnectDB.orDB);
 
             //define sql query
-            String sql = "select * from Account WHERE USERNAME = '" + user + "' AND PASSWORD = '" + pass + "'";
+            String sql = "select * from Accounts WHERE USERNAME = '" + user + "' AND PASSWORD = '" + pass + "'";
 
             //create oracle command
             OracleCommand com = new OracleCommand(sql, connection);

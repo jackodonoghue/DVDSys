@@ -72,7 +72,7 @@ namespace DVDSys
             connection.Open();
 
             //define sql query
-            String sql = "insert into TYPE VALUES('" + this.type + "', '" + this.description +"', " + this.price +")";
+            String sql = "insert into TYPES VALUES('" + this.type + "', '" + this.description +"', " + this.price +")";
             
 
 
@@ -102,7 +102,7 @@ namespace DVDSys
             OracleConnection connection = new OracleConnection(ConnectDB.orDB);
 
             //define sql query
-            String sql = "select * from Type";
+            String sql = "select * from Types";
 
             //create oracle command
             OracleCommand com = new OracleCommand(sql, connection);
@@ -130,7 +130,7 @@ namespace DVDSys
                 OracleConnection connection = new OracleConnection(ConnectDB.orDB);
 
                 //define sql query
-                String sql = "select * from Type WHERE DVDType LIKE '" + searchTerm + "%'";
+                String sql = "select * from Types WHERE DVDType LIKE '" + searchTerm + "%'";
 
                 //create oracle command
                 OracleCommand com = new OracleCommand(sql, connection);
@@ -158,7 +158,7 @@ namespace DVDSys
             connection.Open();
 
             //define sql query
-            String sql = "UPDATE Type SET Description = '" + this.description + "', PricePerNight = " + this.price + " WHERE DVDType = '" + this.type + "'";
+            String sql = "UPDATE Types SET Description = '" + this.description + "', PricePerNight = " + this.price + " WHERE DVDType = '" + this.type + "'";
 
 
             //create oracle command
@@ -187,7 +187,7 @@ namespace DVDSys
             OracleConnection connection = new OracleConnection(ConnectDB.orDB);
 
             //define sql query
-            String sql = "SELECT DVD.DVDTYPE, COUNT(*) AS COUNT FROM RENTITEM INNER JOIN DVD ON RENTITEM.DVDID=DVD.DVDID WHERE RENTDATE BETWEEN TO_DATE('" + start + "', 'DD/MM/YYYY') AND TO_DATE('" + end + "', 'DD/MM/YYYY') GROUP BY DVD.DVDTYPE";
+            String sql = "SELECT DVDs.DVDTYPE, COUNT(*) AS COUNT FROM RENTITEMs INNER JOIN DVDs ON RENTITEMs.DVDID=DVDs.DVDID WHERE RENTDATE BETWEEN TO_DATE('" + start + "', 'DD/MM/YYYY') AND TO_DATE('" + end + "', 'DD/MM/YYYY') GROUP BY DVDs.DVDTYPE";
 
             //create oracle command
             OracleCommand com = new OracleCommand(sql, connection);
@@ -215,7 +215,7 @@ namespace DVDSys
             DataTable dt = new DataTable();
 
             //define sql query
-            String sql = "select COUNT(UNIQUE(DVDTYPE)) from DVD where STATUS != 'I'";
+            String sql = "select COUNT(UNIQUE(DVDTYPE)) from DVDs where STATUS != 'I'";
 
             //create oracle command
             OracleCommand com = new OracleCommand(sql, connection);
@@ -244,7 +244,7 @@ namespace DVDSys
             connection.Open();
 
             //define sql query
-            String sql = "SELECT * FROM TYPE WHERE DVDTYPE = TO_CHAR('" + this.type + "')";
+            String sql = "SELECT * FROM TYPEs WHERE DVDTYPE = TO_CHAR('" + this.type + "')";
             
             //create oracle command
             OracleCommand com = new OracleCommand(sql, connection);

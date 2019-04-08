@@ -56,7 +56,7 @@ namespace DVDSys
 
             String searched = txtName.Text;
 
-            dgvSearchResults.DataSource = Customer.getCustomers(ds, searched.ToUpper()).Tables["stk"];
+            dgvSearchResults.DataSource = Customer.getActiveCustomers(ds, searched.ToUpper()).Tables["stk"];
 
             if (ds.Tables[0].Rows.Count == 0)
             {
@@ -79,8 +79,6 @@ namespace DVDSys
                 if (confirmResult == DialogResult.Yes)
                 {
                     Customer.removeCustomer(custid);
-
-                    MessageBox.Show("Customer " + name + " deleted", "Customer Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else

@@ -13,7 +13,6 @@ namespace DVDSys
     public partial class frmDVDRet : Form
     {
         frmHome parent;
-        private Customer customer;
 
         public frmDVDRet()
         {
@@ -52,7 +51,7 @@ namespace DVDSys
                 //Search
                 DataSet ds = new DataSet();
 
-                dgvSearch.DataSource = DVD.getDVDS(ds, txtSearch.Text.ToUpper()).Tables["stk"];
+                dgvSearch.DataSource = DVD.getActiveDVDS(ds, txtSearch.Text.ToUpper()).Tables["stk"];
 
                 if (ds.Tables[0].Rows.Count == 0)
                 {
@@ -83,6 +82,7 @@ namespace DVDSys
         {
             for (int i = 0; i < lstCart.Items.Count; i++)
             {
+                if(Payment.getLateRental())
                 Rent.returnDVD(Convert.ToInt32(lstCart.Items[i].ToString().Substring(0, 1)));
             }
         }

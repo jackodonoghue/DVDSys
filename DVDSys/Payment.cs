@@ -182,7 +182,7 @@ namespace DVDSys
             OracleConnection connection = new OracleConnection(ConnectDB.orDB);
 
             //define sql query
-            String sql = "select DVD.DVDID, RentItem.ReturnDate, RentItem.RentID from DVD inner join RentItem on RentItem.DVDID=DVD.DVDID where (DVD.STATUS != 'A' OR DVD.STATUS != 'I') and RentItem.RETURNDATE < '" + DateTime.Today.ToString("dd-MMM-yyyy") + "'";
+            String sql = "select DVDS.DVDID, RentItems.ReturnDate, RentItems.RentID from DVDs inner join RentItems on RentItems.DVDID=DVDs.DVDID where (DVDs.STATUS != 'A' AND DVDs.STATUS != 'I') and RentItems.RETURNDATE < '" + DateTime.Today.ToString("dd-MMM-yyyy") + "'";
            
             //create oracle command
             OracleCommand com = new OracleCommand(sql, connection);
@@ -201,7 +201,7 @@ namespace DVDSys
                 TimeSpan noDays = DateTime.Today - DateTime.Parse(Convert.ToString(dt.Rows[i][1]));
                 
                 //define sql query to update dvd to rented
-                String sql1 = "UPDATE DVD SET status = '" + noDays.ToString().Substring(0,2) + "'  WHERE DVDID = " + Convert.ToInt32(dt.Rows[i][0]);
+                String sql1 = "UPDATE DVDS SET status = '" + noDays.ToString().Substring(0,2) + "'  WHERE DVDID = " + Convert.ToInt32(dt.Rows[i][0]);
 
                 //create oracle command
                 OracleCommand com1 = new OracleCommand(sql1, connection);
@@ -220,8 +220,8 @@ namespace DVDSys
             OracleConnection connection = new OracleConnection(ConnectDB.orDB);
 
             //define sql query
-            String sql = "Select DVD.Status, DVD.DVDID, RENTITEM.RENTID from DVD INNER JOIN RENTITEM ON RENTITEM.DVDID=DVD.DVDID " 
-                + "where Status != 'I' AND Status != 'A' AND Status != 'R' AND RENTID = (SELECT MAX(RENTID) FROM RENTAL WHERE CUSTID=" + CustID + ")";
+            String sql = "Select DVDS.Status, DVDS.DVDID, RENTITEMS.RENTID from DVDS INNER JOIN RENTITEMS ON RENTITEMS.DVDID=DVDS.DVDID " 
+                + "where Status != 'I' AND Status != 'A' AND Status != 'R' AND RENTID = (SELECT MAX(RENTID) FROM RENTALS WHERE CUSTID=" + CustID + ")";
 
             //create oracle command
             OracleCommand com = new OracleCommand(sql, connection);

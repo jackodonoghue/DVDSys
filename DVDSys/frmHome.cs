@@ -18,7 +18,7 @@ namespace DVDSys
             this.menuStripHome.Visible = false;           
         }
 
-        public void showMenu()
+        public void showMenu(String hUsername)
         {
             if (frmLogin.loggedIn == false)
             {
@@ -27,7 +27,11 @@ namespace DVDSys
             else
             {
                 this.menuStripHome.Visible = true;
-                btnLogin.Visible = false;
+                if (!hUsername.Equals("8C-69-76-E5-B5-41-04-15-BD-E9-08-BD-4D-EE-15-DF-B1-67-A9-C8-73-FC-4B-B8-A8-1F-6F-2A-B4-48-A9-18"))
+                {
+                    menuStripHome.Items[3].Visible = false;
+                }
+                    btnLogin.Visible = false;
             }
         }
 

@@ -57,11 +57,11 @@ namespace DVDSys
             //The Username and Password would have been collected by hte "Register User" function and put throught the ComputeHash() algorithm before saving.
 
             if (Account.getLogin(hUsername, hPassword))
-            {
-                loggedIn = true;
-                parent.showMenu();
-                this.Hide();
-                Payment.checkLateRentals();
+            {                
+                    loggedIn = true;
+                    parent.showMenu(hUsername);
+                    this.Hide();
+                    Payment.checkLateRentals();
             }
             else
             {

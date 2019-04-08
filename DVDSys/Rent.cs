@@ -32,7 +32,7 @@ namespace DVDSys
             connection.Open();
 
             //define sql query
-            String sql = "select max(RentID) from Rental";
+            String sql = "select max(RentID) from Rentals";
 
             //create oracle command
             OracleCommand com = new OracleCommand(sql, connection);
@@ -71,7 +71,7 @@ namespace DVDSys
             connection.Open();
 
             //define sql query
-            String sql = "INSERT INTO Rental VALUES(" + this.rentID + ", " + this.otherID + ")";
+            String sql = "INSERT INTO Rentals VALUES(" + this.rentID + ", " + this.otherID + ")";
             
             //create oracle command
             OracleCommand com = new OracleCommand(sql, connection);
@@ -92,7 +92,7 @@ namespace DVDSys
             connection.Open();
 
             //define sql query
-            String sql = "INSERT INTO RentItem VALUES(" + this.rentID + ", " + this.otherID + ", " + "TO_DATE('" + start + "', 'DD/MM/YYYY')" 
+            String sql = "INSERT INTO RentItems VALUES(" + this.rentID + ", " + this.otherID + ", " + "TO_DATE('" + start + "', 'DD/MM/YYYY')" 
                 + ", " + "TO_DATE('" + end + "', 'DD/MM/YYYY')" + ")";
 
             //create oracle command
@@ -100,7 +100,7 @@ namespace DVDSys
             int num = com.ExecuteNonQuery();
 
             //define sql query to update dvd to rented
-            String sql1 = "UPDATE DVD SET status = 'R'  WHERE DVDID = " + this.otherID;
+            String sql1 = "UPDATE DVDs SET status = 'R'  WHERE DVDID = " + this.otherID;
 
             //create oracle command
             OracleCommand com1 = new OracleCommand(sql1, connection);
@@ -122,7 +122,7 @@ namespace DVDSys
             connection.Open();
 
             //define sql query
-            String sql = "select PRICEPERNIGHT from TYPE where DVDTYPE = '" + type + "'";
+            String sql = "select PRICEPERNIGHT from TYPEs where DVDTYPE = '" + type + "'";
 
             //create oracle command
             OracleCommand com = new OracleCommand(sql, connection);
@@ -160,7 +160,7 @@ namespace DVDSys
             connection.Open();
 
             //define sql query
-            String sql = "UPDATE DVD SET STATUS = 'A' WHERE DVDID = " + dvdid;
+            String sql = "UPDATE DVDs SET STATUS = 'A' WHERE DVDID = " + dvdid;
 
 
             //create oracle command
@@ -169,12 +169,12 @@ namespace DVDSys
 
             if (com.ExecuteNonQuery() >= 0)
             {
-                MessageBox.Show("DVD returned", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("DVD " + dvdid + " returned", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             else
             {
-                MessageBox.Show("ERROR!\nPlease try again", "Please try again!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Error, DVD " + dvdid +" not returned!\nPlease try again", "Please try again!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             //close db
@@ -195,7 +195,7 @@ namespace DVDSys
             connection.Open();
 
             //define sql query
-            String sql = "select count(*) from RentItem where rentid = " + rentid;
+            String sql = "select count(*) from RentItems where rentid = " + rentid;
            
             //create oracle command
             OracleCommand com = new OracleCommand(sql, connection);

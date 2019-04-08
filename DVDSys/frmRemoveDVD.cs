@@ -56,7 +56,7 @@ namespace DVDSys
 
                 String searched = txtSearch.Text;
 
-                dgvSearch.DataSource = DVD.getDVDS(ds, searched.ToUpper()).Tables["stk"];
+                dgvSearch.DataSource = DVD.getActiveDVDS(ds, searched.ToUpper()).Tables["stk"];
 
                 if (ds.Tables[0].Rows.Count == 0)
                 {

@@ -142,7 +142,7 @@ namespace DVDSys
             connection.Open();
 
             //define sql query
-            String sql = "select max(CustID) from Customer";
+            String sql = "select max(CustID) from Customers";
 
             //create oracle command
             OracleCommand com = new OracleCommand(sql, connection);
@@ -181,7 +181,7 @@ namespace DVDSys
             connection.Open();
 
             //define sql query
-            String sql = "INSERT INTO Customer VALUES(" + this.custid + ", '" + this.fName + "', '" + this.lName + "', TO_DATE('" + this.dob + "', 'DD/MM/YYYY'), '" + this.address +
+            String sql = "INSERT INTO Customers VALUES(" + this.custid + ", '" + this.fName + "', '" + this.lName + "', TO_DATE('" + this.dob + "', 'DD/MM/YYYY'), '" + this.address +
                 "', '" + this.gender + "', '" + this.phoneNum + "', 'A')";
 
 
@@ -212,7 +212,34 @@ namespace DVDSys
             OracleConnection connection = new OracleConnection(ConnectDB.orDB);
 
             //define sql query
-            String sql = "select * from Customer WHERE FNAME LIKE '" + searchTerm + "%' OR SNAME LIKE '" + searchTerm + "%'";
+            String sql = "select * from Customers WHERE FNAME LIKE '" + searchTerm + "%' OR SNAME LIKE '" + searchTerm + "%'";
+
+            //create oracle command
+            OracleCommand com = new OracleCommand(sql, connection);
+
+            //execute query using datareader
+            OracleDataAdapter da = new OracleDataAdapter(com);
+
+            //check value returned - if null return 1, otherwise return datareader value
+            da.Fill(DS, "stk");
+
+            //close db
+            connection.Close();
+
+
+            return DS;
+
+        }
+        //
+        //Get searched Customer
+        //
+        public static DataSet getActiveCustomers(DataSet DS, String searchTerm)
+        {
+            //connect to db
+            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+
+            //define sql query
+            String sql = "select * from Customers WHERE (FNAME LIKE '" + searchTerm + "%' OR SNAME LIKE '" + searchTerm + "%') AND ACTIVE = 'A' ";
 
             //create oracle command
             OracleCommand com = new OracleCommand(sql, connection);
@@ -241,8 +268,8 @@ namespace DVDSys
             connection.Open();
 
             //define sql query
-            String sql = "UPDATE Customer SET FName = '" + this.fName + "', SName = '" + this.lName + "', DATEOFBIRTH = TO_DATE('" + this.dob +
-                "', 'DD/MM/YYYY'), Address = '" + this.address + "', Gender = '" + this.gender + "', Phone = '" + this.phoneNum + "' WHERE CustID = " + this.custid;
+            String sql = "UPDATE Customers SET FName = '" + this.fName + "', SName = '" + this.lName + "', DATEOFBIRTH = TO_DATE('" + this.dob +
+                "', 'DD/MM/YYYY'), Address = '" + this.address + "', Gender = '" + this.gender + "', Phone = '" + this.phoneNum + "', Active = 'A' WHERE CustID = " + this.custid;
 
 
             //create oracle command
@@ -272,7 +299,7 @@ namespace DVDSys
             connection.Open();
 
             //define sql query
-            String sql = "UPDATE Customer SET Active = 'I' WHERE CustID = " + id;
+            String sql = "UPDATE Customers SET Active = 'I' WHERE CustID = " + id;
 
 
             //create oracle command
@@ -305,7 +332,7 @@ namespace DVDSys
             connection.Open();
 
             //define sql query
-            String sql = "SELECT * FROM CUSTOMER WHERE PHONE = " + this.phoneNum;
+            String sql = "SELECT * FROM CUSTOMERS WHERE PHONE = " + this.phoneNum + " AND ACTIVE!='I' AND CUSTID!=" + this.custid;
 
             //create oracle command
             OracleCommand com = new OracleCommand(sql, connection);

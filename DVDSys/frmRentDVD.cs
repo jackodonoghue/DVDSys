@@ -56,7 +56,8 @@ namespace DVDSys
             DataSet ds = new DataSet();
 
 
-            dgvSearch.DataSource = Customer.getCustomers(ds, txtSearch.Text.ToUpper()).Tables["stk"];
+            dgvSearch.DataSource = Customer.getActiveCustomers(ds, txtSearch.Text.ToUpper()).Tables["stk"];
+            dgvSearch.AllowUserToAddRows = false;
 
             if (ds.Tables[0].Rows.Count == 0)
             {
@@ -92,14 +93,7 @@ namespace DVDSys
             }
 
             //Search
-            DataSet ds = new DataSet();
-
-            dgvDVDSearch.DataSource = DVD.getDVDS(ds, txtDVDName.Text.ToUpper()).Tables["stk"];
-
-            if (ds.Tables[0].Rows.Count == 0)
-            {
-                MessageBox.Show("No results found, please try again", "No Results!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            searchDVDs();
         }
         //
         //Select DVD
@@ -159,14 +153,7 @@ namespace DVDSys
                 MessageBox.Show("Customer Must be Selected", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtSearch.Focus();
                 return;
-            }
-            //check that at least 1 DVD is selected
-            else if(lstCart.Items.Count == 0)
-            {
-                MessageBox.Show("At leaast 1 DVD Must be Selected", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                txtDVDName.Focus();
-                return;
-            }
+            }            
             else
             {
                 DataSet ds = new DataSet();
@@ -176,7 +163,14 @@ namespace DVDSys
 
                 if (dt.Rows.Count <= 0)
                 {
-                    try
+                    //check that at least 1 DVD is selected
+                    if (lstCart.Items.Count == 0)
+                    {
+                        MessageBox.Show("At leaast 1 DVD Must be Selected", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        txtDVDName.Focus();
+                        return;
+                    }
+                    else
                     {
                         int rentID = Rent.getNextRentID();
                         Rent rent = new Rent(rentID, customer.getCustomerID());
@@ -200,12 +194,7 @@ namespace DVDSys
 
                         //Reset UI
                         clearUI();
-                    }
-                    catch (NullReferenceException r)
-                    {
-                        r.ToString();
-                        MessageBox.Show("Rental details incomlete, please select customer.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    }                    
                 }
                 else
                 {
@@ -226,7 +215,11 @@ namespace DVDSys
                             Rent.returnDVD(Convert.ToInt32(dt.Rows[i][1]));
                         }                        
 
-                        MessageBox.Show("Customer can now rent DVD", "Rental Payed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Customer can now rent DVD", "DVD Returned", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        price += Convert.ToDouble(charge);
+                        lblTotal.Text = "\u20AC" + price.ToString("0.00");
+                        searchDVDs();
                     }
                     else
                     {
@@ -257,6 +250,36 @@ namespace DVDSys
             price = 0.0;
             txtSearch.Focus();
             lblTotal.Text = "\u20AC" + price.ToString("0.00");
+        }
+        //
+        //Fill DVD data grid view
+        //
+        public DataSet searchDVDs()
+        {
+            DataSet ds = new DataSet();
+
+            dgvDVDSearch.DataSource = DVD.getActiveDVDS(ds, txtDVDName.Text.ToUpper()).Tables["stk"];
+            dgvDVDSearch.AllowUserToAddRows = false;
+
+            if (ds.Tables[0].Rows.Count == 0)
+            {
+                MessageBox.Show("No results found, please try again", "No Results!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
+            //Hide cells with rented and inactive status
+            foreach(DataGridViewRow row in dgvDVDSearch.Rows)
+            {
+                if (!row.Cells[6].Value.ToString().Equals("A "))
+                {                   
+                    CurrencyManager currencyManager1 = (CurrencyManager)dgvDVDSearch.BindingContext[dgvDVDSearch.DataSource];
+                    currencyManager1.SuspendBinding();
+                    row.Visible = false;
+                    currencyManager1.ResumeBinding();
+                    
+                }
+            }
+
+            return ds;
         }
     }
 }
