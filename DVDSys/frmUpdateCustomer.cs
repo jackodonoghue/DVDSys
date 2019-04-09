@@ -57,7 +57,8 @@ namespace DVDSys
 
             String searched = txtSearch.Text;
 
-            dgvSearch.DataSource = Customer.getCustomers(ds, searched.ToUpper()).Tables["stk"];
+            grdSearch.DataSource = Customer.getCustomers(ds, searched.ToUpper()).Tables["stk"];
+            grdSearch.AllowUserToAddRows = false;
 
             if (ds.Tables[0].Rows.Count == 0)
             {
@@ -82,7 +83,7 @@ namespace DVDSys
         {
             int rowIndex = e.RowIndex;
             
-            DataGridViewRow row = dgvSearch.Rows[rowIndex];
+            DataGridViewRow row = grdSearch.Rows[rowIndex];
             
             CustIDString = row.Cells[0].Value.ToString();
             CustID = int.Parse(CustIDString);

@@ -48,12 +48,12 @@
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.backToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.dgvSearch = new System.Windows.Forms.DataGridView();
+            this.grdSearch = new System.Windows.Forms.DataGridView();
             this.chkMale = new System.Windows.Forms.CheckBox();
             this.chkFemale = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).BeginInit();
             this.menuStrip2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdSearch)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSearch
@@ -239,14 +239,14 @@
             this.toolStripMenuItem1.Text = "Exit";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.exit_Click);
             // 
-            // dgvSearch
+            // grdSearch
             // 
-            this.dgvSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSearch.Location = new System.Drawing.Point(43, 141);
-            this.dgvSearch.Name = "dgvSearch";
-            this.dgvSearch.Size = new System.Drawing.Size(355, 176);
-            this.dgvSearch.TabIndex = 41;
-            this.dgvSearch.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.custUpdateResults_CellClick);
+            this.grdSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdSearch.Location = new System.Drawing.Point(43, 141);
+            this.grdSearch.Name = "grdSearch";
+            this.grdSearch.Size = new System.Drawing.Size(355, 176);
+            this.grdSearch.TabIndex = 41;
+            this.grdSearch.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.custUpdateResults_CellClick);
             // 
             // chkMale
             // 
@@ -279,7 +279,7 @@
             this.ClientSize = new System.Drawing.Size(434, 647);
             this.Controls.Add(this.chkFemale);
             this.Controls.Add(this.chkMale);
-            this.Controls.Add(this.dgvSearch);
+            this.Controls.Add(this.grdSearch);
             this.Controls.Add(this.menuStrip2);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnUpdate);
@@ -303,7 +303,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataSet1)).EndInit();
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdSearch)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -330,7 +330,7 @@
         private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ToolStripMenuItem backToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
-        private System.Windows.Forms.DataGridView dgvSearch;
+        private System.Windows.Forms.DataGridView grdSearch;
         private System.Windows.Forms.CheckBox chkMale;
         private System.Windows.Forms.CheckBox chkFemale;
     }

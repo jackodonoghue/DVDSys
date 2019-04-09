@@ -35,7 +35,7 @@
             this.btnSearchSubmit = new System.Windows.Forms.Button();
             this.dvdUpdateLabel = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.dgvSearch = new System.Windows.Forms.DataGridView();
+            this.grdSearch = new System.Windows.Forms.DataGridView();
             this.cboType = new System.Windows.Forms.ComboBox();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
@@ -49,7 +49,7 @@
             this.typeLabel = new System.Windows.Forms.Label();
             this.titleLabel = new System.Windows.Forms.Label();
             this.menuStrip2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdSearch)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip2
@@ -124,15 +124,15 @@
             this.txtSearch.Size = new System.Drawing.Size(277, 24);
             this.txtSearch.TabIndex = 41;
             // 
-            // dgvSearch
+            // grdSearch
             // 
-            this.dgvSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSearch.Location = new System.Drawing.Point(69, 152);
-            this.dgvSearch.Margin = new System.Windows.Forms.Padding(4);
-            this.dgvSearch.Name = "dgvSearch";
-            this.dgvSearch.Size = new System.Drawing.Size(532, 244);
-            this.dgvSearch.TabIndex = 77;
-            this.dgvSearch.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSearch_CellClick);
+            this.grdSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdSearch.Location = new System.Drawing.Point(69, 152);
+            this.grdSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.grdSearch.Name = "grdSearch";
+            this.grdSearch.Size = new System.Drawing.Size(532, 244);
+            this.grdSearch.TabIndex = 77;
+            this.grdSearch.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSearch_CellClick);
             // 
             // cboType
             // 
@@ -284,7 +284,7 @@
             this.Controls.Add(this.dirLabel);
             this.Controls.Add(this.typeLabel);
             this.Controls.Add(this.titleLabel);
-            this.Controls.Add(this.dgvSearch);
+            this.Controls.Add(this.grdSearch);
             this.Controls.Add(this.menuStrip2);
             this.Controls.Add(this.btnSearchReset);
             this.Controls.Add(this.btnSearchSubmit);
@@ -298,7 +298,7 @@
             this.Load += new System.EventHandler(this.frmUpdateDVD_Load);
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdSearch)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -313,7 +313,7 @@
         private System.Windows.Forms.Button btnSearchSubmit;
         private System.Windows.Forms.Label dvdUpdateLabel;
         private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.DataGridView dgvSearch;
+        private System.Windows.Forms.DataGridView grdSearch;
         private System.Windows.Forms.ComboBox cboType;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnUpdate;

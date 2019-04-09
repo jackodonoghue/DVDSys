@@ -30,7 +30,7 @@ namespace DVDSys
 
         private void AddCustomer_Load(object sender, EventArgs e)
         {
-            btnCustID.Text = Customer.getNextCustID().ToString("000");
+            txtCustID.Text = Customer.getNextCustID().ToString("000");
             dtpDOB.MaxDate = (DateTime.Today.AddYears(-18));
             
         }
@@ -146,7 +146,7 @@ namespace DVDSys
                 newCustomer.addCustomer();
 
             //reset UI
-            btnCustID.Text = Customer.getNextCustID().ToString("000");
+            txtCustID.Text = Customer.getNextCustID().ToString("000");
             txtFName.Clear();
             txtSName.Clear();
             txtAddress1.Clear();

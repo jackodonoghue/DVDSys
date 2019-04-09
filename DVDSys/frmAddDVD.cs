@@ -29,7 +29,7 @@ namespace DVDSys
 
         private void frmAddDVD_Load(object sender, EventArgs e)
         {
-            btnID.Text = DVD.getNextDVDID().ToString("000");
+            txtID.Text = DVD.getNextDVDID().ToString("000");
             
             //Get types for drop down 
             DataSet ds = new DataSet();
@@ -118,7 +118,7 @@ namespace DVDSys
                     active = 'N';
                 }
 
-                dvd = new DVD(Convert.ToInt32(btnID.Text), txtTitle.Text.ToUpper(), cboType.Text.ToUpper(), txtDir.Text.ToUpper(), txtGenre.Text.ToUpper(), dtpRelease.Text.ToUpper(), active);
+                dvd = new DVD(Convert.ToInt32(txtID.Text), txtTitle.Text.ToUpper(), cboType.Text.ToUpper(), txtDir.Text.ToUpper(), txtGenre.Text.ToUpper(), dtpRelease.Text.ToUpper(), active);
 
                     dvd.addDVD();
 

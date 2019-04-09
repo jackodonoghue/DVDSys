@@ -40,23 +40,25 @@ namespace DVDSys
         //
         private void btnSearch_Click(object sender, EventArgs e)
         {        
-                //Validate search
-                if (!Vali.valTypeName(txtSearch.Text))
-                {
-                    MessageBox.Show("DVD name invalid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtSearch.Focus();
-                    return;
-                }
+            //Validate search
+            if (!Vali.valTypeName(txtSearch.Text))
+            {
+                MessageBox.Show("DVD name invalid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtSearch.Focus();
+                return;
+            }
 
-                //Search
-                DataSet ds = new DataSet();
+            //Search
+            DataSet ds = new DataSet();
 
-                dgvSearch.DataSource = DVD.getActiveDVDS(ds, txtSearch.Text.ToUpper()).Tables["stk"];
+            grdSearch.DataSource = DVD.getDVDS(ds, txtSearch.Text.ToUpper()).Tables["stk"];
+            grdSearch.AllowUserToAddRows = false;
+            
 
-                if (ds.Tables[0].Rows.Count == 0)
-                {
-                    MessageBox.Show("No results found, please try again", "No Results!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            if (ds.Tables[0].Rows.Count == 0)
+            {
+                MessageBox.Show("No results found, please try again", "No Results!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         //
         // Reset Button Clicked -- Reset UI
@@ -71,18 +73,32 @@ namespace DVDSys
         //
         private void dgvSearch_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            int rowIndex = e.RowIndex;
+            Boolean alreadyEntered = false;
 
-            DataGridViewRow row = dgvSearch.Rows[rowIndex];
+            for (int i = 0; i < lstCart.Items.Count; i++)
+            {
+                if (Convert.ToInt32(grdSearch.Rows[grdSearch.CurrentCell.RowIndex].Cells[0].Value) == Convert.ToInt32(lstCart.Items[i].ToString().Substring(0, 1)))
+                {
+                    MessageBox.Show("DVD already in cart!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    alreadyEntered = true;
+                    break;
+                }
+            }
 
-            lstCart.Items.Add(row.Cells[0].Value.ToString() + " " + (String)row.Cells[2].Value);            
+            if (!alreadyEntered)
+            {
+                int rowIndex = e.RowIndex;
+
+                DataGridViewRow row = grdSearch.Rows[rowIndex];
+
+                lstCart.Items.Add(row.Cells[0].Value.ToString() + " " + (String)row.Cells[2].Value);
+            }                      
         }
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < lstCart.Items.Count; i++)
             {
-                if(Payment.getLateRental())
                 Rent.returnDVD(Convert.ToInt32(lstCart.Items[i].ToString().Substring(0, 1)));
             }
         }

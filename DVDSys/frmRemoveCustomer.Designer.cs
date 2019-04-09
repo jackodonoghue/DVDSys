@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.btnSubmit = new System.Windows.Forms.Button();
-            this.dgvSearchResults = new System.Windows.Forms.DataGridView();
+            this.grdSearchResults = new System.Windows.Forms.DataGridView();
             this.btnSearch = new System.Windows.Forms.Button();
             this.custUpdateLabel = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.backToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSearchResults)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdSearchResults)).BeginInit();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,7 +44,7 @@
             // 
             this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnSubmit.Location = new System.Drawing.Point(243, 420);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(142, 60);
             this.btnSubmit.TabIndex = 42;
@@ -52,22 +52,22 @@
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.submit_Click);
             // 
-            // dgvSearchResults
+            // grdSearchResults
             // 
-            this.dgvSearchResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSearchResults.Location = new System.Drawing.Point(45, 168);
-            this.dgvSearchResults.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dgvSearchResults.Name = "dgvSearchResults";
-            this.dgvSearchResults.Size = new System.Drawing.Size(532, 244);
-            this.dgvSearchResults.TabIndex = 51;
-            this.dgvSearchResults.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataSetGridView_CellClick);
-            this.dgvSearchResults.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataSetGridView_CellClick);
+            this.grdSearchResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdSearchResults.Location = new System.Drawing.Point(45, 168);
+            this.grdSearchResults.Margin = new System.Windows.Forms.Padding(4);
+            this.grdSearchResults.Name = "grdSearchResults";
+            this.grdSearchResults.Size = new System.Drawing.Size(532, 244);
+            this.grdSearchResults.TabIndex = 51;
+            this.grdSearchResults.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataSetGridView_CellClick);
+            this.grdSearchResults.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataSetGridView_CellClick);
             // 
             // btnSearch
             // 
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnSearch.Location = new System.Drawing.Point(243, 119);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(142, 40);
             this.btnSearch.TabIndex = 50;
@@ -90,7 +90,7 @@
             // 
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.txtName.Location = new System.Drawing.Point(320, 66);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(252, 24);
             this.txtName.TabIndex = 48;
@@ -130,17 +130,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(651, 493);
             this.Controls.Add(this.menuStrip2);
-            this.Controls.Add(this.dgvSearchResults);
+            this.Controls.Add(this.grdSearchResults);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.custUpdateLabel);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.btnSubmit);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmRemoveCustomer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Remove Customer";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSearchResults)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdSearchResults)).EndInit();
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             this.ResumeLayout(false);
@@ -150,7 +150,7 @@
 
         #endregion
         private System.Windows.Forms.Button btnSubmit;
-        private System.Windows.Forms.DataGridView dgvSearchResults;
+        private System.Windows.Forms.DataGridView grdSearchResults;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label custUpdateLabel;
         private System.Windows.Forms.TextBox txtName;

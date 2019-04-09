@@ -47,10 +47,10 @@
             this.revenueAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rentalAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picHome = new System.Windows.Forms.PictureBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.menuStripHome.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHome)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStripHome
@@ -199,15 +199,15 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // pictureBox1
+            // picHome
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 29);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(2182, 993);
-            this.pictureBox1.TabIndex = 47;
-            this.pictureBox1.TabStop = false;
+            this.picHome.Image = ((System.Drawing.Image)(resources.GetObject("picHome.Image")));
+            this.picHome.Location = new System.Drawing.Point(0, 29);
+            this.picHome.Margin = new System.Windows.Forms.Padding(4);
+            this.picHome.Name = "picHome";
+            this.picHome.Size = new System.Drawing.Size(2182, 993);
+            this.picHome.TabIndex = 47;
+            this.picHome.TabStop = false;
             // 
             // btnLogin
             // 
@@ -227,7 +227,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1265, 720);
             this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.picHome);
             this.Controls.Add(this.menuStripHome);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -236,7 +236,7 @@
             this.Text = " ";
             this.menuStripHome.ResumeLayout(false);
             this.menuStripHome.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHome)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -262,7 +262,7 @@
         private System.Windows.Forms.ToolStripMenuItem revenueAnalysisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rentalAnalysisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picHome;
         private System.Windows.Forms.Button btnLogin;
     }
 }

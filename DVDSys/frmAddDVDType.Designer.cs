@@ -38,9 +38,9 @@
             this.btnSubmit = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
-            this.nupPrice = new System.Windows.Forms.NumericUpDown();
+            this.nudPrice = new System.Windows.Forms.NumericUpDown();
             this.menuStrip2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nupPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrice)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip2
@@ -97,7 +97,7 @@
             // 
             this.txtType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.txtType.Location = new System.Drawing.Point(268, 53);
-            this.txtType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtType.Margin = new System.Windows.Forms.Padding(4);
             this.txtType.MaximumSize = new System.Drawing.Size(448, 300);
             this.txtType.MaxLength = 2;
             this.txtType.MinimumSize = new System.Drawing.Size(28, 20);
@@ -109,7 +109,7 @@
             // 
             this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnReset.Location = new System.Drawing.Point(84, 223);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(4);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(142, 32);
             this.btnReset.TabIndex = 60;
@@ -121,7 +121,7 @@
             // 
             this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnSubmit.Location = new System.Drawing.Point(318, 223);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(142, 32);
             this.btnSubmit.TabIndex = 50;
@@ -144,28 +144,28 @@
             // 
             this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.txtDescription.Location = new System.Drawing.Point(268, 159);
-            this.txtDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDescription.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(277, 24);
             this.txtDescription.TabIndex = 30;
             // 
-            // nupPrice
+            // nudPrice
             // 
-            this.nupPrice.DecimalPlaces = 2;
-            this.nupPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.nupPrice.Location = new System.Drawing.Point(268, 100);
-            this.nupPrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.nupPrice.Name = "nupPrice";
-            this.nupPrice.Size = new System.Drawing.Size(82, 24);
-            this.nupPrice.TabIndex = 20;
-            this.nupPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.nudPrice.DecimalPlaces = 2;
+            this.nudPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.nudPrice.Location = new System.Drawing.Point(268, 100);
+            this.nudPrice.Margin = new System.Windows.Forms.Padding(4);
+            this.nudPrice.Name = "nudPrice";
+            this.nudPrice.Size = new System.Drawing.Size(82, 24);
+            this.nudPrice.TabIndex = 20;
+            this.nudPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // frmAddDVDType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(580, 288);
-            this.Controls.Add(this.nupPrice);
+            this.Controls.Add(this.nudPrice);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.btnReset);
@@ -175,14 +175,14 @@
             this.Controls.Add(this.dvdPriceLabel);
             this.Controls.Add(this.menuStrip2);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(742, 677);
             this.Name = "frmAddDVDType";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add DVD Type";
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nupPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,6 +200,6 @@
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtDescription;
-        private System.Windows.Forms.NumericUpDown nupPrice;
+        private System.Windows.Forms.NumericUpDown nudPrice;
     }
 }

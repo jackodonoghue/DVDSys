@@ -45,7 +45,7 @@
             this.backToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.txtAddress2 = new System.Windows.Forms.TextBox();
-            this.btnCustID = new System.Windows.Forms.TextBox();
+            this.txtCustID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.chkMale = new System.Windows.Forms.CheckBox();
             this.chkFemale = new System.Windows.Forms.CheckBox();
@@ -122,7 +122,7 @@
             // 
             this.txtFName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.txtFName.Location = new System.Drawing.Point(312, 98);
-            this.txtFName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtFName.Margin = new System.Windows.Forms.Padding(4);
             this.txtFName.Name = "txtFName";
             this.txtFName.Size = new System.Drawing.Size(224, 24);
             this.txtFName.TabIndex = 8;
@@ -131,7 +131,7 @@
             // 
             this.txtSName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.txtSName.Location = new System.Drawing.Point(312, 140);
-            this.txtSName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSName.Margin = new System.Windows.Forms.Padding(4);
             this.txtSName.Name = "txtSName";
             this.txtSName.Size = new System.Drawing.Size(224, 24);
             this.txtSName.TabIndex = 9;
@@ -142,7 +142,7 @@
             this.dtpDOB.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDOB.Location = new System.Drawing.Point(312, 186);
-            this.dtpDOB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpDOB.Margin = new System.Windows.Forms.Padding(4);
             this.dtpDOB.Name = "dtpDOB";
             this.dtpDOB.Size = new System.Drawing.Size(224, 24);
             this.dtpDOB.TabIndex = 10;
@@ -152,7 +152,7 @@
             // 
             this.txtAddress1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.txtAddress1.Location = new System.Drawing.Point(312, 227);
-            this.txtAddress1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAddress1.Margin = new System.Windows.Forms.Padding(4);
             this.txtAddress1.Name = "txtAddress1";
             this.txtAddress1.Size = new System.Drawing.Size(224, 24);
             this.txtAddress1.TabIndex = 11;
@@ -161,7 +161,7 @@
             // 
             this.txtPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.txtPhone.Location = new System.Drawing.Point(312, 350);
-            this.txtPhone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPhone.Margin = new System.Windows.Forms.Padding(4);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(224, 24);
             this.txtPhone.TabIndex = 17;
@@ -170,7 +170,7 @@
             // 
             this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnSubmit.Location = new System.Drawing.Point(358, 392);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(142, 43);
             this.btnSubmit.TabIndex = 18;
@@ -182,7 +182,7 @@
             // 
             this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnReset.Location = new System.Drawing.Point(130, 392);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(4);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(142, 43);
             this.btnReset.TabIndex = 19;
@@ -222,22 +222,22 @@
             // 
             this.txtAddress2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.txtAddress2.Location = new System.Drawing.Point(312, 269);
-            this.txtAddress2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAddress2.Margin = new System.Windows.Forms.Padding(4);
             this.txtAddress2.Name = "txtAddress2";
             this.txtAddress2.Size = new System.Drawing.Size(224, 24);
             this.txtAddress2.TabIndex = 14;
             // 
-            // btnCustID
+            // txtCustID
             // 
-            this.btnCustID.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.btnCustID.Enabled = false;
-            this.btnCustID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.btnCustID.Location = new System.Drawing.Point(312, 57);
-            this.btnCustID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnCustID.MaxLength = 3;
-            this.btnCustID.Name = "btnCustID";
-            this.btnCustID.Size = new System.Drawing.Size(58, 24);
-            this.btnCustID.TabIndex = 21;
+            this.txtCustID.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.txtCustID.Enabled = false;
+            this.txtCustID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.txtCustID.Location = new System.Drawing.Point(312, 57);
+            this.txtCustID.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCustID.MaxLength = 3;
+            this.txtCustID.Name = "txtCustID";
+            this.txtCustID.Size = new System.Drawing.Size(58, 24);
+            this.txtCustID.TabIndex = 21;
             // 
             // label1
             // 
@@ -257,7 +257,7 @@
             this.chkMale.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkMale.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.chkMale.Location = new System.Drawing.Point(309, 312);
-            this.chkMale.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkMale.Margin = new System.Windows.Forms.Padding(4);
             this.chkMale.Name = "chkMale";
             this.chkMale.Size = new System.Drawing.Size(59, 22);
             this.chkMale.TabIndex = 15;
@@ -270,7 +270,7 @@
             this.chkFemale.AutoSize = true;
             this.chkFemale.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.chkFemale.Location = new System.Drawing.Point(453, 310);
-            this.chkFemale.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkFemale.Margin = new System.Windows.Forms.Padding(4);
             this.chkFemale.Name = "chkFemale";
             this.chkFemale.Size = new System.Drawing.Size(76, 22);
             this.chkFemale.TabIndex = 16;
@@ -285,7 +285,7 @@
             this.ClientSize = new System.Drawing.Size(651, 460);
             this.Controls.Add(this.chkFemale);
             this.Controls.Add(this.chkMale);
-            this.Controls.Add(this.btnCustID);
+            this.Controls.Add(this.txtCustID);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.btnReset);
@@ -303,7 +303,7 @@
             this.Controls.Add(this.sNameLabel);
             this.Controls.Add(this.fNameLabel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(667, 400);
             this.Name = "frmAddCustomer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -334,10 +334,10 @@
         private System.Windows.Forms.ToolStripMenuItem backToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.TextBox txtAddress2;
-        private System.Windows.Forms.TextBox btnCustID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox chkMale;
         private System.Windows.Forms.CheckBox chkFemale;
+        protected System.Windows.Forms.TextBox txtCustID;
     }
 }
 

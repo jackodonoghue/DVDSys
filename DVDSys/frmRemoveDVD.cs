@@ -56,7 +56,8 @@ namespace DVDSys
 
                 String searched = txtSearch.Text;
 
-                dgvSearch.DataSource = DVD.getActiveDVDS(ds, searched.ToUpper()).Tables["stk"];
+                grdSearch.DataSource = DVD.getActiveDVDS(ds, searched.ToUpper()).Tables["stk"];
+                grdSearch.AllowUserToAddRows = false;
 
                 if (ds.Tables[0].Rows.Count == 0)
                 {
@@ -73,7 +74,7 @@ namespace DVDSys
         {
             int rowIndex = e.RowIndex;
 
-            DataGridViewRow row = dgvSearch.Rows[rowIndex];
+            DataGridViewRow row = grdSearch.Rows[rowIndex];
 
             ID = int.Parse(row.Cells[0].Value.ToString());
             title = (String)row.Cells[2].Value;

@@ -45,7 +45,7 @@
             this.titleLabel = new System.Windows.Forms.Label();
             this.cboType = new System.Windows.Forms.ComboBox();
             this.cboActive = new System.Windows.Forms.ComboBox();
-            this.btnID = new System.Windows.Forms.TextBox();
+            this.txtID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -220,16 +220,16 @@
             this.cboActive.Size = new System.Drawing.Size(53, 26);
             this.cboActive.TabIndex = 60;
             // 
-            // btnID
+            // txtID
             // 
-            this.btnID.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.btnID.Enabled = false;
-            this.btnID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.btnID.Location = new System.Drawing.Point(211, 38);
-            this.btnID.MaxLength = 3;
-            this.btnID.Name = "btnID";
-            this.btnID.Size = new System.Drawing.Size(40, 24);
-            this.btnID.TabIndex = 1000;
+            this.txtID.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.txtID.Enabled = false;
+            this.txtID.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.txtID.Location = new System.Drawing.Point(211, 38);
+            this.txtID.MaxLength = 3;
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(40, 24);
+            this.txtID.TabIndex = 1000;
             // 
             // label1
             // 
@@ -246,7 +246,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(460, 320);
-            this.Controls.Add(this.btnID);
+            this.Controls.Add(this.txtID);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cboActive);
             this.Controls.Add(this.cboType);
@@ -293,7 +293,7 @@
         private System.Windows.Forms.ComboBox cboType;
         private System.Windows.Forms.ToolStripMenuItem backToolStripMenuItem;
         private System.Windows.Forms.ComboBox cboActive;
-        private System.Windows.Forms.TextBox btnID;
+        private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.Label label1;
     }
 }

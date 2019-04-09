@@ -42,10 +42,10 @@ namespace DVDSys
         {
             int rowIndex = e.RowIndex;
            
-            DataGridViewRow row = dgvSearch.Rows[rowIndex];
+            DataGridViewRow row = grdSearch.Rows[rowIndex];
 
             type = row.Cells[0].Value.ToString();
-            nupPrice.Value = Convert.ToDecimal(row.Cells[2].Value);
+            nudPrice.Value = Convert.ToDecimal(row.Cells[2].Value);
             txtDescription.Text = row.Cells[1].Value.ToString();
         }
 
@@ -54,7 +54,8 @@ namespace DVDSys
             //Fill DataGridView
             DataSet ds = new DataSet();
 
-            dgvSearch.DataSource = Type.getTypes(ds).Tables["stk"];
+            grdSearch.DataSource = Type.getTypes(ds).Tables["stk"];
+            grdSearch.AllowUserToAddRows = false;
         }
 
         private void submit_Click(object sender, EventArgs e)
@@ -67,7 +68,7 @@ namespace DVDSys
             {
                 //Save to DB
                 String desc = txtDescription.Text.ToUpper();
-                double price = Convert.ToDouble(nupPrice.Value);
+                double price = Convert.ToDouble(nudPrice.Value);
 
                 Type up = new Type(type, desc, price);
 
@@ -76,7 +77,7 @@ namespace DVDSys
 
                 //reset UI
                 txtType.Clear();
-                nupPrice.ResetText();
+                nudPrice.ResetText();
                 txtDescription.Clear();
 
                 txtType.Focus();
@@ -102,7 +103,7 @@ namespace DVDSys
 
                 String searched = txtType.Text;
 
-                dgvSearch.DataSource = Type.getSearchTypes(ds, searched.ToUpper()).Tables["stk"];
+                grdSearch.DataSource = Type.getSearchTypes(ds, searched.ToUpper()).Tables["stk"];
 
                 if (ds.Tables[0].Rows.Count == 0)
                 {
@@ -133,7 +134,7 @@ namespace DVDSys
         {
             //reset UI
             txtType.Clear();
-            nupPrice.Value = 0;
+            nudPrice.Value = 0;
             txtDescription.Clear();
 
             txtType.Focus();

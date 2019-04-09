@@ -48,16 +48,16 @@ namespace DVDSys
                 return;
             }
 
-            if (nupPrice.Value == 0)
+            if (nudPrice.Value == 0)
             {
                 MessageBox.Show("Type Price must be entered", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                nupPrice.Focus();
+                nudPrice.Focus();
                 return;
             }
 
 
             //add to database
-            Type type = new Type(txtType.Text.ToUpper(), txtDescription.Text.ToUpper(), Convert.ToDouble(nupPrice.Value));
+            Type type = new Type(txtType.Text.ToUpper(), txtDescription.Text.ToUpper(), Convert.ToDouble(nudPrice.Value));
 
             if(!type.alreadyExists())
             {
@@ -65,7 +65,7 @@ namespace DVDSys
                                 
                 //reset UI
                 txtType.Clear();
-                nupPrice.Value = 0;
+                nudPrice.Value = 0;
                 txtDescription.Clear();
 
                 txtType.Focus();
@@ -80,7 +80,7 @@ namespace DVDSys
         {
             //reset UI
             txtType.Clear();
-            nupPrice.Value = 0;
+            nudPrice.Value = 0;
             txtDescription.Clear();
         }
     }

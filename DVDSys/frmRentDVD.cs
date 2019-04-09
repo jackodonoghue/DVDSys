@@ -56,8 +56,8 @@ namespace DVDSys
             DataSet ds = new DataSet();
 
 
-            dgvSearch.DataSource = Customer.getActiveCustomers(ds, txtSearch.Text.ToUpper()).Tables["stk"];
-            dgvSearch.AllowUserToAddRows = false;
+            grdSearch.DataSource = Customer.getActiveCustomers(ds, txtSearch.Text.ToUpper()).Tables["stk"];
+            grdSearch.AllowUserToAddRows = false;
 
             if (ds.Tables[0].Rows.Count == 0)
             {
@@ -71,7 +71,7 @@ namespace DVDSys
         {
             int rowIndex = e.RowIndex;
 
-            DataGridViewRow row = dgvSearch.Rows[rowIndex];
+            DataGridViewRow row = grdSearch.Rows[rowIndex];
 
             customer = new Customer();
 
@@ -104,7 +104,7 @@ namespace DVDSys
 
             for (int i = 0; i < lstCart.Items.Count; i++)
             {
-                if (Convert.ToInt32(dgvDVDSearch.Rows[dgvDVDSearch.CurrentCell.RowIndex].Cells[0].Value) == Convert.ToInt32(lstCart.Items[i].ToString().Substring(0, 3)))
+                if (Convert.ToInt32(grdDVDSearch.Rows[grdDVDSearch.CurrentCell.RowIndex].Cells[0].Value) == Convert.ToInt32(lstCart.Items[i].ToString().Substring(0, 3)))
                 {
                     MessageBox.Show("DVD already in cart!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     alreadyEntered = false;
@@ -115,10 +115,10 @@ namespace DVDSys
             if (alreadyEntered)
             {
                 //put dvd details into cart
-                lstCart.Items.Add(String.Format("{0:000}", dgvDVDSearch.Rows[dgvDVDSearch.CurrentCell.RowIndex].Cells[0].Value) + " " + dgvDVDSearch.Rows[dgvDVDSearch.CurrentCell.RowIndex].Cells[2].Value.ToString() + " | " + dgvDVDSearch.Rows[dgvDVDSearch.CurrentCell.RowIndex].Cells[1].Value.ToString());
+                lstCart.Items.Add(String.Format("{0:000}", grdDVDSearch.Rows[grdDVDSearch.CurrentCell.RowIndex].Cells[0].Value) + " " + grdDVDSearch.Rows[grdDVDSearch.CurrentCell.RowIndex].Cells[2].Value.ToString() + " | " + grdDVDSearch.Rows[grdDVDSearch.CurrentCell.RowIndex].Cells[1].Value.ToString());
 
                 //Add price to total
-                price += Rent.getPrice(dgvDVDSearch.Rows[dgvDVDSearch.CurrentCell.RowIndex].Cells[1].Value.ToString());
+                price += Rent.getPrice(grdDVDSearch.Rows[grdDVDSearch.CurrentCell.RowIndex].Cells[1].Value.ToString());
 
                 lblTotal.Text = "\u20AC" + price.ToString("0.00");
             }
@@ -211,8 +211,11 @@ namespace DVDSys
                     {
                         for (int i = 0; i < dt.Rows.Count; i++)
                         {
+                            //Add payments to payments file with rentid of overdue rental
                             Payment.makePayment(Convert.ToInt32(dt.Rows[i][2]), charge.ToString("0.00"));
                             Rent.returnDVD(Convert.ToInt32(dt.Rows[i][1]));
+                            //Add price of overdue to listbox
+                            lstCart.Items.Add("Overdue rentals paid\t" + charge.ToString("0.00"));
                         }                        
 
                         MessageBox.Show("Customer can now rent DVD", "DVD Returned", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -244,8 +247,8 @@ namespace DVDSys
             txtSearch.Clear();
             txtDVDName.Clear();
             lstCart.Items.Clear();
-            dgvDVDSearch.DataSource = null;
-            dgvSearch.DataSource = null;
+            grdDVDSearch.DataSource = null;
+            grdSearch.DataSource = null;
             lblCustName.Text = "";
             price = 0.0;
             txtSearch.Focus();
@@ -258,8 +261,8 @@ namespace DVDSys
         {
             DataSet ds = new DataSet();
 
-            dgvDVDSearch.DataSource = DVD.getActiveDVDS(ds, txtDVDName.Text.ToUpper()).Tables["stk"];
-            dgvDVDSearch.AllowUserToAddRows = false;
+            grdDVDSearch.DataSource = DVD.getActiveDVDS(ds, txtDVDName.Text.ToUpper()).Tables["stk"];
+            grdDVDSearch.AllowUserToAddRows = false;
 
             if (ds.Tables[0].Rows.Count == 0)
             {
@@ -267,11 +270,11 @@ namespace DVDSys
             }
             
             //Hide cells with rented and inactive status
-            foreach(DataGridViewRow row in dgvDVDSearch.Rows)
+            foreach(DataGridViewRow row in grdDVDSearch.Rows)
             {
                 if (!row.Cells[6].Value.ToString().Equals("A "))
                 {                   
-                    CurrencyManager currencyManager1 = (CurrencyManager)dgvDVDSearch.BindingContext[dgvDVDSearch.DataSource];
+                    CurrencyManager currencyManager1 = (CurrencyManager)grdDVDSearch.BindingContext[grdDVDSearch.DataSource];
                     currencyManager1.SuspendBinding();
                     row.Visible = false;
                     currencyManager1.ResumeBinding();

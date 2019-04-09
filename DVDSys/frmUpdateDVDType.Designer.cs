@@ -37,21 +37,21 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.btnResetSearch = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.dgvSearch = new System.Windows.Forms.DataGridView();
-            this.nupPrice = new System.Windows.Forms.NumericUpDown();
+            this.grdSearch = new System.Windows.Forms.DataGridView();
+            this.nudPrice = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.dvdPriceLabel = new System.Windows.Forms.Label();
             this.menuStrip2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nupPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdSearch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrice)).BeginInit();
             this.SuspendLayout();
             // 
             // btnReset
             // 
             this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnReset.Location = new System.Drawing.Point(105, 421);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(4);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(130, 43);
             this.btnReset.TabIndex = 80;
@@ -63,7 +63,7 @@
             // 
             this.btnSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnSubmit.Location = new System.Drawing.Point(339, 421);
-            this.btnSubmit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(4);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(130, 43);
             this.btnSubmit.TabIndex = 60;
@@ -86,7 +86,7 @@
             // 
             this.txtType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.txtType.Location = new System.Drawing.Point(267, 37);
-            this.txtType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtType.Margin = new System.Windows.Forms.Padding(4);
             this.txtType.MaxLength = 2;
             this.txtType.Name = "txtType";
             this.txtType.Size = new System.Drawing.Size(82, 24);
@@ -124,7 +124,7 @@
             // 
             this.btnResetSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnResetSearch.Location = new System.Drawing.Point(123, 90);
-            this.btnResetSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnResetSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnResetSearch.Name = "btnResetSearch";
             this.btnResetSearch.Size = new System.Drawing.Size(112, 43);
             this.btnResetSearch.TabIndex = 30;
@@ -136,7 +136,7 @@
             // 
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnSearch.Location = new System.Drawing.Point(357, 90);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(112, 43);
             this.btnSearch.TabIndex = 20;
@@ -144,31 +144,31 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.updateSubmit_Click);
             // 
-            // dgvSearch
+            // grdSearch
             // 
-            this.dgvSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSearch.Location = new System.Drawing.Point(54, 141);
-            this.dgvSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dgvSearch.Name = "dgvSearch";
-            this.dgvSearch.Size = new System.Drawing.Size(510, 173);
-            this.dgvSearch.TabIndex = 83;
-            this.dgvSearch.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.custUpdateResults_CellClick);
+            this.grdSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdSearch.Location = new System.Drawing.Point(54, 141);
+            this.grdSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.grdSearch.Name = "grdSearch";
+            this.grdSearch.Size = new System.Drawing.Size(510, 173);
+            this.grdSearch.TabIndex = 83;
+            this.grdSearch.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.custUpdateResults_CellClick);
             // 
-            // nupPrice
+            // nudPrice
             // 
-            this.nupPrice.DecimalPlaces = 2;
-            this.nupPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.nupPrice.Location = new System.Drawing.Point(268, 323);
-            this.nupPrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.nupPrice.Maximum = new decimal(new int[] {
+            this.nudPrice.DecimalPlaces = 2;
+            this.nudPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.nudPrice.Location = new System.Drawing.Point(268, 323);
+            this.nudPrice.Margin = new System.Windows.Forms.Padding(4);
+            this.nudPrice.Maximum = new decimal(new int[] {
             999,
             0,
             0,
             131072});
-            this.nupPrice.Name = "nupPrice";
-            this.nupPrice.Size = new System.Drawing.Size(82, 24);
-            this.nupPrice.TabIndex = 40;
-            this.nupPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.nudPrice.Name = "nudPrice";
+            this.nudPrice.Size = new System.Drawing.Size(82, 24);
+            this.nudPrice.TabIndex = 40;
+            this.nudPrice.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label1
             // 
@@ -185,7 +185,7 @@
             // 
             this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.txtDescription.Location = new System.Drawing.Point(268, 375);
-            this.txtDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDescription.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescription.MaxLength = 50;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(277, 24);
@@ -207,11 +207,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(618, 492);
-            this.Controls.Add(this.nupPrice);
+            this.Controls.Add(this.nudPrice);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.dvdPriceLabel);
-            this.Controls.Add(this.dgvSearch);
+            this.Controls.Add(this.grdSearch);
             this.Controls.Add(this.btnResetSearch);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnReset);
@@ -220,15 +220,15 @@
             this.Controls.Add(this.txtType);
             this.Controls.Add(this.menuStrip2);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmUpdateDVDType";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Update DVD Type";
             this.Load += new System.EventHandler(this.frmUpdateDVDType_Load);
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nupPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdSearch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudPrice)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -245,8 +245,8 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.Button btnResetSearch;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.DataGridView dgvSearch;
-        private System.Windows.Forms.NumericUpDown nupPrice;
+        private System.Windows.Forms.DataGridView grdSearch;
+        private System.Windows.Forms.NumericUpDown nudPrice;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Label dvdPriceLabel;

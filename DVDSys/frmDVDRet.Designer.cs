@@ -37,9 +37,9 @@
             this.lstCart = new System.Windows.Forms.ListBox();
             this.btnReset = new System.Windows.Forms.Button();
             this.btnConfirm = new System.Windows.Forms.Button();
-            this.dgvSearch = new System.Windows.Forms.DataGridView();
+            this.grdSearch = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdSearch)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -71,7 +71,7 @@
             // btnSearch
             // 
             this.btnSearch.Location = new System.Drawing.Point(552, 57);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(142, 32);
             this.btnSearch.TabIndex = 72;
@@ -93,7 +93,7 @@
             // txtSearch
             // 
             this.txtSearch.Location = new System.Drawing.Point(264, 61);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(277, 24);
             this.txtSearch.TabIndex = 70;
@@ -105,7 +105,7 @@
             this.lstCart.FormattingEnabled = true;
             this.lstCart.ItemHeight = 18;
             this.lstCart.Location = new System.Drawing.Point(766, 97);
-            this.lstCart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstCart.Margin = new System.Windows.Forms.Padding(4);
             this.lstCart.Name = "lstCart";
             this.lstCart.Size = new System.Drawing.Size(486, 526);
             this.lstCart.TabIndex = 91;
@@ -114,7 +114,7 @@
             // 
             this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnReset.Location = new System.Drawing.Point(822, 652);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(4);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(112, 43);
             this.btnReset.TabIndex = 86;
@@ -126,7 +126,7 @@
             // 
             this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnConfirm.Location = new System.Drawing.Point(1088, 652);
-            this.btnConfirm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnConfirm.Margin = new System.Windows.Forms.Padding(4);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(112, 43);
             this.btnConfirm.TabIndex = 85;
@@ -134,15 +134,15 @@
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
-            // dgvSearch
+            // grdSearch
             // 
-            this.dgvSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSearch.Location = new System.Drawing.Point(18, 97);
-            this.dgvSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dgvSearch.Name = "dgvSearch";
-            this.dgvSearch.Size = new System.Drawing.Size(676, 529);
-            this.dgvSearch.TabIndex = 73;
-            this.dgvSearch.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSearch_CellClick);
+            this.grdSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdSearch.Location = new System.Drawing.Point(18, 97);
+            this.grdSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.grdSearch.Name = "grdSearch";
+            this.grdSearch.Size = new System.Drawing.Size(676, 529);
+            this.grdSearch.TabIndex = 73;
+            this.grdSearch.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSearch_CellClick);
             // 
             // frmDVDRet
             // 
@@ -152,19 +152,19 @@
             this.Controls.Add(this.lstCart);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnConfirm);
-            this.Controls.Add(this.dgvSearch);
+            this.Controls.Add(this.grdSearch);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.custUpdateLabel);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmDVDRet";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Return DVD";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdSearch)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -180,6 +180,6 @@
         private System.Windows.Forms.ListBox lstCart;
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.Button btnConfirm;
-        private System.Windows.Forms.DataGridView dgvSearch;
+        private System.Windows.Forms.DataGridView grdSearch;
     }
 }

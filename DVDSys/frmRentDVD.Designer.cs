@@ -36,19 +36,19 @@
             this.btnSearchCustomer = new System.Windows.Forms.Button();
             this.custUpdateLabel = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.dgvSearch = new System.Windows.Forms.DataGridView();
+            this.grdSearch = new System.Windows.Forms.DataGridView();
             this.lblCustName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtDVDName = new System.Windows.Forms.TextBox();
             this.dvdUpdateLabel = new System.Windows.Forms.Label();
             this.btnSearchDVD = new System.Windows.Forms.Button();
-            this.dgvDVDSearch = new System.Windows.Forms.DataGridView();
+            this.grdDVDSearch = new System.Windows.Forms.DataGridView();
             this.lstCart = new System.Windows.Forms.ListBox();
             this.btnRemove = new System.Windows.Forms.Button();
             this.lblTotal = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDVDSearch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdSearch)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDVDSearch)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -83,7 +83,7 @@
             // 
             this.btnConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnConfirm.Location = new System.Drawing.Point(1035, 658);
-            this.btnConfirm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnConfirm.Margin = new System.Windows.Forms.Padding(4);
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(112, 43);
             this.btnConfirm.TabIndex = 70;
@@ -95,7 +95,7 @@
             // 
             this.btnReset.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnReset.Location = new System.Drawing.Point(786, 658);
-            this.btnReset.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnReset.Margin = new System.Windows.Forms.Padding(4);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(112, 43);
             this.btnReset.TabIndex = 60;
@@ -107,7 +107,7 @@
             // 
             this.btnSearchCustomer.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearchCustomer.Location = new System.Drawing.Point(556, 44);
-            this.btnSearchCustomer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearchCustomer.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearchCustomer.Name = "btnSearchCustomer";
             this.btnSearchCustomer.Size = new System.Drawing.Size(142, 39);
             this.btnSearchCustomer.TabIndex = 20;
@@ -130,20 +130,20 @@
             // 
             this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.txtSearch.Location = new System.Drawing.Point(268, 48);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(277, 24);
             this.txtSearch.TabIndex = 10;
             // 
-            // dgvSearch
+            // grdSearch
             // 
-            this.dgvSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSearch.Location = new System.Drawing.Point(22, 93);
-            this.dgvSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dgvSearch.Name = "dgvSearch";
-            this.dgvSearch.Size = new System.Drawing.Size(676, 244);
-            this.dgvSearch.TabIndex = 66;
-            this.dgvSearch.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSearch_CellClick);
+            this.grdSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdSearch.Location = new System.Drawing.Point(22, 93);
+            this.grdSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.grdSearch.Name = "grdSearch";
+            this.grdSearch.Size = new System.Drawing.Size(676, 244);
+            this.grdSearch.TabIndex = 66;
+            this.grdSearch.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSearch_CellClick);
             // 
             // lblCustName
             // 
@@ -170,7 +170,7 @@
             // 
             this.txtDVDName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.txtDVDName.Location = new System.Drawing.Point(268, 359);
-            this.txtDVDName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDVDName.Margin = new System.Windows.Forms.Padding(4);
             this.txtDVDName.Name = "txtDVDName";
             this.txtDVDName.Size = new System.Drawing.Size(277, 24);
             this.txtDVDName.TabIndex = 30;
@@ -190,7 +190,7 @@
             // 
             this.btnSearchDVD.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearchDVD.Location = new System.Drawing.Point(556, 356);
-            this.btnSearchDVD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearchDVD.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearchDVD.Name = "btnSearchDVD";
             this.btnSearchDVD.Size = new System.Drawing.Size(142, 39);
             this.btnSearchDVD.TabIndex = 40;
@@ -198,15 +198,15 @@
             this.btnSearchDVD.UseVisualStyleBackColor = true;
             this.btnSearchDVD.Click += new System.EventHandler(this.btnSearchDVD_Click);
             // 
-            // dgvDVDSearch
+            // grdDVDSearch
             // 
-            this.dgvDVDSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDVDSearch.Location = new System.Drawing.Point(18, 403);
-            this.dgvDVDSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dgvDVDSearch.Name = "dgvDVDSearch";
-            this.dgvDVDSearch.Size = new System.Drawing.Size(681, 230);
-            this.dgvDVDSearch.TabIndex = 82;
-            this.dgvDVDSearch.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDVDSearch_CellClick);
+            this.grdDVDSearch.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdDVDSearch.Location = new System.Drawing.Point(18, 403);
+            this.grdDVDSearch.Margin = new System.Windows.Forms.Padding(4);
+            this.grdDVDSearch.Name = "grdDVDSearch";
+            this.grdDVDSearch.Size = new System.Drawing.Size(681, 230);
+            this.grdDVDSearch.TabIndex = 82;
+            this.grdDVDSearch.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDVDSearch_CellClick);
             // 
             // lstCart
             // 
@@ -215,7 +215,7 @@
             this.lstCart.FormattingEnabled = true;
             this.lstCart.ItemHeight = 18;
             this.lstCart.Location = new System.Drawing.Point(744, 395);
-            this.lstCart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstCart.Margin = new System.Windows.Forms.Padding(4);
             this.lstCart.Name = "lstCart";
             this.lstCart.Size = new System.Drawing.Size(422, 220);
             this.lstCart.TabIndex = 83;
@@ -224,7 +224,7 @@
             // 
             this.btnRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.btnRemove.Location = new System.Drawing.Point(1178, 395);
-            this.btnRemove.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(4);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(112, 43);
             this.btnRemove.TabIndex = 50;
@@ -252,13 +252,13 @@
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.lstCart);
-            this.Controls.Add(this.dgvDVDSearch);
+            this.Controls.Add(this.grdDVDSearch);
             this.Controls.Add(this.btnSearchDVD);
             this.Controls.Add(this.dvdUpdateLabel);
             this.Controls.Add(this.txtDVDName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblCustName);
-            this.Controls.Add(this.dgvSearch);
+            this.Controls.Add(this.grdSearch);
             this.Controls.Add(this.btnSearchCustomer);
             this.Controls.Add(this.custUpdateLabel);
             this.Controls.Add(this.txtSearch);
@@ -266,14 +266,14 @@
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmRentDVD";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DVD Rental";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSearch)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDVDSearch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdSearch)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grdDVDSearch)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,13 +288,13 @@
         private System.Windows.Forms.Button btnSearchCustomer;
         private System.Windows.Forms.Label custUpdateLabel;
         private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.DataGridView dgvSearch;
+        private System.Windows.Forms.DataGridView grdSearch;
         private System.Windows.Forms.Label lblCustName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtDVDName;
         private System.Windows.Forms.Label dvdUpdateLabel;
         private System.Windows.Forms.Button btnSearchDVD;
-        private System.Windows.Forms.DataGridView dgvDVDSearch;
+        private System.Windows.Forms.DataGridView grdDVDSearch;
         private System.Windows.Forms.ListBox lstCart;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Label lblTotal;
