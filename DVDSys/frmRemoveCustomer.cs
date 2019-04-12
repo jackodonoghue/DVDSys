@@ -75,11 +75,20 @@ namespace DVDSys
         {
             if(custid > 0)
             {
-                var confirmResult = MessageBox.Show("Are you sure to delete customer " + name + "?", "Confirm Delete!", MessageBoxButtons.YesNo);
-
-                if (confirmResult == DialogResult.Yes)
+                DataSet rentals = Rent.getCurrentRentals(custid);
+                
+                if (rentals.Tables[0].Rows.Count<=0)
                 {
-                    Customer.removeCustomer(custid);
+                    var confirmResult = MessageBox.Show("Are you sure to delete customer " + name + "?", "Confirm Delete!", MessageBoxButtons.YesNo);
+
+                    if (confirmResult == DialogResult.Yes)
+                    {
+                        Customer.removeCustomer(custid);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Customer " + name + " cannot be removed as they have DVD(s) out on rent.", "Late rentals!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else

@@ -51,10 +51,9 @@ namespace DVDSys
             //Search
             DataSet ds = new DataSet();
 
-            grdSearch.DataSource = DVD.getDVDS(ds, txtSearch.Text.ToUpper()).Tables["stk"];
+            grdSearch.DataSource = DVD.getRentedDVDS(ds, txtSearch.Text.ToUpper()).Tables["stk"];
             grdSearch.AllowUserToAddRows = false;
-            
-
+                
             if (ds.Tables[0].Rows.Count == 0)
             {
                 MessageBox.Show("No results found, please try again", "No Results!", MessageBoxButtons.OK, MessageBoxIcon.Error);

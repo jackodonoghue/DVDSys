@@ -124,7 +124,33 @@ namespace DVDSys
             OracleConnection connection = new OracleConnection(ConnectDB.orDB);
 
             //define sql query
-            String sql = "select * from DVDS WHERE title LIKE '" + searched + "%' AND STATUS != 'I'";
+            String sql = "select * from DVDS WHERE title LIKE '" + searched + "%' AND STATUS = 'A'";
+
+            //create oracle command
+            OracleCommand com = new OracleCommand(sql, connection);
+
+            //execute query using datareader
+            OracleDataAdapter da = new OracleDataAdapter(com);
+
+            //check value returned - if null return 1, otherwise return datareader value
+            da.Fill(ds, "stk");
+
+            //close db
+            connection.Close();
+
+
+            return ds;
+        }
+        //
+        //Search Rented DVDs
+        //
+        public static DataSet getRentedDVDS(DataSet ds, string searched)
+        {
+            //connect to db
+            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+
+            //define sql query
+            String sql = "select * from DVDS WHERE title LIKE '" + searched + "%' AND STATUS != 'A' AND STATUS !='I'";
 
             //create oracle command
             OracleCommand com = new OracleCommand(sql, connection);
@@ -211,7 +237,7 @@ namespace DVDSys
             connection.Open();
 
             //define sql query
-            String sql = "UPDATE DVDS SET STATUS = 'U' WHERE DVDID = " + id;
+            String sql = "UPDATE DVDS SET STATUS = 'I' WHERE DVDID = " + id;
 
 
             //create oracle command

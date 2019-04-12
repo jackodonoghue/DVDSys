@@ -169,7 +169,7 @@ namespace DVDSys
             connection.Close();
         }
         //
-        //Get late dvds change late value
+        //Get late dvds change late value on program load
         //
         public static void checkLateRentals()
         {
@@ -181,8 +181,9 @@ namespace DVDSys
             //connect to db
             OracleConnection connection = new OracleConnection(ConnectDB.orDB);
 
-            //define sql query
-            String sql = "select DVDS.DVDID, RentItems.ReturnDate, RentItems.RentID from DVDs inner join RentItems on RentItems.DVDID=DVDs.DVDID where (DVDs.STATUS != 'A' AND DVDs.STATUS != 'I') and RentItems.RETURNDATE < '" + DateTime.Today.ToString("dd-MMM-yyyy") + "'";
+            //define sql query -- returns all rented DVDs
+            String sql = "select DVDS.DVDID, RentItems.ReturnDate, RentItems.RentID from DVDs inner join RentItems on RentItems.DVDID=DVDs.DVDID where (DVDs.STATUS != 'A' AND DVDs.STATUS != 'I') "
+                + "and RentItems.RETURNDATE < '" + DateTime.Today.ToString("dd-MMM-yyyy") + "'";
            
             //create oracle command
             OracleCommand com = new OracleCommand(sql, connection);
@@ -201,7 +202,7 @@ namespace DVDSys
                 TimeSpan noDays = DateTime.Today - DateTime.Parse(Convert.ToString(dt.Rows[i][1]));
                 
                 //define sql query to update dvd to rented
-                String sql1 = "UPDATE DVDS SET status = '" + noDays.ToString().Substring(0,2) + "'  WHERE DVDID = " + Convert.ToInt32(dt.Rows[i][0]);
+                String sql1 = "UPDATE DVDS SET status = '" + noDays.ToString().Substring(0,1) + "'  WHERE DVDID = " + Convert.ToInt32(dt.Rows[i][0]);
 
                 //create oracle command
                 OracleCommand com1 = new OracleCommand(sql1, connection);
@@ -238,6 +239,5 @@ namespace DVDSys
 
             return ds;
         }
-        
     }
 }

@@ -84,7 +84,8 @@ namespace DVDSys
             
             chtData.Series[0].Label = "#VALY";
 
-            chtData.Titles.Add("Yearly Revenue");
+            chtData.Titles.Clear();
+            chtData.Titles.Add("Types rented over time");
             chtData.ChartAreas[0].AxisX.Title = "Type";
             chtData.ChartAreas[0].AxisY.Title = "Number of Times Rented";
             chtData.Series[0].IsVisibleInLegend = false;

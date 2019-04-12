@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace DVDSys
 
         Customer customer;
         private double price = 0.00;
+        private int rentID;
         //
         //Initialize Form
         //
@@ -160,28 +162,35 @@ namespace DVDSys
                 
                 ds = Payment.getLateRental(ds, customer.getCustomerID());
                 DataTable dt = ds.Tables[0];
+               // MessageBox.Show(dt.Rows[0][0].ToString());
 
                 if (dt.Rows.Count <= 0)
                 {
                     //check that at least 1 DVD is selected
                     if (lstCart.Items.Count == 0)
-                    {
+                    {                        
                         MessageBox.Show("At leaast 1 DVD Must be Selected", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtDVDName.Focus();
                         return;
                     }
                     else
                     {
-                        int rentID = Rent.getNextRentID();
+                        rentID = Rent.getNextRentID();
                         Rent rent = new Rent(rentID, customer.getCustomerID());
 
                         rent.addRental();
 
                         for (int i = 0; i < lstCart.Items.Count; i++)
                         {
-                            rent = new Rent(rentID, Convert.ToInt32(lstCart.Items[i].ToString().Substring(0, 3)));
+                            MessageBox.Show(lstCart.Items[0].ToString().Substring(0, 3));
 
-                            rent.addRentalItem();
+                            if(int.TryParse(lstCart.Items[i].ToString().Substring(0, 1), out int n))
+                            {
+                                rent = new Rent(rentID, Convert.ToInt32(lstCart.Items[i].ToString().Substring(0, 3)));
+
+                                rent.addRentalItem();
+
+                            }
                         }
 
                         MessageBox.Show("Rental Complete!", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -189,10 +198,12 @@ namespace DVDSys
                         //PAYMENT
                         Payment.makePayment(rentID, lblTotal.Text.Substring(1));
 
-                        price = 0.0;
-                        lblTotal.Text = "\u20AC" + price.ToString("0.00");
+                        getInvoice();
 
                         //Reset UI
+                        price = 0.0;
+                        lblTotal.Text = "\u20AC" + price.ToString("0.00");
+                                                
                         clearUI();
                     }                    
                 }
@@ -211,22 +222,24 @@ namespace DVDSys
                     {
                         for (int i = 0; i < dt.Rows.Count; i++)
                         {
-                            //Add payments to payments file with rentid of overdue rental
-                            Payment.makePayment(Convert.ToInt32(dt.Rows[i][2]), charge.ToString("0.00"));
                             Rent.returnDVD(Convert.ToInt32(dt.Rows[i][1]));
-                            //Add price of overdue to listbox
-                            lstCart.Items.Add("Overdue rentals paid\t" + charge.ToString("0.00"));
-                        }                        
+                        }
 
-                        MessageBox.Show("Customer can now rent DVD", "DVD Returned", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //Add payments to payments file with rentid of overdue rental
+                        Payment.makePayment(Convert.ToInt32(dt.Rows[0][2]), charge.ToString("0.00"));
 
                         price += Convert.ToDouble(charge);
                         lblTotal.Text = "\u20AC" + price.ToString("0.00");
                         searchDVDs();
+
+                        //Add price of overdue to listbox
+                        lstCart.Items.Add("Overdue rentals paid\t" + charge.ToString("0.00"));
+
+                        MessageBox.Show("Customer can now rent DVD", "DVD Returned", MessageBoxButtons.OK, MessageBoxIcon.Information);                       
                     }
                     else
                     {
-                        MessageBox.Show("Customer must pay charges before reting DVD", "Overdue Rental!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Customer must pay charges before renting DVD", "Overdue Rental!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
             }           
@@ -284,5 +297,53 @@ namespace DVDSys
 
             return ds;
         }
+        //
+        //Create Invoice
+        //
+        private void getInvoice()
+        {
+            lblRentID.Text = rentID.ToString();
+            lblDateIss.Text = DateTime.Today.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+            lblCustInv.Text = lblCustName.Text;
+            lblTot.Text += " \u20AC" + price.ToString("0.00");
+            lblRetDate.Text += DateTime.Today.AddDays(3.0).ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+            for(int i = 0; i < lstCart.Items.Count; i++)
+            {
+                lstInv.Items.Add(lstCart.Items[i].ToString());
+            }
+
+            grpInvoice.Visible = true;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            grpInvoice.Visible = false;
+        }
+        //
+        //Print invoice
+        //
+        private void doc_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            Bitmap bmp = new Bitmap(pnlInvoice.Width, pnlInvoice.Height, pnlInvoice.CreateGraphics());
+            pnlInvoice.DrawToBitmap(bmp, new Rectangle(0, 0, pnlInvoice.Width, pnlInvoice.Height));
+            RectangleF bounds = e.PageSettings.PrintableArea;
+            float factor = ((float)bmp.Height / (float)bmp.Width);
+            e.Graphics.DrawImage(bmp, bounds.Left, bounds.Top, bounds.Width, factor * bounds.Width);
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            System.Drawing.Printing.PrintDocument doc = new System.Drawing.Printing.PrintDocument();
+            doc.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(doc_PrintPage);
+            PrintPreviewDialog ppd = new PrintPreviewDialog();
+            ppd.Document = doc;
+            DialogResult result = ppd.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                doc.Print();
+            }
+        }
+
     }
 }

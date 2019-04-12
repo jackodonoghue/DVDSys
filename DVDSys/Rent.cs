@@ -181,50 +181,32 @@ namespace DVDSys
             connection.Close();
         }
         //
-        //Check for late return
+        //Get Current Rentals for a specific customer
         //
-        public static int lateReturn(int rentid)
+        public static DataSet getCurrentRentals(int CustID)
         {
-            //get dvds from the rental
-            //compare ret dates of rentals to actual return date, if greater than 0 return number of days
-            //variable to hold value to be returned
-            int nextPayId = 1;
+            DataSet ds = new DataSet();
 
             //connect to db
             OracleConnection connection = new OracleConnection(ConnectDB.orDB);
-            connection.Open();
 
             //define sql query
-            String sql = "select count(*) from RentItems where rentid = " + rentid;
-           
+            String sql = "Select DVDS.Status, DVDS.DVDID, RENTITEMS.RENTID from DVDS INNER JOIN RENTITEMS ON RENTITEMS.DVDID=DVDS.DVDID "
+                + "where Status != 'I' AND Status != 'A' AND RENTID = (SELECT MAX(RENTID) FROM RENTALS WHERE CUSTID=" + CustID + ")";
+
             //create oracle command
             OracleCommand com = new OracleCommand(sql, connection);
 
             //execute query using datareader
-            OracleDataReader dr = com.ExecuteReader();
+            OracleDataAdapter da = new OracleDataAdapter(com);
 
             //check value returned - if null return 1, otherwise return datareader value
-            dr.Read();
-
-            MessageBox.Show(dr.GetValue(0).ToString(), "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        
-            if (dr.IsDBNull(0))
-            {
-                nextPayId = 1;
-            }
-
-            else
-            {
-                nextPayId = Convert.ToInt32(dr.GetValue(0)) + 1;
-            }
-            
+            da.Fill(ds);
 
             //close db
             connection.Close();
 
-            return 0;
-
+            return ds;
         }
     }
 }
