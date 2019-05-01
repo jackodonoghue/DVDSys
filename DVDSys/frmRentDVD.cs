@@ -306,7 +306,7 @@ namespace DVDSys
             lblDateIss.Text = DateTime.Today.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
             lblCustInv.Text = lblCustName.Text;
             lblTot.Text += " \u20AC" + price.ToString("0.00");
-            lblRetDate.Text += DateTime.Today.AddDays(3.0).ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
+            lblRetDate.Text = DateTime.Today.AddDays(3.0).ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
             for(int i = 0; i < lstCart.Items.Count; i++)
             {
                 lstInv.Items.Add(lstCart.Items[i].ToString());
