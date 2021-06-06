@@ -8,65 +8,65 @@ namespace DVDSys
     class Customer
     {
         //instance variables
-        private int custid;
-        private String fName;
-        private String lName;
+        private int customerID;
+        private String firstName;
+        private String lastName;
         private String address;
-        private String dob;
+        private String dateOfBirth;
         private char gender;
-        private String phoneNum;
-        private char accStatus;
+        private String phoneNumber;
+        private char accountStatus;
 
         // no arg constructor
         public Customer()
         {
-            custid = 0;
-            fName = "";
-            lName = "";
-            dob = "";
-            address = "";
-            gender = 'n';
-            phoneNum = "";
-            accStatus = 'I';
+            this.customerID = 0;
+            this.firstName = "";
+            this.lastName = "";
+            this.dateOfBirth = "";
+            this.address = "";
+            this.gender = 'n';
+            this.phoneNumber = "";
+            this.accountStatus = 'I';
         }
 
         //arg constructor
-        public Customer(int cid, String fN, String lN, String dofb, String add, char gen, String pN, char acc)
+        public Customer(int customerID, String firstName, String lastName, String dateOfBirth, String address, char gender, String phoneNumber, char accountStatus)
         {
-            custid = cid;
-            fName = fN;
-            lName = lN;
-            dob = dofb;
-            address = add;
-            gender = gen;
-            phoneNum = pN;
-            accStatus = acc;
+            this.customerID = customerID;
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.dateOfBirth = dateOfBirth;
+            this.address = address;
+            this.gender = gender;
+            this.phoneNumber = phoneNumber;
+            this.accountStatus = accountStatus;
         }
 
         //Set Customer Attributes
         public void setCustomerID(int id)
         {
-            this.custid = id;
+            this.customerID = id;
         }
 
-        public void setFName(String fN)
+        public void setFirstName(String firstName)
         {
-            this.fName = fN;
+            this.firstName = firstName;
         }
 
-        public void setLName(String lN)
+        public void setLastName(String lastName)
         {
-            this.lName = lN;
+            this.lastName = lastName;
         }
 
-        public void setDOB(String dob)
+        public void setDOB(String dateOfBirth)
         {
-            this.dob = dob;
+            this.dateOfBirth = dateOfBirth;
         }
 
-        public void setAddress(String add)
+        public void setAddress(String address)
         {
-            this.address = add;
+            this.address = address;
         }
 
         internal void setPhoneNumber(int v)
@@ -74,50 +74,45 @@ namespace DVDSys
             throw new NotImplementedException();
         }
 
-        public void setPhoneNumber(String pN)
-        {
-            this.phoneNum = pN;
-        }
-
         public void setAccountStatus(char status)
         {
-            this.accStatus = status;
+            this.accountStatus = status;
         }
 
-        public void setGender(char gen)
+        public void setGender(char gender)
         {
-            this.gender = gen;
+            this.gender = gender;
         }
 
         //Get Customer Attributes
         public int getCustomerID()
         {
-            return this.custid;
+            return this.customerID;
         }
 
-        public String getFName()
+        public String getFirstName()
         {
-            return this.fName;
+            return this.firstName;
         }
 
-        public String getlName()
+        public String getLastName()
         {
-            return this.lName;
+            return this.lastName;
         }
 
         public String getDOB()
         {
-            return this.dob;
+            return this.dateOfBirth;
         }
 
         public String getPhoneNumber()
         {
-            return this.phoneNum;
+            return this.phoneNumber;
         }
 
         public char getAccountStatus()
         {
-            return this.accStatus;
+            return this.accountStatus;
         }
 
         public char getGender()
@@ -181,8 +176,8 @@ namespace DVDSys
             connection.Open();
 
             //define sql query
-            String sql = "INSERT INTO Customers VALUES(" + this.custid + ", '" + this.fName + "', '" + this.lName + "', TO_DATE('" + this.dob + "', 'DD/MM/YYYY'), '" + this.address +
-                "', '" + this.gender + "', '" + this.phoneNum + "', 'A')";
+            String sql = "INSERT INTO Customers VALUES(" + this.customerID + ", '" + this.firstName + "', '" + this.lastName + "', TO_DATE('" + this.dateOfBirth + "', 'DD/MM/YYYY'), '" + this.address +
+                "', '" + this.gender + "', '" + this.phoneNumber + "', 'A')";
 
 
 
@@ -192,7 +187,7 @@ namespace DVDSys
 
             if (num >= 0)
             {
-                MessageBox.Show("Customer " + this.getFName() + " added", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Customer " + this.getFirstName() + " added", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             else
@@ -268,8 +263,8 @@ namespace DVDSys
             connection.Open();
 
             //define sql query
-            String sql = "UPDATE Customers SET FName = '" + this.fName + "', SName = '" + this.lName + "', DATEOFBIRTH = TO_DATE('" + this.dob +
-                "', 'DD/MM/YYYY'), Address = '" + this.address + "', Gender = '" + this.gender + "', Phone = '" + this.phoneNum + "', Active = 'A' WHERE CustID = " + this.custid;
+            String sql = "UPDATE Customers SET FName = '" + this.firstName + "', SName = '" + this.lastName + "', DATEOFBIRTH = TO_DATE('" + this.dateOfBirth +
+                "', 'DD/MM/YYYY'), Address = '" + this.address + "', Gender = '" + this.gender + "', Phone = '" + this.phoneNumber + "', Active = 'A' WHERE CustID = " + this.customerID;
 
 
             //create oracle command
@@ -278,7 +273,7 @@ namespace DVDSys
 
             if (com.ExecuteNonQuery() >= 0)
             {
-                MessageBox.Show("Customer " + getFName() + " updated", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Customer " + getFirstName() + " updated", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             else
@@ -332,7 +327,7 @@ namespace DVDSys
             connection.Open();
 
             //define sql query
-            String sql = "SELECT * FROM CUSTOMERS WHERE PHONE = " + this.phoneNum + " AND ACTIVE!='I' AND CUSTID!=" + this.custid;
+            String sql = "SELECT * FROM CUSTOMERS WHERE PHONE = " + this.phoneNumber + " AND ACTIVE!='I' AND CUSTID!=" + this.customerID;
 
             //create oracle command
             OracleCommand com = new OracleCommand(sql, connection);

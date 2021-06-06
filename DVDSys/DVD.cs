@@ -14,9 +14,9 @@ namespace DVDSys
         private int id;
         private String title;
         private String type;
-        private String dir;
+        private String director;
         private String genre;
-        private String relDate;
+        private String releaseDate;
         private char active;
 
         public DVD()
@@ -24,32 +24,28 @@ namespace DVDSys
             id = 0;
             title = "";
             type = "";
-            dir = "";
+            director = "";
             genre = "";
-            relDate = "";
+            releaseDate = "";
             active = 'U';
         }
 
-        public DVD(int id, String title, String type, String dir, String genre, String relDate, char active)
+        public DVD(int id, String title, String type, String director, String genre, String releaseDate, char active)
         {
             this.id = id;
             this.title = title;
             this.type = type;
-            this.dir = dir;
+            this.director = director;
             this.genre = genre;
-            this.relDate = relDate;
+            this.releaseDate = releaseDate;
             this.active = active;
         }
-        //
         //Set Title
-        //
         public void setTitle(String title)
         {
             this.title = title;
         }
-        //
         //Get next DVD ID
-        //
         public static int getNextDVDID()
         {
             //variable to hold value to be returned
@@ -89,9 +85,7 @@ namespace DVDSys
             return nextID;
 
         }
-        //
         //Search DVD
-        //
         public static DataSet getDVDS(DataSet ds, string searched)
         {
             //connect to db
@@ -115,9 +109,7 @@ namespace DVDSys
 
             return ds;
         }
-        //
         //Search Active DVD
-        //
         public static DataSet getActiveDVDS(DataSet ds, string searched)
         {
             //connect to db
@@ -141,9 +133,7 @@ namespace DVDSys
 
             return ds;
         }
-        //
         //Search Rented DVDs
-        //
         public static DataSet getRentedDVDS(DataSet ds, string searched)
         {
             //connect to db
@@ -167,9 +157,7 @@ namespace DVDSys
 
             return ds;
         }
-        //
         //Add DVD
-        //
         public void addDVD()
         {
             //connect to db
@@ -177,7 +165,7 @@ namespace DVDSys
             connection.Open();
 
             //define sql query
-            String sql = "INSERT INTO DVDS VALUES(" + this.id + ", '" + this.type + "', '" + this.title + "', '" + this.dir + "', '" + this.genre + "', TO_DATE('" + this.relDate + "', 'DD/MM/YYYY'), '" + this.active + "')"; 
+            String sql = "INSERT INTO DVDS VALUES(" + this.id + ", '" + this.type + "', '" + this.title + "', '" + this.director + "', '" + this.genre + "', TO_DATE('" + this.releaseDate + "', 'DD/MM/YYYY'), '" + this.active + "')"; 
 
             //create oracle command
             OracleCommand com = new OracleCommand(sql, connection);
@@ -196,9 +184,7 @@ namespace DVDSys
             //close db
             connection.Close();
         }
-        //
         //Update DVD
-        //
         public void updateDVD()
         {
 
@@ -207,7 +193,7 @@ namespace DVDSys
             connection.Open();
 
             //define sql query
-            String sql = "update DVDS set DVDTYPE = '" + this.type + "', TITLE = '" + this.title + "', DIRECTOR = '" + this.dir + "', GENRE = '" + this.genre + "', RELEASEDATE = TO_DATE('" + this.relDate +"', 'DD/MM/YYYY') WHERE dvdid = " + this.id;
+            String sql = "update DVDS set DVDTYPE = '" + this.type + "', TITLE = '" + this.title + "', DIRECTOR = '" + this.director + "', GENRE = '" + this.genre + "', RELEASEDATE = TO_DATE('" + this.releaseDate +"', 'DD/MM/YYYY') WHERE dvdid = " + this.id;
 
 
             //create oracle command
@@ -227,9 +213,7 @@ namespace DVDSys
             //close db
             connection.Close();
         }
-        //
         //Remove DVD
-        //
         public static void removeDVD(int id, String title)
         {
             //connect to db
@@ -257,9 +241,7 @@ namespace DVDSys
             //close db
             connection.Close();
         }
-        //
         //Search DVD by title
-        //
         public DataSet getDVDbyTitle(DataSet ds)
         {
             //connect to db
@@ -283,9 +265,7 @@ namespace DVDSys
 
             return ds;
         }
-        //
         //Check DVD Status before update/delete
-        //
         public static String getDVDStatus(int dvdid)
         {
             DataSet ds = new DataSet();

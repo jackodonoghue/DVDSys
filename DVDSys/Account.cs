@@ -11,13 +11,13 @@ namespace DVDSys
 {
     class Account
     {
-        String user;
-        String pass;
+        String username;
+        String password;
 
-        public Account(String u, String p)
+        public Account(String username, String password)
         {
-            this.user = u;
-            this.pass = p;
+            this.username = username;
+            this.password = password;
         }
 
         //
@@ -74,7 +74,7 @@ namespace DVDSys
             int id = getNextAccID();
 
             //define sql query
-            String sql = "INSERT INTO Accounts VALUES(" + id + ", '" + this.user + "', '" + this.pass + "')";
+            String sql = "INSERT INTO Accounts VALUES(" + id + ", '" + this.username + "', '" + this.password + "')";
 
 
 

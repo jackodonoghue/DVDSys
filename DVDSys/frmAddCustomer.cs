@@ -130,8 +130,8 @@ namespace DVDSys
             
             //save in DB
             newCustomer.setCustomerID(nextCustID);
-            newCustomer.setFName(txtFName.Text.ToUpper());
-            newCustomer.setLName(txtSName.Text.ToUpper());
+            newCustomer.setFirstName(txtFName.Text.ToUpper());
+            newCustomer.setLastName(txtSName.Text.ToUpper());
             newCustomer.setDOB(dtpDOB.Text);
             newCustomer.setAddress(txtAddress1.Text.ToUpper() + ", " + txtAddress2.Text.ToUpper());
             if (chkMale.Checked)
