@@ -69,14 +69,14 @@ namespace DVDSys
             this.address = address;
         }
 
-        internal void setPhoneNumber(int v)
-        {
-            throw new NotImplementedException();
-        }
-
         public void setAccountStatus(char status)
         {
             this.accountStatus = status;
+        }
+
+        public void setPhoneNumber(String phoneNumber)
+        {
+            this.phoneNumber = phoneNumber;
         }
 
         public void setGender(char gender)

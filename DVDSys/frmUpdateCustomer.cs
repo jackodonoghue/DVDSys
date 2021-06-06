@@ -190,8 +190,8 @@ namespace DVDSys
             Customer up = new Customer();
 
             up.setCustomerID(CustID);
-            up.setFName(txtFName.Text.ToUpper());
-            up.setLName(txtSName.Text.ToUpper());
+            up.setFirstName(txtFName.Text.ToUpper());
+            up.setLastName(txtSName.Text.ToUpper());
             up.setDOB(dtpDOB.Text.ToUpper());
             up.setAddress(txtAddress.Text.ToUpper());
 
