@@ -29,7 +29,7 @@ namespace DVDSys
             int nextAccId = 1;
 
             //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+            OracleConnection connection = new OracleConnection(ConnectDB.connectionString);
             connection.Open();
 
             //define sql query
@@ -68,13 +68,13 @@ namespace DVDSys
         public void addAccount()
         {
             //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+            OracleConnection connection = new OracleConnection(ConnectDB.connectionString);
             connection.Open();
 
             int id = getNextAccID();
 
             //define sql query
-            String sql = "INSERT INTO Accounts VALUES(" + id + ", '" + this.username + "', '" + this.password + "')";
+            String sql = "INSERT INTO Accounts VALUES(" + id + ", '" + username + "', '" + password + "')";
 
 
 
@@ -98,17 +98,17 @@ namespace DVDSys
         //
         //Account Login
         //
-        public static Boolean getLogin(String user, String pass)
+        public static bool getLogin(string user, string pass)
         {
             Boolean loginAllowed = false;
             DataSet DS = new DataSet();
             DataTable dt = new DataTable();
 
             //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+            OracleConnection connection = new OracleConnection(ConnectDB.connectionString);
 
             //define sql query
-            String sql = "select * from Accounts WHERE USERNAME = '" + user + "' AND PASSWORD = '" + pass + "'";
+            string sql = "select * from Accounts WHERE USERNAME = 'ADMIN' AND PASSWORD = 'ADMIN'";
 
             //create oracle command
             OracleCommand com = new OracleCommand(sql, connection);

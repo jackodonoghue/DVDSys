@@ -34,16 +34,17 @@ namespace DVDSys
 
         private void backToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
             parent.Visible = true;
         }
 
         private void frmUpdateDVD_Load(object sender, EventArgs e)
         {
+            DVDType type = new DVDType();
             //Get types for drop down 
-            DataSet ds = new DataSet();
+            DataSet ds = type.GetTypesFromDatabase(); 
 
-            Type.getTypes(ds);
+
             DataTable dt = new DataTable();
             dt = ds.Tables[0];
 
@@ -58,7 +59,7 @@ namespace DVDSys
         private void btnSearchSubmit_Click(object sender, EventArgs e)
         {
             //validate input
-            if (!Vali.valTypeName(txtSearch.Text))
+            if (!Validation.ValidateTypeName(txtSearch.Text))
             {
                 MessageBox.Show("Title character invalid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtTitle.Focus();
@@ -162,21 +163,21 @@ namespace DVDSys
                 txtGenre.Focus();
                 return false;
             }
-            if (!Vali.valTypeName(txtTitle.Text))
+            if (!Validation.ValidateTypeName(txtTitle.Text))
             {
                 MessageBox.Show("Title contains invalid characters", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtTitle.Focus();
                 return false;
             }
 
-            if (!Vali.valName(txtDir.Text))
+            if (!Validation.ValidateName(txtDir.Text))
             {
                 MessageBox.Show("Director contains invalid characters", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtDir.Focus();
                 return false;
             }
 
-            if (!Vali.valTypeName(txtGenre.Text))
+            if (!Validation.ValidateTypeName(txtGenre.Text))
             {
                 MessageBox.Show("Genre contains invalid characters", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtGenre.Focus();

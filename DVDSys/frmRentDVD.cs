@@ -31,7 +31,7 @@ namespace DVDSys
         //
         private void backToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
             parent.Visible = true;
         }
         //
@@ -47,7 +47,7 @@ namespace DVDSys
         private void submitCustomer_Click(object sender, EventArgs e)
         {
             //Validate search
-            if (!Vali.valName(txtSearch.Text))
+            if (!Validation.ValidateName(txtSearch.Text))
             {
                 MessageBox.Show("Searched name invalid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtSearch.Focus();
@@ -87,7 +87,7 @@ namespace DVDSys
         private void btnSearchDVD_Click(object sender, EventArgs e)
         {
             //Validate search
-            if (!Vali.valTypeName(txtDVDName.Text))
+            if (!Validation.ValidateTypeName(txtDVDName.Text))
             {
                 MessageBox.Show("DVD name invalid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtSearch.Focus();
@@ -119,7 +119,7 @@ namespace DVDSys
                 //put dvd details into cart
                 lstCart.Items.Add(String.Format("{0:000}", grdDVDSearch.Rows[grdDVDSearch.CurrentCell.RowIndex].Cells[0].Value) + " " + grdDVDSearch.Rows[grdDVDSearch.CurrentCell.RowIndex].Cells[2].Value.ToString() + " | " + grdDVDSearch.Rows[grdDVDSearch.CurrentCell.RowIndex].Cells[1].Value.ToString());
 
-                //Add price to total
+                //Add Price to total
                 price += Rent.getPrice(grdDVDSearch.Rows[grdDVDSearch.CurrentCell.RowIndex].Cells[1].Value.ToString());
 
                 lblTotal.Text = "\u20AC" + price.ToString("0.00");
@@ -232,7 +232,7 @@ namespace DVDSys
                         lblTotal.Text = "\u20AC" + price.ToString("0.00");
                         searchDVDs();
 
-                        //Add price of overdue to listbox
+                        //Add Price of overdue to listbox
                         lstCart.Items.Add("Overdue rentals paid\t" + charge.ToString("0.00"));
 
                         MessageBox.Show("Customer can now rent DVD", "DVD Returned", MessageBoxButtons.OK, MessageBoxIcon.Information);                       

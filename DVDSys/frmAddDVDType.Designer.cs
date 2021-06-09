@@ -91,7 +91,7 @@
             this.dvdTypeLabel.Name = "dvdTypeLabel";
             this.dvdTypeLabel.Size = new System.Drawing.Size(118, 18);
             this.dvdTypeLabel.TabIndex = 71;
-            this.dvdTypeLabel.Text = "Enter DVD Type ";
+            this.dvdTypeLabel.Text = "Enter DVD DVDType ";
             // 
             // txtType
             // 
@@ -179,7 +179,7 @@
             this.MaximumSize = new System.Drawing.Size(742, 677);
             this.Name = "frmAddDVDType";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Add DVD Type";
+            this.Text = "Add DVD DVDType";
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrice)).EndInit();

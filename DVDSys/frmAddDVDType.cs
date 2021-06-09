@@ -29,7 +29,7 @@ namespace DVDSys
 
         private void back_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
             parent.Visible = true;
         }
 
@@ -43,25 +43,25 @@ namespace DVDSys
             //validate input
             if (txtType.Text.Equals(""))
             {
-                MessageBox.Show("DVD Type must be entered", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("DVD DVDType must be entered", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtType.Focus();
                 return;
             }
 
             if (nudPrice.Value == 0)
             {
-                MessageBox.Show("Type Price must be entered", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("DVDType Price must be entered", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 nudPrice.Focus();
                 return;
             }
 
 
             //add to database
-            Type type = new Type(txtType.Text.ToUpper(), txtDescription.Text.ToUpper(), Convert.ToDouble(nudPrice.Value));
+            DVDType type = new DVDType(txtType.Text.ToUpper(), txtDescription.Text.ToUpper(), Convert.ToDouble(nudPrice.Value));
 
-            if(!type.alreadyExists())
+            if(!type.AlreadyExists())
             {
-                 type.addType();
+                 type.AddType();
                                 
                 //reset UI
                 txtType.Clear();

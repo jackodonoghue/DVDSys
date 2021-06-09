@@ -15,18 +15,18 @@ namespace DVDSys
         public frmHome()
         {
             InitializeComponent();
-            this.menuStripHome.Visible = false;           
+            menuStripHome.Visible = false;           
         }
 
         public void showMenu(String hUsername)
         {
             if (frmLogin.loggedIn == false)
             {
-                this.menuStripHome.Visible = false;
+                menuStripHome.Visible = false;
             }
             else
             {
-                this.menuStripHome.Visible = true;
+                menuStripHome.Visible = true;
                 if (!hUsername.Equals("8C-69-76-E5-B5-41-04-15-BD-E9-08-BD-4D-EE-15-DF-B1-67-A9-C8-73-FC-4B-B8-A8-1F-6F-2A-B4-48-A9-18"))
                 {
                     menuStripHome.Items[3].Visible = false;
@@ -37,84 +37,84 @@ namespace DVDSys
 
         private void addCustomerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
             frmAddCustomer nextForm = new frmAddCustomer(this);
             nextForm.Show();
         }
 
         private void updateCustomerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
             frmUpdateCustomer nextForm = new frmUpdateCustomer(this);
             nextForm.Show();
         }
 
         private void removeCustomerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
             frmRemoveCustomer nextForm = new frmRemoveCustomer(this);
             nextForm.Show();
         }
 
         private void addDVDTypeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
             frmAddDVDType nextForm = new frmAddDVDType(this);
             nextForm.Show();
         }
 
         private void updateDVDTypeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
             frmUpdateDVDType nextForm = new frmUpdateDVDType(this);
             nextForm.Show();
         }
 
         private void addDVDToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
             frmAddDVD nextForm = new frmAddDVD(this);
             nextForm.Show();
         }
 
         private void updateDVDToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
             frmUpdateDVD nextForm = new frmUpdateDVD(this);
             nextForm.Show();
         }
 
         private void remDVDToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
             frmRemoveDVD nextForm = new frmRemoveDVD(this);
             nextForm.Show();
         }
 
         private void rentDVDToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
             frmRentDVD nextForm = new frmRentDVD(this);
             nextForm.Show();
         }
 
         private void returnDVDToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
             frmDVDRet nextForm = new frmDVDRet(this);
             nextForm.Show();
         }
 
         private void revenueToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
             frmAnalyseRevenue nextForm = new frmAnalyseRevenue(this);
             nextForm.Show();
         }
 
         private void dvdAnalysisToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
             frmDVDAnalysis nextForm = new frmDVDAnalysis(this);
             nextForm.Show();
         }

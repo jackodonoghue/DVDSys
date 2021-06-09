@@ -28,7 +28,7 @@ namespace DVDSys
             int nextRentId = 1;
 
             //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+            OracleConnection connection = new OracleConnection(ConnectDB.connectionString);
             connection.Open();
 
             //define sql query
@@ -67,11 +67,11 @@ namespace DVDSys
         public void addRental()
         {
             //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+            OracleConnection connection = new OracleConnection(ConnectDB.connectionString);
             connection.Open();
 
             //define sql query
-            String sql = "INSERT INTO Rentals VALUES(" + this.rentID + ", " + this.otherID + ")";
+            String sql = "INSERT INTO Rentals VALUES(" + rentID + ", " + otherID + ")";
             
             //create oracle command
             OracleCommand com = new OracleCommand(sql, connection);
@@ -88,11 +88,11 @@ namespace DVDSys
             String start = DateTime.Now.ToString("dd/MM/yyyy");
             String end = DateTime.Now.AddDays(3).ToString("dd/MM/yyyy");
             //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+            OracleConnection connection = new OracleConnection(ConnectDB.connectionString);
             connection.Open();
 
             //define sql query
-            String sql = "INSERT INTO RentItems VALUES(" + this.rentID + ", " + this.otherID + ", " + "TO_DATE('" + start + "', 'DD/MM/YYYY')" 
+            String sql = "INSERT INTO RentItems VALUES(" + rentID + ", " + otherID + ", " + "TO_DATE('" + start + "', 'DD/MM/YYYY')" 
                 + ", " + "TO_DATE('" + end + "', 'DD/MM/YYYY')" + ")";
 
             //create oracle command
@@ -100,7 +100,7 @@ namespace DVDSys
             int num = com.ExecuteNonQuery();
 
             //define sql query to update dvd to rented
-            String sql1 = "UPDATE DVDs SET status = 'R'  WHERE DVDID = " + this.otherID;
+            String sql1 = "UPDATE DVDs SET status = 'R'  WHERE DVDID = " + otherID;
 
             //create oracle command
             OracleCommand com1 = new OracleCommand(sql1, connection);
@@ -118,7 +118,7 @@ namespace DVDSys
             double price;
 
             //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+            OracleConnection connection = new OracleConnection(ConnectDB.connectionString);
             connection.Open();
 
             //define sql query
@@ -156,7 +156,7 @@ namespace DVDSys
         public static void returnDVD(int dvdid)
         {
             //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+            OracleConnection connection = new OracleConnection(ConnectDB.connectionString);
             connection.Open();
 
             //define sql query
@@ -188,7 +188,7 @@ namespace DVDSys
             DataSet ds = new DataSet();
 
             //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+            OracleConnection connection = new OracleConnection(ConnectDB.connectionString);
 
             //define sql query
             String sql = "Select DVDS.Status, DVDS.DVDID, RENTITEMS.RENTID from DVDS INNER JOIN RENTITEMS ON RENTITEMS.DVDID=DVDS.DVDID "

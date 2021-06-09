@@ -43,7 +43,7 @@ namespace DVDSys
 
         private void backToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
             parent.Visible = true;
         }
         //
@@ -87,35 +87,35 @@ namespace DVDSys
                 return;
             }
 
-            if(!Vali.valName(txtFName.Text))
+            if(!Validation.ValidateName(txtFName.Text))
             {
                 MessageBox.Show("First Name invalid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtFName.Focus();
                 return;
             }
 
-            if (!Vali.valName(txtSName.Text))
+            if (!Validation.ValidateName(txtSName.Text))
             {
                 MessageBox.Show("Last Name invalid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtSName.Focus();
                 return;
             }
 
-            if (!(Vali.valPhoneNumber(txtPhone.Text)) || txtPhone.Text.Length != 10)
+            if (!(Validation.ValidatePhoneNumber(txtPhone.Text)) || txtPhone.Text.Length != 10)
             {
                 MessageBox.Show("Phone number invalid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtPhone.Focus();
                 return;
             }
 
-            if (!Vali.valName(txtAddress1.Text))
+            if (!Validation.ValidateName(txtAddress1.Text))
             {
                 MessageBox.Show("Address invalid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtAddress1.Focus();
                 return;
             }
 
-            if (!Vali.valName(txtAddress2.Text))
+            if (!Validation.ValidateName(txtAddress2.Text))
             {
                 MessageBox.Show("Address invalid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtAddress2.Focus();

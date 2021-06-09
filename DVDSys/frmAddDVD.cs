@@ -30,11 +30,12 @@ namespace DVDSys
         private void frmAddDVD_Load(object sender, EventArgs e)
         {
             txtID.Text = DVD.getNextDVDID().ToString("000");
+            DVDType type = new DVDType();
             
             //Get types for drop down 
-            DataSet ds = new DataSet();
+            DataSet ds = type.GetTypesFromDatabase();
 
-            Type.getTypes(ds);
+
             DataTable dt = new DataTable();
             dt = ds.Tables[0];
             
@@ -46,7 +47,7 @@ namespace DVDSys
 
         private void back_Click(object sender, EventArgs e)
         {
-            this.Close(); 
+            Close(); 
             parent.Visible = true;
         }
 
@@ -78,21 +79,21 @@ namespace DVDSys
                 txtGenre.Focus();
                 return false ;
             }
-            if (!Vali.valTypeName(txtTitle.Text))
+            if (!Validation.ValidateTypeName(txtTitle.Text))
             {
                 MessageBox.Show("Title contains invalid characters", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtTitle.Focus();
                 return false;
             }
 
-            if (!Vali.valName(txtDir.Text))
+            if (!Validation.ValidateName(txtDir.Text))
             {
                 MessageBox.Show("Director contains invalid characters", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtDir.Focus();
                 return false;
             }
 
-            if (!Vali.valTypeName(txtGenre.Text))
+            if (!Validation.ValidateTypeName(txtGenre.Text))
             {
                 MessageBox.Show("Genre contains invalid characters", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtGenre.Focus();

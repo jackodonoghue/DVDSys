@@ -27,7 +27,7 @@ namespace DVDSys
 
         private void back_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
             parent.Visible = true;
         }
 
@@ -41,7 +41,7 @@ namespace DVDSys
         private void btnSearch_Click(object sender, EventArgs e)
         {        
             //Validate search
-            if (!Vali.valTypeName(txtSearch.Text))
+            if (!Validation.ValidateTypeName(txtSearch.Text))
             {
                 MessageBox.Show("DVD name invalid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtSearch.Focus();

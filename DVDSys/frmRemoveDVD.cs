@@ -30,7 +30,7 @@ namespace DVDSys
 
         private void backToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
             parent.Visible = true;
         }
 
@@ -42,7 +42,7 @@ namespace DVDSys
         private void btnSearchSubmit_Click(object sender, EventArgs e)
         {
             //validate input
-            if (!Vali.valTypeName(txtSearch.Text))
+            if (!Validation.ValidateTypeName(txtSearch.Text))
             {
                 MessageBox.Show("Title character invalid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtSearch.Focus();
@@ -83,7 +83,7 @@ namespace DVDSys
         private void submit_Click(object sender, EventArgs e)
         {
             //validate input
-            if (!Vali.valTypeName(txtSearch.Text))
+            if (!Validation.ValidateTypeName(txtSearch.Text))
             {
                 MessageBox.Show("Invalid character in DVD Name", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtSearch.Focus();

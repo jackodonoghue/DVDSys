@@ -14,7 +14,7 @@ namespace DVDSys
         public static DataTable getRevenue(DataTable dt, String yr)
         {
             //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+            OracleConnection connection = new OracleConnection(ConnectDB.connectionString);
 
             //define sql query
             String sql = "SELECT SUM(Amount), TO_CHAR(Payment_Date,'MM') AS MONTH FROM Payments WHERE Payment_Date LIKE '%" + yr + "' GROUP BY TO_CHAR(Payment_Date,'MM') ORDER BY TO_CHAR(Payment_Date,'MM')";
@@ -114,7 +114,7 @@ namespace DVDSys
             int nextPayId = 1;
 
             //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+            OracleConnection connection = new OracleConnection(ConnectDB.connectionString);
             connection.Open();
 
             //define sql query
@@ -153,7 +153,7 @@ namespace DVDSys
         {
 
             //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+            OracleConnection connection = new OracleConnection(ConnectDB.connectionString);
             connection.Open();
 
             String day = DateTime.Now.ToString("dd/MM/yyyy");
@@ -179,7 +179,7 @@ namespace DVDSys
             DataTable dt = new DataTable();
             
             //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+            OracleConnection connection = new OracleConnection(ConnectDB.connectionString);
 
             //define sql query -- returns all rented DVDs
             String sql = "select DVDS.DVDID, RentItems.ReturnDate, RentItems.RentID from DVDs inner join RentItems on RentItems.DVDID=DVDs.DVDID where (DVDs.STATUS != 'A' AND DVDs.STATUS != 'I') "
@@ -218,7 +218,7 @@ namespace DVDSys
         public static DataSet getLateRental(DataSet ds, int CustID)
         {
             //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+            OracleConnection connection = new OracleConnection(ConnectDB.connectionString);
 
             //define sql query
             String sql = "Select DVDS.Status, DVDS.DVDID, RENTITEMS.RENTID from DVDS INNER JOIN RENTITEMS ON RENTITEMS.DVDID=DVDS.DVDID " 

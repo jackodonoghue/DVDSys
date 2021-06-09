@@ -254,7 +254,7 @@
             this.typeLabel.Name = "typeLabel";
             this.typeLabel.Size = new System.Drawing.Size(75, 18);
             this.typeLabel.TabIndex = 954;
-            this.typeLabel.Text = "DVD Type";
+            this.typeLabel.Text = "DVD DVDType";
             // 
             // titleLabel
             // 

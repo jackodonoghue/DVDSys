@@ -31,7 +31,7 @@ namespace DVDSys
 
         private void back_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
             parent.Visible = true;
         }
 
@@ -43,7 +43,7 @@ namespace DVDSys
         private void searchSubmit_Click(object sender, EventArgs e)
         {
             //Validate search
-            if (!Vali.valName(txtName.Text))
+            if (!Validation.ValidateName(txtName.Text))
             {
                 MessageBox.Show("Invalid name", "No Results!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtName.Clear();

@@ -32,7 +32,7 @@ namespace DVDSys
 
         private void backToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
             parent.Visible = true;
         }
 
@@ -60,7 +60,7 @@ namespace DVDSys
             {                
                     loggedIn = true;
                     parent.showMenu(hUsername);
-                    this.Hide();
+                    Hide();
                     Payment.checkLateRentals();
             }
             else

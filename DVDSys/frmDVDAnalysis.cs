@@ -27,7 +27,7 @@ namespace DVDSys
 
         private void back_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
             parent.Visible = true;
         }
 
@@ -44,28 +44,28 @@ namespace DVDSys
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            DataTable dt = new DataTable();
+            DataTable numberOfEachTypeRentedDuringTimePeriod = new DataTable();
+            DVDType type = new DVDType();
 
-            dt = Type.getRentalPerType(dt, dtpStart.Text, dtpEnd.Text);
+            numberOfEachTypeRentedDuringTimePeriod = type.GetRentalsPerType(dtpStart.Text, dtpEnd.Text).Tables[0];
 
             //Array for each value per month
-            int[] amounts = new int[Type.getNumTypes()];
+            int[] amounts = new int[type.GetNumTypes()];
 
-            for (int i = 0; i < dt.Rows.Count; i++)
+            for (int i = 0; i < numberOfEachTypeRentedDuringTimePeriod.Rows.Count; i++)
             {
-                amounts[i] = Convert.ToInt32(dt.Rows[i][1]);
+                amounts[i] = Convert.ToInt32(numberOfEachTypeRentedDuringTimePeriod.Rows[i][1]);
             }
 
-            //Array for each type
-            string[] types = new string[Type.getNumTypes()];
+            //Array for each TypeOfDVD
+            string[] types = new string[type.GetNumTypes()];
 
-            DataSet ds = new DataSet();
-            Type.getTypes(ds);
+            DataSet ds = type.GetTypesFromDatabase();
 
             DataTable dt1 = new DataTable();
             dt1 = ds.Tables[0];
 
-            dt = Type.getRentalPerType(dt, dtpStart.Text, dtpEnd.Text);
+            numberOfEachTypeRentedDuringTimePeriod = type.GetRentalsPerType(dtpStart.Text, dtpEnd.Text).Tables[0];
 
             for (int i = 0; i < types.Length; i++)
             {
@@ -86,7 +86,7 @@ namespace DVDSys
 
             chtData.Titles.Clear();
             chtData.Titles.Add("Types rented over time");
-            chtData.ChartAreas[0].AxisX.Title = "Type";
+            chtData.ChartAreas[0].AxisX.Title = "DVDType";
             chtData.ChartAreas[0].AxisY.Title = "Number of Times Rented";
             chtData.Series[0].IsVisibleInLegend = false;
 

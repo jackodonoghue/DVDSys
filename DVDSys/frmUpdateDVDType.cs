@@ -29,7 +29,7 @@ namespace DVDSys
 
         private void back_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
             parent.Visible = true;
         }
 
@@ -51,10 +51,11 @@ namespace DVDSys
 
         private void frmUpdateDVDType_Load(object sender, EventArgs e)
         {
+            DVDType type = new DVDType();
             //Fill DataGridView
             DataSet ds = new DataSet();
 
-            grdSearch.DataSource = Type.getTypes(ds).Tables["stk"];
+            grdSearch.DataSource = type.GetTypesFromDatabase().Tables["stk"];
             grdSearch.AllowUserToAddRows = false;
         }
 
@@ -62,7 +63,7 @@ namespace DVDSys
         {
             if (type.Equals(""))
             {
-                MessageBox.Show("No type set", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No TypeOfDVD set", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -70,10 +71,10 @@ namespace DVDSys
                 String desc = txtDescription.Text.ToUpper();
                 double price = Convert.ToDouble(nudPrice.Value);
 
-                Type up = new Type(type, desc, price);
+                DVDType up = new DVDType(type, desc, price);
 
 
-                up.updateType();
+                up.UpdateType();
 
                 //reset UI
                 txtType.Clear();
@@ -89,7 +90,7 @@ namespace DVDSys
         private void updateSubmit_Click(object sender, EventArgs e)
         {
             //Validate search
-            if (!Vali.valTypeName(txtType.Text))
+            if (!Validation.ValidateTypeName(txtType.Text))
             {
                 MessageBox.Show("Search invalid", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtType.Clear();
@@ -100,10 +101,11 @@ namespace DVDSys
             {
                 //Search
                 DataSet ds = new DataSet();
+                DVDType type = new DVDType();
 
                 String searched = txtType.Text;
 
-                grdSearch.DataSource = Type.getSearchTypes(ds, searched.ToUpper()).Tables["stk"];
+                grdSearch.DataSource = type.getSearchTypes(ds, searched.ToUpper()).Tables["stk"];
 
                 if (ds.Tables[0].Rows.Count == 0)
                 {

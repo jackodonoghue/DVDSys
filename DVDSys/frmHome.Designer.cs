@@ -115,14 +115,14 @@
             // 
             this.addDVDTypeToolStripMenuItem.Name = "addDVDTypeToolStripMenuItem";
             this.addDVDTypeToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.addDVDTypeToolStripMenuItem.Text = "Add DVD Type";
+            this.addDVDTypeToolStripMenuItem.Text = "Add DVD DVDType";
             this.addDVDTypeToolStripMenuItem.Click += new System.EventHandler(this.addDVDTypeToolStripMenuItem_Click);
             // 
             // updateDVDTypeToolStripMenuItem
             // 
             this.updateDVDTypeToolStripMenuItem.Name = "updateDVDTypeToolStripMenuItem";
             this.updateDVDTypeToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.updateDVDTypeToolStripMenuItem.Text = "Update DVD Type";
+            this.updateDVDTypeToolStripMenuItem.Text = "Update DVD DVDType";
             this.updateDVDTypeToolStripMenuItem.Click += new System.EventHandler(this.updateDVDTypeToolStripMenuItem_Click);
             // 
             // addDVDToolStripMenuItem

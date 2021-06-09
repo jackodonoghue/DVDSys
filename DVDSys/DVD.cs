@@ -52,7 +52,7 @@ namespace DVDSys
             int nextID = 1;
 
             //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+            OracleConnection connection = new OracleConnection(ConnectDB.connectionString);
             connection.Open();
 
             //define sql query
@@ -89,7 +89,7 @@ namespace DVDSys
         public static DataSet getDVDS(DataSet ds, string searched)
         {
             //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+            OracleConnection connection = new OracleConnection(ConnectDB.connectionString);
 
             //define sql query
             String sql = "select * from DVDS WHERE title LIKE '" + searched + "%'";
@@ -113,7 +113,7 @@ namespace DVDSys
         public static DataSet getActiveDVDS(DataSet ds, string searched)
         {
             //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+            OracleConnection connection = new OracleConnection(ConnectDB.connectionString);
 
             //define sql query
             String sql = "select * from DVDS WHERE title LIKE '" + searched + "%' AND STATUS = 'A'";
@@ -137,7 +137,7 @@ namespace DVDSys
         public static DataSet getRentedDVDS(DataSet ds, string searched)
         {
             //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+            OracleConnection connection = new OracleConnection(ConnectDB.connectionString);
 
             //define sql query
             String sql = "select * from DVDS WHERE title LIKE '" + searched + "%' AND STATUS != 'A' AND STATUS !='I'";
@@ -161,11 +161,11 @@ namespace DVDSys
         public void addDVD()
         {
             //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+            OracleConnection connection = new OracleConnection(ConnectDB.connectionString);
             connection.Open();
 
             //define sql query
-            String sql = "INSERT INTO DVDS VALUES(" + this.id + ", '" + this.type + "', '" + this.title + "', '" + this.director + "', '" + this.genre + "', TO_DATE('" + this.releaseDate + "', 'DD/MM/YYYY'), '" + this.active + "')"; 
+            String sql = "INSERT INTO DVDS VALUES(" + id + ", '" + type + "', '" + title + "', '" + director + "', '" + genre + "', TO_DATE('" + releaseDate + "', 'DD/MM/YYYY'), '" + active + "')"; 
 
             //create oracle command
             OracleCommand com = new OracleCommand(sql, connection);
@@ -173,7 +173,7 @@ namespace DVDSys
 
             if (num >= 0)
             {
-                MessageBox.Show("DVD " + this.title + " added", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("DVD " + title + " added", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             else
@@ -189,11 +189,11 @@ namespace DVDSys
         {
 
             //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+            OracleConnection connection = new OracleConnection(ConnectDB.connectionString);
             connection.Open();
 
             //define sql query
-            String sql = "update DVDS set DVDTYPE = '" + this.type + "', TITLE = '" + this.title + "', DIRECTOR = '" + this.director + "', GENRE = '" + this.genre + "', RELEASEDATE = TO_DATE('" + this.releaseDate +"', 'DD/MM/YYYY') WHERE dvdid = " + this.id;
+            String sql = "update DVDS set DVDTYPE = '" + type + "', TITLE = '" + title + "', DIRECTOR = '" + director + "', GENRE = '" + genre + "', RELEASEDATE = TO_DATE('" + releaseDate +"', 'DD/MM/YYYY') WHERE dvdid = " + id;
 
 
             //create oracle command
@@ -202,7 +202,7 @@ namespace DVDSys
 
             if (com.ExecuteNonQuery() >= 0)
             {
-                MessageBox.Show("DVD " + this.title + " updated", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("DVD " + title + " updated", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             else
@@ -217,7 +217,7 @@ namespace DVDSys
         public static void removeDVD(int id, String title)
         {
             //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+            OracleConnection connection = new OracleConnection(ConnectDB.connectionString);
             connection.Open();
 
             //define sql query
@@ -245,10 +245,10 @@ namespace DVDSys
         public DataSet getDVDbyTitle(DataSet ds)
         {
             //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+            OracleConnection connection = new OracleConnection(ConnectDB.connectionString);
 
             //define sql query
-            String sql = "select DVDID from DVDS WHERE title LIKE '" + this.title + "%'";
+            String sql = "select DVDID from DVDS WHERE title LIKE '" + title + "%'";
 
             //create oracle command
             OracleCommand com = new OracleCommand(sql, connection);
@@ -271,7 +271,7 @@ namespace DVDSys
             DataSet ds = new DataSet();
             DataTable dt;
             //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+            OracleConnection connection = new OracleConnection(ConnectDB.connectionString);
 
             //define sql query
             String sql = "select status from dvds where DVDID=" + dvdid;

@@ -9,80 +9,40 @@ using System.Windows.Forms;
 
 namespace DVDSys
 {
-    class Type
+    class DVDType
     {
         //instance variables
-        private String type;
-        private String description;
-        private double price;
+        private string TypeOfDVD; 
+        private string Description;
+        private double Price;
+
+        private ConnectDB databaseConnection = new ConnectDB();
 
         //no arg constructor
-        public Type()
+        public DVDType()
         {
-            this.type = "NA";
-            this.description = "";
-            this.price = 0.00;
+            TypeOfDVD = "NA";
+            Description = "";
+            Price = 0.00;
         }
 
         //constructor
-        public Type(String type, String desc, double price)
+        public DVDType(string type, string description, double price)
         {
-            this.type = type;
-            this.description = desc;
-            this.price = price;
-        }
-
-        //get and set
-        public String getType()
-        {
-            return this.type;
-        }
-
-        public String getDescription()
-        {
-            return this.description;
-        }
-
-        public double getPrice()
-        {
-            return this.price;
-        }
-
-        public void setType(String type)
-        {
-            this.type = type;
-        }
-
-        public void setDescription(String desc)
-        {
-            this.description = desc;
-        }
-
-        public void setPrice (double price)
-        {
-            this.price = price;
+            TypeOfDVD = type;
+            Description = description;
+            Price = price;
         }
         //
-        //add Type to types table
+        //add DVDType to types table
         //
-        public void addType()
+        public void AddType()
         {
-            //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
-            connection.Open();
+            int numberOfRowsAdded = databaseConnection.PerformNonQuery("insert into TYPES VALUES('" + TypeOfDVD + "', '" + Description + "', " + Price + ")");
 
-            //define sql query
-            String sql = "insert into TYPES VALUES('" + this.type + "', '" + this.description +"', " + this.price +")";
-            
-
-
-            //create oracle command
-            OracleCommand com = new OracleCommand(sql, connection);
-            int num = com.ExecuteNonQuery();
-
-            if (num >= 0)
+            if (numberOfRowsAdded >= 0)
             {
-                MessageBox.Show("Type " + this.getType() + " added", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("DVDType " + TypeOfDVD + " added", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             else
@@ -90,177 +50,70 @@ namespace DVDSys
                 MessageBox.Show("Unsuccesful", "Unsuccess!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            //close db
-            connection.Close();
         }
         //
         //Get all types from database
         //
-        public static DataSet getTypes(DataSet DS)
-        {
-            //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
-
-            //define sql query
-            String sql = "select * from Types";
-
-            //create oracle command
-            OracleCommand com = new OracleCommand(sql, connection);
-
-            //execute query using datareader
-            OracleDataAdapter da = new OracleDataAdapter(com);
-
-            //check value returned - if null return 1, otherwise return datareader value
-            da.Fill(DS, "stk");
-
-            //close db
-            connection.Close();
-
-
-            return DS;
-
+        public DataSet GetTypesFromDatabase()
+        {                       
+            return databaseConnection.PerformQuery("select * from Types");
         }
         //
         //Retrieve types from database with a corresponding search term
         //
-        public static DataSet getSearchTypes(DataSet DS, String searchTerm)
+        public DataSet getSearchTypes(DataSet dataSet, string searchTerm)
         {
-            
-                //connect to db
-                OracleConnection connection = new OracleConnection(ConnectDB.orDB);
 
-                //define sql query
-                String sql = "select * from Types WHERE DVDType LIKE '" + searchTerm + "%'";
-
-                //create oracle command
-                OracleCommand com = new OracleCommand(sql, connection);
-
-                //execute query using datareader
-                OracleDataAdapter da = new OracleDataAdapter(com);
-
-                //check value returned - if null return 1, otherwise return datareader value
-                da.Fill(DS, "stk");
-
-                //close db
-                connection.Close();
+            //define sql query
+            string sql = "select * from Types WHERE DVDType LIKE '" + searchTerm + "%'";
 
 
-                return DS;
+            return databaseConnection.PerformQuery("select * from Types WHERE DVDType LIKE '" + searchTerm + "%'"); 
         }
         //
         //Update Types
         //
-        public void updateType()
+        public void UpdateType()
         {
+            int numberOfUpdatedRows = databaseConnection.PerformNonQuery("UPDATE Types SET Description = '" + Description + "', PricePerNight = " + Price + " WHERE DVDType = '" + TypeOfDVD + "'");
 
-            //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
-            connection.Open();
-
-            //define sql query
-            String sql = "UPDATE Types SET Description = '" + this.description + "', PricePerNight = " + this.price + " WHERE DVDType = '" + this.type + "'";
-
-
-            //create oracle command
-            OracleCommand com = new OracleCommand(sql, connection);
-            com.ExecuteNonQuery();
-
-            if (com.ExecuteNonQuery() >= 0)
+            if (numberOfUpdatedRows >= 0)
             {
-                MessageBox.Show("Type " + getType() + " updated", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("DVDType " + TypeOfDVD + " updated", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             else
             {
                 MessageBox.Show("Error", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-            //close db
-            connection.Close();
         }
         //
-        //Get type data for chart
+        //Get TypeOfDVD data for chart
         //
-        public static DataTable getRentalPerType(DataTable dt, String start, String end)
+        public DataSet GetRentalsPerType(string start, string end)
         {
-            //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
-
-            //define sql query
-            String sql = "SELECT DVDs.DVDTYPE, COUNT(*) AS COUNT FROM RENTITEMs INNER JOIN DVDs ON RENTITEMs.DVDID=DVDs.DVDID WHERE RENTDATE BETWEEN TO_DATE('" + start + "', 'DD/MM/YYYY') AND TO_DATE('" + end + "', 'DD/MM/YYYY') GROUP BY DVDs.DVDTYPE";
-
-            //create oracle command
-            OracleCommand com = new OracleCommand(sql, connection);
-
-            //execute query using datareader
-            OracleDataAdapter da = new OracleDataAdapter(com);
-
-            //check value returned - if null return 1, otherwise return datareader value
-            da.Fill(dt);
-
-            //close db
-            connection.Close();
-
-
-            return dt;
+            return databaseConnection.PerformQuery("SELECT DVDs.DVDTYPE, COUNT(*) AS COUNT FROM RENTITEMs INNER JOIN DVDs ON RENTITEMs.DVDID=DVDs.DVDID WHERE RENTDATE BETWEEN TO_DATE('" + start + "', 'DD/MM/YYYY') AND TO_DATE('" + end + "', 'DD/MM/YYYY') GROUP BY DVDs.DVDTYPE");
         }
         //
         //Get number of types that have dvds available to rent 
         //
-        public static int getNumTypes()
-        {
-            //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+        public int GetNumTypes()
+        {            
+            DataSet types = databaseConnection.PerformQuery("select COUNT(UNIQUE(DVDTYPE)) from DVDs where STATUS != 'I'");
 
-            DataTable dt = new DataTable();
-
-            //define sql query
-            String sql = "select COUNT(UNIQUE(DVDTYPE)) from DVDs where STATUS != 'I'";
-
-            //create oracle command
-            OracleCommand com = new OracleCommand(sql, connection);
-
-            //execute query using datareader
-            OracleDataAdapter da = new OracleDataAdapter(com);
-
-            //check value returned - if null return 1, otherwise return datareader value
-            da.Fill(dt);
-
-            //close db
-            connection.Close();
-
-            return Convert.ToInt32(dt.Rows[0][0]);
+            return Convert.ToInt32(types.Tables[0].Rows[0][0]);
         }
         //
-        // Check if type already exists
+        // Check if TypeOfDVD already exists
         //
-        public Boolean alreadyExists()
+        public bool AlreadyExists()
         {
-            DataSet ds = new DataSet();
-            Boolean res = false;
+            bool res = false;
+            DataSet typesSearched = databaseConnection.PerformQuery("SELECT * FROM TYPEs WHERE DVDTYPE = TO_CHAR('" + this.TypeOfDVD + "')");
 
-            //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
-            connection.Open();
-
-            //define sql query
-            String sql = "SELECT * FROM TYPEs WHERE DVDTYPE = TO_CHAR('" + this.type + "')";
-            
-            //create oracle command
-            OracleCommand com = new OracleCommand(sql, connection);
-
-            //execute query using datareader
-            OracleDataAdapter da = new OracleDataAdapter(com);
-
-            //check value returned - if null return 1, otherwise return datareader value
-            da.Fill(ds, "DVD");
-
-            //close db
-            connection.Close();
-
-            if (ds.Tables[0].Rows.Count > 0)
+            if (typesSearched.Tables[0].Rows.Count > 0)
             {
-                MessageBox.Show("Type already exists", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("DVDType already exists", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 res = true;
             }

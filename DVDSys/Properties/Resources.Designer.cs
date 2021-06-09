@@ -61,7 +61,7 @@ namespace DVDSys.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of TypeOfDVD System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap download {
             get {
@@ -71,7 +71,7 @@ namespace DVDSys.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of TypeOfDVD System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap logo {
             get {
@@ -81,7 +81,7 @@ namespace DVDSys.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of TypeOfDVD System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap logo1 {
             get {

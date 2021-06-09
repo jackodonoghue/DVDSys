@@ -20,14 +20,14 @@ namespace DVDSys
         // no arg constructor
         public Customer()
         {
-            this.customerID = 0;
-            this.firstName = "";
-            this.lastName = "";
-            this.dateOfBirth = "";
-            this.address = "";
-            this.gender = 'n';
-            this.phoneNumber = "";
-            this.accountStatus = 'I';
+            customerID = 0;
+            firstName = "";
+            lastName = "";
+            dateOfBirth = "";
+            address = "";
+            gender = 'n';
+            phoneNumber = "";
+            accountStatus = 'I';
         }
 
         //arg constructor
@@ -46,7 +46,7 @@ namespace DVDSys
         //Set Customer Attributes
         public void setCustomerID(int id)
         {
-            this.customerID = id;
+            customerID = id;
         }
 
         public void setFirstName(String firstName)
@@ -71,7 +71,7 @@ namespace DVDSys
 
         public void setAccountStatus(char status)
         {
-            this.accountStatus = status;
+            accountStatus = status;
         }
 
         public void setPhoneNumber(String phoneNumber)
@@ -87,42 +87,42 @@ namespace DVDSys
         //Get Customer Attributes
         public int getCustomerID()
         {
-            return this.customerID;
+            return customerID;
         }
 
         public String getFirstName()
         {
-            return this.firstName;
+            return firstName;
         }
 
         public String getLastName()
         {
-            return this.lastName;
+            return lastName;
         }
 
         public String getDOB()
         {
-            return this.dateOfBirth;
+            return dateOfBirth;
         }
 
         public String getPhoneNumber()
         {
-            return this.phoneNumber;
+            return phoneNumber;
         }
 
         public char getAccountStatus()
         {
-            return this.accountStatus;
+            return accountStatus;
         }
 
         public char getGender()
         {
-            return this.gender;
+            return gender;
         }
 
         public String getAddress()
         {
-            return this.address;
+            return address;
         }
         //
         //Get next Customer
@@ -133,7 +133,7 @@ namespace DVDSys
             int nextCustId = 1;
 
             //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+            OracleConnection connection = new OracleConnection(ConnectDB.connectionString);
             connection.Open();
 
             //define sql query
@@ -172,12 +172,12 @@ namespace DVDSys
         public void addCustomer()
         {
             //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+            OracleConnection connection = new OracleConnection(ConnectDB.connectionString);
             connection.Open();
 
             //define sql query
-            String sql = "INSERT INTO Customers VALUES(" + this.customerID + ", '" + this.firstName + "', '" + this.lastName + "', TO_DATE('" + this.dateOfBirth + "', 'DD/MM/YYYY'), '" + this.address +
-                "', '" + this.gender + "', '" + this.phoneNumber + "', 'A')";
+            String sql = "INSERT INTO Customers VALUES(" + customerID + ", '" + firstName + "', '" + lastName + "', TO_DATE('" + dateOfBirth + "', 'DD/MM/YYYY'), '" + address +
+                "', '" + gender + "', '" + phoneNumber + "', 'A')";
 
 
 
@@ -187,7 +187,7 @@ namespace DVDSys
 
             if (num >= 0)
             {
-                MessageBox.Show("Customer " + this.getFirstName() + " added", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Customer " + getFirstName() + " added", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             else
@@ -204,7 +204,7 @@ namespace DVDSys
         public static DataSet getCustomers(DataSet DS, String searchTerm)
         {
             //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+            OracleConnection connection = new OracleConnection(ConnectDB.connectionString);
 
             //define sql query
             String sql = "select * from Customers WHERE FNAME LIKE '" + searchTerm + "%' OR SNAME LIKE '" + searchTerm + "%'";
@@ -231,7 +231,7 @@ namespace DVDSys
         public static DataSet getActiveCustomers(DataSet DS, String searchTerm)
         {
             //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+            OracleConnection connection = new OracleConnection(ConnectDB.connectionString);
 
             //define sql query
             String sql = "select * from Customers WHERE (FNAME LIKE '" + searchTerm + "%' OR SNAME LIKE '" + searchTerm + "%') AND ACTIVE = 'A' ";
@@ -259,12 +259,12 @@ namespace DVDSys
         {
 
             //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+            OracleConnection connection = new OracleConnection(ConnectDB.connectionString);
             connection.Open();
 
             //define sql query
-            String sql = "UPDATE Customers SET FName = '" + this.firstName + "', SName = '" + this.lastName + "', DATEOFBIRTH = TO_DATE('" + this.dateOfBirth +
-                "', 'DD/MM/YYYY'), Address = '" + this.address + "', Gender = '" + this.gender + "', Phone = '" + this.phoneNumber + "', Active = 'A' WHERE CustID = " + this.customerID;
+            String sql = "UPDATE Customers SET FName = '" + firstName + "', SName = '" + lastName + "', DATEOFBIRTH = TO_DATE('" + dateOfBirth +
+                "', 'DD/MM/YYYY'), Address = '" + address + "', Gender = '" + gender + "', Phone = '" + phoneNumber + "', Active = 'A' WHERE CustID = " + customerID;
 
 
             //create oracle command
@@ -290,7 +290,7 @@ namespace DVDSys
         public static void removeCustomer(int id)
         {
             //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+            OracleConnection connection = new OracleConnection(ConnectDB.connectionString);
             connection.Open();
 
             //define sql query
@@ -323,11 +323,11 @@ namespace DVDSys
             Boolean res = false;
 
             //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.orDB);
+            OracleConnection connection = new OracleConnection(ConnectDB.connectionString);
             connection.Open();
 
             //define sql query
-            String sql = "SELECT * FROM CUSTOMERS WHERE PHONE = " + this.phoneNumber + " AND ACTIVE!='I' AND CUSTID!=" + this.customerID;
+            String sql = "SELECT * FROM CUSTOMERS WHERE PHONE = " + phoneNumber + " AND ACTIVE!='I' AND CUSTID!=" + customerID;
 
             //create oracle command
             OracleCommand com = new OracleCommand(sql, connection);

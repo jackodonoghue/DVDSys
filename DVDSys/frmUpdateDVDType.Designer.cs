@@ -80,7 +80,7 @@
             this.dvdTypeLabel.Name = "dvdTypeLabel";
             this.dvdTypeLabel.Size = new System.Drawing.Size(118, 18);
             this.dvdTypeLabel.TabIndex = 78;
-            this.dvdTypeLabel.Text = "Enter DVD Type ";
+            this.dvdTypeLabel.Text = "Enter DVD DVDType ";
             // 
             // txtType
             // 
@@ -223,7 +223,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmUpdateDVDType";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Update DVD Type";
+            this.Text = "Update DVD DVDType";
             this.Load += new System.EventHandler(this.frmUpdateDVDType_Load);
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
