@@ -159,7 +159,7 @@
             // 
             this.rentDVDToolStripMenuItem.Name = "rentDVDToolStripMenuItem";
             this.rentDVDToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
-            this.rentDVDToolStripMenuItem.Text = "Rent DVD";
+            this.rentDVDToolStripMenuItem.Text = "Rental DVD";
             this.rentDVDToolStripMenuItem.Click += new System.EventHandler(this.rentDVDToolStripMenuItem_Click);
             // 
             // returnDVDToolStripMenuItem

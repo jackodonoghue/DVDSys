@@ -38,28 +38,27 @@ namespace DVDSys
 
         public string ComputeHash(string input, HashAlgorithm algorithm)
         {
-            Byte[] inputBytes = Encoding.UTF8.GetBytes(input);
+            byte[] inputBytes = Encoding.UTF8.GetBytes(input);
 
-            Byte[] hashedBytes = algorithm.ComputeHash(inputBytes);
+            byte[] hashedBytes = algorithm.ComputeHash(inputBytes);
 
             return BitConverter.ToString(hashedBytes);
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string hUsername = ComputeHash(txtUsername.Text, new SHA256CryptoServiceProvider());
+            string hashedUsername = ComputeHash(txtUsername.Text, new SHA256CryptoServiceProvider());
 
-            string hPassword = ComputeHash(txtPassword.Text, new SHA256CryptoServiceProvider());
+            string hashedPassword = ComputeHash(txtPassword.Text, new SHA256CryptoServiceProvider());
 
-            //Account acc = new Account(hUsername, hPassword);
-            //acc.addAccount();
-            //This table should contain two columns - Username and password.
-            //The Username and Password would have been collected by hte "Register User" function and put throught the ComputeHash() algorithm before saving.
 
-            if (Account.getLogin(hUsername, hPassword))
+
+            Account account = new Account(hashedUsername, hashedPassword);
+            
+            if (account.IsValidLogin())
             {                
                     loggedIn = true;
-                    parent.showMenu(hUsername);
+                    parent.showMenu(hashedUsername);
                     Hide();
                     Payment.checkLateRentals();
             }

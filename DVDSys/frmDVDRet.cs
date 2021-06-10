@@ -98,7 +98,7 @@ namespace DVDSys
         {
             for (int i = 0; i < lstCart.Items.Count; i++)
             {
-                Rent.returnDVD(Convert.ToInt32(lstCart.Items[i].ToString().Substring(0, 1)));
+                Rental.returnDVD(Convert.ToInt32(lstCart.Items[i].ToString().Substring(0, 1)));
             }
         }
     }

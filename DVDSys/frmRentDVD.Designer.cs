@@ -437,7 +437,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(107, 18);
             this.label3.TabIndex = 70;
-            this.label3.Text = "Rent Number";
+            this.label3.Text = "Rental Number";
             // 
             // label2
             // 

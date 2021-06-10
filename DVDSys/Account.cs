@@ -11,78 +11,42 @@ namespace DVDSys
 {
     class Account
     {
-        String username;
-        String password;
+        string username;
+        string password;
+        private ConnectDB databaseConnection = new ConnectDB();
 
-        public Account(String username, String password)
+        public Account(string username, string password)
         {
             this.username = username;
             this.password = password;
         }
-
         //
         //Get next Account id
         //
-        public static int getNextAccID()
+        public int GetNextAccountID()
         {
             //variable to hold value to be returned
-            int nextAccId = 1;
+            int nextAccountID = 1;
+            
+            DataSet result = databaseConnection.PerformQuery("select max(ACCOUNTID) from accountS");
 
-            //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.connectionString);
-            connection.Open();
-
-            //define sql query
-            String sql = "select max(ACCOUNTID) from accountS";
-
-            //create oracle command
-            OracleCommand com = new OracleCommand(sql, connection);
-
-            //execute query using datareader
-            OracleDataReader dr = com.ExecuteReader();
-
-            //check value returned - if null return 1, otherwise return datareader value
-            dr.Read();
-
-            if (dr.IsDBNull(0))
+            if (!(result.Tables[0].Rows[0][0] is null))
             {
-                nextAccId = 1;
+                nextAccountID = Convert.ToInt32(result.Tables[0].Rows[0][0]) + 1;
             }
-
-            else
-            {
-                nextAccId = Convert.ToInt32(dr.GetValue(0)) + 1;
-            }
-
-
-            //close db
-            connection.Close();
-
-
-            return nextAccId;
-
+            
+            return nextAccountID;
         }
         //
         //Add Account
         //
-        public void addAccount()
+        public void AddAccount()
         {
-            //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.connectionString);
-            connection.Open();
+            int id = GetNextAccountID();
 
-            int id = getNextAccID();
+            int numberOfEffectedRows = databaseConnection.PerformNonQuery("INSERT INTO Accounts VALUES(" + id + ", '" + username + "', '" + password + "')");
 
-            //define sql query
-            String sql = "INSERT INTO Accounts VALUES(" + id + ", '" + username + "', '" + password + "')";
-
-
-
-            //create oracle command
-            OracleCommand com = new OracleCommand(sql, connection);
-            int num = com.ExecuteNonQuery();
-
-            if (num >= 0)
+            if (numberOfEffectedRows >= 0)
             {
                 MessageBox.Show("Account created", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -91,51 +55,22 @@ namespace DVDSys
             {
                 MessageBox.Show("Account Not Added", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            //close db
-            connection.Close();
         }
         //
         //Account Login
         //
-        public static bool getLogin(string user, string pass)
+        public bool IsValidLogin()
         {
-            Boolean loginAllowed = false;
-            DataSet DS = new DataSet();
-            DataTable dt = new DataTable();
+            DataTable loginResult = databaseConnection.PerformQuery("select * from Accounts WHERE USERNAME = 'ADMIN' AND PASSWORD = 'ADMIN'").Tables[0];
 
-            //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.connectionString);
-
-            //define sql query
-            string sql = "select * from Accounts WHERE USERNAME = 'ADMIN' AND PASSWORD = 'ADMIN'";
-
-            //create oracle command
-            OracleCommand com = new OracleCommand(sql, connection);
-
-            //execute query using datareader
-            OracleDataAdapter da = new OracleDataAdapter(com);
-
-            //check value returned - if null return 1, otherwise return datareader value
-            da.Fill(DS, "stk");
-
-            //close db
-            connection.Close();
-
-            dt = DS.Tables[0];
-
-            if(dt.Rows.Count == 0)
+            if(loginResult.Rows.Count == 0)
             {
-                loginAllowed = false;
+                return false;
             }
             else
             {
-                loginAllowed = true;
+                return true;
             }
-
-
-            return loginAllowed;
-
         }
     }
 }

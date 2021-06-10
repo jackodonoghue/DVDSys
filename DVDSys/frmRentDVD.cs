@@ -120,7 +120,7 @@ namespace DVDSys
                 lstCart.Items.Add(String.Format("{0:000}", grdDVDSearch.Rows[grdDVDSearch.CurrentCell.RowIndex].Cells[0].Value) + " " + grdDVDSearch.Rows[grdDVDSearch.CurrentCell.RowIndex].Cells[2].Value.ToString() + " | " + grdDVDSearch.Rows[grdDVDSearch.CurrentCell.RowIndex].Cells[1].Value.ToString());
 
                 //Add Price to total
-                price += Rent.getPrice(grdDVDSearch.Rows[grdDVDSearch.CurrentCell.RowIndex].Cells[1].Value.ToString());
+                price += Rental.getPrice(grdDVDSearch.Rows[grdDVDSearch.CurrentCell.RowIndex].Cells[1].Value.ToString());
 
                 lblTotal.Text = "\u20AC" + price.ToString("0.00");
             }
@@ -132,7 +132,7 @@ namespace DVDSys
         {
             if (lstCart.SelectedIndex >= 0)
             {
-                price -= Rent.getPrice(lstCart.SelectedItem.ToString().Substring(lstCart.SelectedItem.ToString().Length - 2, 2));
+                price -= Rental.getPrice(lstCart.SelectedItem.ToString().Substring(lstCart.SelectedItem.ToString().Length - 2, 2));
 
 
                 lstCart.Items.RemoveAt(lstCart.SelectedIndex);
@@ -175,10 +175,10 @@ namespace DVDSys
                     }
                     else
                     {
-                        rentID = Rent.getNextRentID();
-                        Rent rent = new Rent(rentID, customer.getCustomerID());
+                        rentID = Rental.GetNextRentID();
+                        Rental rent = new Rental(rentID, customer.getCustomerID());
 
-                        rent.addRental();
+                        rent.AddRental();
 
                         for (int i = 0; i < lstCart.Items.Count; i++)
                         {
@@ -186,9 +186,9 @@ namespace DVDSys
 
                             if(int.TryParse(lstCart.Items[i].ToString().Substring(0, 1), out int n))
                             {
-                                rent = new Rent(rentID, Convert.ToInt32(lstCart.Items[i].ToString().Substring(0, 3)));
+                                rent = new Rental(rentID, Convert.ToInt32(lstCart.Items[i].ToString().Substring(0, 3)));
 
-                                rent.addRentalItem();
+                                rent.AddRentalItem();
 
                             }
                         }
@@ -222,7 +222,7 @@ namespace DVDSys
                     {
                         for (int i = 0; i < dt.Rows.Count; i++)
                         {
-                            Rent.returnDVD(Convert.ToInt32(dt.Rows[i][1]));
+                            Rental.returnDVD(Convert.ToInt32(dt.Rows[i][1]));
                         }
 
                         //Add payments to payments file with rentid of overdue rental

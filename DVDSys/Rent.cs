@@ -9,54 +9,31 @@ using System.Windows.Forms;
 
 namespace DVDSys
 {
-    class Rent
+    class Rental
     {
         private int rentID;
         private int otherID;
+        private ConnectDB databaseConnection = new ConnectDB();
         //Constructor
-        public Rent(int rentID, int otherID)
+        public Rental(int rentID, int otherID)
         {
             this.rentID = rentID;
             this.otherID = otherID;
         }
         //
-        //Get Next Rent ID
+        //Get Next Rental ID
         //
-        public static int getNextRentID()
+        public int GetNextRentID()
         {
             //variable to hold value to be returned
             int nextRentId = 1;
 
-            //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.connectionString);
-            connection.Open();
+            DataSet result = databaseConnection.PerformQuery("select max(RentID) from Rentals");
 
-            //define sql query
-            String sql = "select max(RentID) from Rentals";
-
-            //create oracle command
-            OracleCommand com = new OracleCommand(sql, connection);
-
-            //execute query using datareader
-            OracleDataReader dr = com.ExecuteReader();
-
-            //check value returned - if null return 1, otherwise return datareader value
-            dr.Read();
-
-            if (dr.IsDBNull(0))
+            if (!(result.Tables[0].Rows[0][0] is null))
             {
-                nextRentId = 1;
+                nextRentId = Convert.ToInt32(result.Tables[0].Rows[0][0]) + 1;
             }
-
-            else
-            {
-                nextRentId = Convert.ToInt32(dr.GetValue(0)) + 1;
-            }
-
-
-            //close db
-            connection.Close();
-
 
             return nextRentId;
 
@@ -64,29 +41,20 @@ namespace DVDSys
         //
         //Add Customer to rental
         //
-        public void addRental()
+        public bool AddRental()
         {
-            //connect to db
-            OracleConnection connection = new OracleConnection(ConnectDB.connectionString);
-            connection.Open();
-
-            //define sql query
-            String sql = "INSERT INTO Rentals VALUES(" + rentID + ", " + otherID + ")";
+            int numberOfEffectedRows = databaseConnection.PerformNonQuery("INSERT INTO Rentals VALUES(" + rentID + ", " + otherID + ")");
             
-            //create oracle command
-            OracleCommand com = new OracleCommand(sql, connection);
-            int num = com.ExecuteNonQuery();
-
-            //close db
-            connection.Close();
+            return numberOfEffectedRows >= 0;
         }
         //
         //Add DVD to RentalItems
         //
-        public void addRentalItem()
+        public void AddRentalItem()
         {
-            String start = DateTime.Now.ToString("dd/MM/yyyy");
-            String end = DateTime.Now.AddDays(3).ToString("dd/MM/yyyy");
+            string start = DateTime.Now.ToString("dd/MM/yyyy");
+            string end = DateTime.Now.AddDays(3).ToString("dd/MM/yyyy");
+
             //connect to db
             OracleConnection connection = new OracleConnection(ConnectDB.connectionString);
             connection.Open();

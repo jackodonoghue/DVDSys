@@ -75,7 +75,7 @@ namespace DVDSys
         {
             if(custid > 0)
             {
-                DataSet rentals = Rent.getCurrentRentals(custid);
+                DataSet rentals = Rental.getCurrentRentals(custid);
                 
                 if (rentals.Tables[0].Rows.Count<=0)
                 {
